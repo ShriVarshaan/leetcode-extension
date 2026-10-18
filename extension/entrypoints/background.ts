@@ -1,3 +1,3 @@
 export default defineBackground(() => {
-  console.log('Hello background!', { id: browser.runtime.id });
+  console.log('LeetCode Revision Buddy: background started', { id: browser.runtime.id });
 });
