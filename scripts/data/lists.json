@@ -1,0 +1,3986 @@
+[
+  {
+    "list": "blind75",
+    "slug": "contains-duplicate",
+    "title": "Contains Duplicate",
+    "section": "Arrays & Hashing",
+    "subsection": null,
+    "position": 1
+  },
+  {
+    "list": "neetcode150",
+    "slug": "contains-duplicate",
+    "title": "Contains Duplicate",
+    "section": "Arrays & Hashing",
+    "subsection": null,
+    "position": 1
+  },
+  {
+    "list": "blind75",
+    "slug": "valid-anagram",
+    "title": "Valid Anagram",
+    "section": "Arrays & Hashing",
+    "subsection": null,
+    "position": 2
+  },
+  {
+    "list": "neetcode150",
+    "slug": "valid-anagram",
+    "title": "Valid Anagram",
+    "section": "Arrays & Hashing",
+    "subsection": null,
+    "position": 2
+  },
+  {
+    "list": "blind75",
+    "slug": "two-sum",
+    "title": "Two Sum",
+    "section": "Arrays & Hashing",
+    "subsection": null,
+    "position": 3
+  },
+  {
+    "list": "neetcode150",
+    "slug": "two-sum",
+    "title": "Two Sum",
+    "section": "Arrays & Hashing",
+    "subsection": null,
+    "position": 3
+  },
+  {
+    "list": "blind75",
+    "slug": "group-anagrams",
+    "title": "Group Anagrams",
+    "section": "Arrays & Hashing",
+    "subsection": null,
+    "position": 4
+  },
+  {
+    "list": "neetcode150",
+    "slug": "group-anagrams",
+    "title": "Group Anagrams",
+    "section": "Arrays & Hashing",
+    "subsection": null,
+    "position": 4
+  },
+  {
+    "list": "blind75",
+    "slug": "top-k-frequent-elements",
+    "title": "Top K Frequent Elements",
+    "section": "Arrays & Hashing",
+    "subsection": null,
+    "position": 5
+  },
+  {
+    "list": "neetcode150",
+    "slug": "top-k-frequent-elements",
+    "title": "Top K Frequent Elements",
+    "section": "Arrays & Hashing",
+    "subsection": null,
+    "position": 5
+  },
+  {
+    "list": "blind75",
+    "slug": "product-of-array-except-self",
+    "title": "Product of Array Except Self",
+    "section": "Arrays & Hashing",
+    "subsection": null,
+    "position": 6
+  },
+  {
+    "list": "neetcode150",
+    "slug": "product-of-array-except-self",
+    "title": "Product of Array Except Self",
+    "section": "Arrays & Hashing",
+    "subsection": null,
+    "position": 6
+  },
+  {
+    "list": "neetcode150",
+    "slug": "valid-sudoku",
+    "title": "Valid Sudoku",
+    "section": "Arrays & Hashing",
+    "subsection": null,
+    "position": 7
+  },
+  {
+    "list": "blind75",
+    "slug": "encode-and-decode-strings",
+    "title": "Encode and Decode Strings",
+    "section": "Arrays & Hashing",
+    "subsection": null,
+    "position": 7
+  },
+  {
+    "list": "neetcode150",
+    "slug": "encode-and-decode-strings",
+    "title": "Encode and Decode Strings",
+    "section": "Arrays & Hashing",
+    "subsection": null,
+    "position": 8
+  },
+  {
+    "list": "blind75",
+    "slug": "longest-consecutive-sequence",
+    "title": "Longest Consecutive Sequence",
+    "section": "Arrays & Hashing",
+    "subsection": null,
+    "position": 8
+  },
+  {
+    "list": "neetcode150",
+    "slug": "longest-consecutive-sequence",
+    "title": "Longest Consecutive Sequence",
+    "section": "Arrays & Hashing",
+    "subsection": null,
+    "position": 9
+  },
+  {
+    "list": "blind75",
+    "slug": "valid-palindrome",
+    "title": "Valid Palindrome",
+    "section": "Two Pointers",
+    "subsection": null,
+    "position": 9
+  },
+  {
+    "list": "neetcode150",
+    "slug": "valid-palindrome",
+    "title": "Valid Palindrome",
+    "section": "Two Pointers",
+    "subsection": null,
+    "position": 10
+  },
+  {
+    "list": "neetcode150",
+    "slug": "two-sum-ii-input-array-is-sorted",
+    "title": "Two Sum II Input Array Is Sorted",
+    "section": "Two Pointers",
+    "subsection": null,
+    "position": 11
+  },
+  {
+    "list": "blind75",
+    "slug": "3sum",
+    "title": "3Sum",
+    "section": "Two Pointers",
+    "subsection": null,
+    "position": 10
+  },
+  {
+    "list": "neetcode150",
+    "slug": "3sum",
+    "title": "3Sum",
+    "section": "Two Pointers",
+    "subsection": null,
+    "position": 12
+  },
+  {
+    "list": "blind75",
+    "slug": "container-with-most-water",
+    "title": "Container With Most Water",
+    "section": "Two Pointers",
+    "subsection": null,
+    "position": 11
+  },
+  {
+    "list": "neetcode150",
+    "slug": "container-with-most-water",
+    "title": "Container With Most Water",
+    "section": "Two Pointers",
+    "subsection": null,
+    "position": 13
+  },
+  {
+    "list": "neetcode150",
+    "slug": "trapping-rain-water",
+    "title": "Trapping Rain Water",
+    "section": "Two Pointers",
+    "subsection": null,
+    "position": 14
+  },
+  {
+    "list": "blind75",
+    "slug": "best-time-to-buy-and-sell-stock",
+    "title": "Best Time to Buy And Sell Stock",
+    "section": "Sliding Window",
+    "subsection": null,
+    "position": 12
+  },
+  {
+    "list": "neetcode150",
+    "slug": "best-time-to-buy-and-sell-stock",
+    "title": "Best Time to Buy And Sell Stock",
+    "section": "Sliding Window",
+    "subsection": null,
+    "position": 15
+  },
+  {
+    "list": "blind75",
+    "slug": "longest-substring-without-repeating-characters",
+    "title": "Longest Substring Without Repeating Characters",
+    "section": "Sliding Window",
+    "subsection": null,
+    "position": 13
+  },
+  {
+    "list": "neetcode150",
+    "slug": "longest-substring-without-repeating-characters",
+    "title": "Longest Substring Without Repeating Characters",
+    "section": "Sliding Window",
+    "subsection": null,
+    "position": 16
+  },
+  {
+    "list": "blind75",
+    "slug": "longest-repeating-character-replacement",
+    "title": "Longest Repeating Character Replacement",
+    "section": "Sliding Window",
+    "subsection": null,
+    "position": 14
+  },
+  {
+    "list": "neetcode150",
+    "slug": "longest-repeating-character-replacement",
+    "title": "Longest Repeating Character Replacement",
+    "section": "Sliding Window",
+    "subsection": null,
+    "position": 17
+  },
+  {
+    "list": "neetcode150",
+    "slug": "permutation-in-string",
+    "title": "Permutation In String",
+    "section": "Sliding Window",
+    "subsection": null,
+    "position": 18
+  },
+  {
+    "list": "blind75",
+    "slug": "minimum-window-substring",
+    "title": "Minimum Window Substring",
+    "section": "Sliding Window",
+    "subsection": null,
+    "position": 15
+  },
+  {
+    "list": "neetcode150",
+    "slug": "minimum-window-substring",
+    "title": "Minimum Window Substring",
+    "section": "Sliding Window",
+    "subsection": null,
+    "position": 19
+  },
+  {
+    "list": "neetcode150",
+    "slug": "sliding-window-maximum",
+    "title": "Sliding Window Maximum",
+    "section": "Sliding Window",
+    "subsection": null,
+    "position": 20
+  },
+  {
+    "list": "blind75",
+    "slug": "valid-parentheses",
+    "title": "Valid Parentheses",
+    "section": "Stack",
+    "subsection": null,
+    "position": 16
+  },
+  {
+    "list": "neetcode150",
+    "slug": "valid-parentheses",
+    "title": "Valid Parentheses",
+    "section": "Stack",
+    "subsection": null,
+    "position": 21
+  },
+  {
+    "list": "neetcode150",
+    "slug": "min-stack",
+    "title": "Min Stack",
+    "section": "Stack",
+    "subsection": null,
+    "position": 22
+  },
+  {
+    "list": "neetcode150",
+    "slug": "evaluate-reverse-polish-notation",
+    "title": "Evaluate Reverse Polish Notation",
+    "section": "Stack",
+    "subsection": null,
+    "position": 23
+  },
+  {
+    "list": "neetcode150",
+    "slug": "generate-parentheses",
+    "title": "Generate Parentheses",
+    "section": "Stack",
+    "subsection": null,
+    "position": 24
+  },
+  {
+    "list": "neetcode150",
+    "slug": "daily-temperatures",
+    "title": "Daily Temperatures",
+    "section": "Stack",
+    "subsection": null,
+    "position": 25
+  },
+  {
+    "list": "neetcode150",
+    "slug": "car-fleet",
+    "title": "Car Fleet",
+    "section": "Stack",
+    "subsection": null,
+    "position": 26
+  },
+  {
+    "list": "neetcode150",
+    "slug": "largest-rectangle-in-histogram",
+    "title": "Largest Rectangle In Histogram",
+    "section": "Stack",
+    "subsection": null,
+    "position": 27
+  },
+  {
+    "list": "neetcode150",
+    "slug": "binary-search",
+    "title": "Binary Search",
+    "section": "Binary Search",
+    "subsection": null,
+    "position": 28
+  },
+  {
+    "list": "neetcode150",
+    "slug": "search-a-2d-matrix",
+    "title": "Search a 2D Matrix",
+    "section": "Binary Search",
+    "subsection": null,
+    "position": 29
+  },
+  {
+    "list": "neetcode150",
+    "slug": "koko-eating-bananas",
+    "title": "Koko Eating Bananas",
+    "section": "Binary Search",
+    "subsection": null,
+    "position": 30
+  },
+  {
+    "list": "blind75",
+    "slug": "find-minimum-in-rotated-sorted-array",
+    "title": "Find Minimum In Rotated Sorted Array",
+    "section": "Binary Search",
+    "subsection": null,
+    "position": 17
+  },
+  {
+    "list": "neetcode150",
+    "slug": "find-minimum-in-rotated-sorted-array",
+    "title": "Find Minimum In Rotated Sorted Array",
+    "section": "Binary Search",
+    "subsection": null,
+    "position": 31
+  },
+  {
+    "list": "blind75",
+    "slug": "search-in-rotated-sorted-array",
+    "title": "Search In Rotated Sorted Array",
+    "section": "Binary Search",
+    "subsection": null,
+    "position": 18
+  },
+  {
+    "list": "neetcode150",
+    "slug": "search-in-rotated-sorted-array",
+    "title": "Search In Rotated Sorted Array",
+    "section": "Binary Search",
+    "subsection": null,
+    "position": 32
+  },
+  {
+    "list": "neetcode150",
+    "slug": "time-based-key-value-store",
+    "title": "Time Based Key Value Store",
+    "section": "Binary Search",
+    "subsection": null,
+    "position": 33
+  },
+  {
+    "list": "neetcode150",
+    "slug": "median-of-two-sorted-arrays",
+    "title": "Median of Two Sorted Arrays",
+    "section": "Binary Search",
+    "subsection": null,
+    "position": 34
+  },
+  {
+    "list": "blind75",
+    "slug": "reverse-linked-list",
+    "title": "Reverse Linked List",
+    "section": "Linked List",
+    "subsection": null,
+    "position": 19
+  },
+  {
+    "list": "neetcode150",
+    "slug": "reverse-linked-list",
+    "title": "Reverse Linked List",
+    "section": "Linked List",
+    "subsection": null,
+    "position": 35
+  },
+  {
+    "list": "blind75",
+    "slug": "merge-two-sorted-lists",
+    "title": "Merge Two Sorted Lists",
+    "section": "Linked List",
+    "subsection": null,
+    "position": 20
+  },
+  {
+    "list": "neetcode150",
+    "slug": "merge-two-sorted-lists",
+    "title": "Merge Two Sorted Lists",
+    "section": "Linked List",
+    "subsection": null,
+    "position": 36
+  },
+  {
+    "list": "blind75",
+    "slug": "reorder-list",
+    "title": "Reorder List",
+    "section": "Linked List",
+    "subsection": null,
+    "position": 21
+  },
+  {
+    "list": "neetcode150",
+    "slug": "reorder-list",
+    "title": "Reorder List",
+    "section": "Linked List",
+    "subsection": null,
+    "position": 37
+  },
+  {
+    "list": "blind75",
+    "slug": "remove-nth-node-from-end-of-list",
+    "title": "Remove Nth Node From End of List",
+    "section": "Linked List",
+    "subsection": null,
+    "position": 22
+  },
+  {
+    "list": "neetcode150",
+    "slug": "remove-nth-node-from-end-of-list",
+    "title": "Remove Nth Node From End of List",
+    "section": "Linked List",
+    "subsection": null,
+    "position": 38
+  },
+  {
+    "list": "neetcode150",
+    "slug": "copy-list-with-random-pointer",
+    "title": "Copy List With Random Pointer",
+    "section": "Linked List",
+    "subsection": null,
+    "position": 39
+  },
+  {
+    "list": "neetcode150",
+    "slug": "add-two-numbers",
+    "title": "Add Two Numbers",
+    "section": "Linked List",
+    "subsection": null,
+    "position": 40
+  },
+  {
+    "list": "blind75",
+    "slug": "linked-list-cycle",
+    "title": "Linked List Cycle",
+    "section": "Linked List",
+    "subsection": null,
+    "position": 23
+  },
+  {
+    "list": "neetcode150",
+    "slug": "linked-list-cycle",
+    "title": "Linked List Cycle",
+    "section": "Linked List",
+    "subsection": null,
+    "position": 41
+  },
+  {
+    "list": "neetcode150",
+    "slug": "find-the-duplicate-number",
+    "title": "Find The Duplicate Number",
+    "section": "Linked List",
+    "subsection": null,
+    "position": 42
+  },
+  {
+    "list": "neetcode150",
+    "slug": "lru-cache",
+    "title": "LRU Cache",
+    "section": "Linked List",
+    "subsection": null,
+    "position": 43
+  },
+  {
+    "list": "blind75",
+    "slug": "merge-k-sorted-lists",
+    "title": "Merge K Sorted Lists",
+    "section": "Linked List",
+    "subsection": null,
+    "position": 24
+  },
+  {
+    "list": "neetcode150",
+    "slug": "merge-k-sorted-lists",
+    "title": "Merge K Sorted Lists",
+    "section": "Linked List",
+    "subsection": null,
+    "position": 44
+  },
+  {
+    "list": "neetcode150",
+    "slug": "reverse-nodes-in-k-group",
+    "title": "Reverse Nodes In K Group",
+    "section": "Linked List",
+    "subsection": null,
+    "position": 45
+  },
+  {
+    "list": "blind75",
+    "slug": "invert-binary-tree",
+    "title": "Invert Binary Tree",
+    "section": "Trees",
+    "subsection": null,
+    "position": 25
+  },
+  {
+    "list": "neetcode150",
+    "slug": "invert-binary-tree",
+    "title": "Invert Binary Tree",
+    "section": "Trees",
+    "subsection": null,
+    "position": 46
+  },
+  {
+    "list": "blind75",
+    "slug": "maximum-depth-of-binary-tree",
+    "title": "Maximum Depth of Binary Tree",
+    "section": "Trees",
+    "subsection": null,
+    "position": 26
+  },
+  {
+    "list": "neetcode150",
+    "slug": "maximum-depth-of-binary-tree",
+    "title": "Maximum Depth of Binary Tree",
+    "section": "Trees",
+    "subsection": null,
+    "position": 47
+  },
+  {
+    "list": "neetcode150",
+    "slug": "diameter-of-binary-tree",
+    "title": "Diameter of Binary Tree",
+    "section": "Trees",
+    "subsection": null,
+    "position": 48
+  },
+  {
+    "list": "neetcode150",
+    "slug": "balanced-binary-tree",
+    "title": "Balanced Binary Tree",
+    "section": "Trees",
+    "subsection": null,
+    "position": 49
+  },
+  {
+    "list": "blind75",
+    "slug": "same-tree",
+    "title": "Same Tree",
+    "section": "Trees",
+    "subsection": null,
+    "position": 27
+  },
+  {
+    "list": "neetcode150",
+    "slug": "same-tree",
+    "title": "Same Tree",
+    "section": "Trees",
+    "subsection": null,
+    "position": 50
+  },
+  {
+    "list": "blind75",
+    "slug": "subtree-of-another-tree",
+    "title": "Subtree of Another Tree",
+    "section": "Trees",
+    "subsection": null,
+    "position": 28
+  },
+  {
+    "list": "neetcode150",
+    "slug": "subtree-of-another-tree",
+    "title": "Subtree of Another Tree",
+    "section": "Trees",
+    "subsection": null,
+    "position": 51
+  },
+  {
+    "list": "blind75",
+    "slug": "lowest-common-ancestor-of-a-binary-search-tree",
+    "title": "Lowest Common Ancestor of a Binary Search Tree",
+    "section": "Trees",
+    "subsection": null,
+    "position": 29
+  },
+  {
+    "list": "neetcode150",
+    "slug": "lowest-common-ancestor-of-a-binary-search-tree",
+    "title": "Lowest Common Ancestor of a Binary Search Tree",
+    "section": "Trees",
+    "subsection": null,
+    "position": 52
+  },
+  {
+    "list": "blind75",
+    "slug": "binary-tree-level-order-traversal",
+    "title": "Binary Tree Level Order Traversal",
+    "section": "Trees",
+    "subsection": null,
+    "position": 30
+  },
+  {
+    "list": "neetcode150",
+    "slug": "binary-tree-level-order-traversal",
+    "title": "Binary Tree Level Order Traversal",
+    "section": "Trees",
+    "subsection": null,
+    "position": 53
+  },
+  {
+    "list": "neetcode150",
+    "slug": "binary-tree-right-side-view",
+    "title": "Binary Tree Right Side View",
+    "section": "Trees",
+    "subsection": null,
+    "position": 54
+  },
+  {
+    "list": "neetcode150",
+    "slug": "count-good-nodes-in-binary-tree",
+    "title": "Count Good Nodes In Binary Tree",
+    "section": "Trees",
+    "subsection": null,
+    "position": 55
+  },
+  {
+    "list": "blind75",
+    "slug": "validate-binary-search-tree",
+    "title": "Validate Binary Search Tree",
+    "section": "Trees",
+    "subsection": null,
+    "position": 31
+  },
+  {
+    "list": "neetcode150",
+    "slug": "validate-binary-search-tree",
+    "title": "Validate Binary Search Tree",
+    "section": "Trees",
+    "subsection": null,
+    "position": 56
+  },
+  {
+    "list": "blind75",
+    "slug": "kth-smallest-element-in-a-bst",
+    "title": "Kth Smallest Element In a Bst",
+    "section": "Trees",
+    "subsection": null,
+    "position": 32
+  },
+  {
+    "list": "neetcode150",
+    "slug": "kth-smallest-element-in-a-bst",
+    "title": "Kth Smallest Element In a Bst",
+    "section": "Trees",
+    "subsection": null,
+    "position": 57
+  },
+  {
+    "list": "blind75",
+    "slug": "construct-binary-tree-from-preorder-and-inorder-traversal",
+    "title": "Construct Binary Tree From Preorder And Inorder Traversal",
+    "section": "Trees",
+    "subsection": null,
+    "position": 33
+  },
+  {
+    "list": "neetcode150",
+    "slug": "construct-binary-tree-from-preorder-and-inorder-traversal",
+    "title": "Construct Binary Tree From Preorder And Inorder Traversal",
+    "section": "Trees",
+    "subsection": null,
+    "position": 58
+  },
+  {
+    "list": "blind75",
+    "slug": "binary-tree-maximum-path-sum",
+    "title": "Binary Tree Maximum Path Sum",
+    "section": "Trees",
+    "subsection": null,
+    "position": 34
+  },
+  {
+    "list": "neetcode150",
+    "slug": "binary-tree-maximum-path-sum",
+    "title": "Binary Tree Maximum Path Sum",
+    "section": "Trees",
+    "subsection": null,
+    "position": 59
+  },
+  {
+    "list": "blind75",
+    "slug": "serialize-and-deserialize-binary-tree",
+    "title": "Serialize And Deserialize Binary Tree",
+    "section": "Trees",
+    "subsection": null,
+    "position": 35
+  },
+  {
+    "list": "neetcode150",
+    "slug": "serialize-and-deserialize-binary-tree",
+    "title": "Serialize And Deserialize Binary Tree",
+    "section": "Trees",
+    "subsection": null,
+    "position": 60
+  },
+  {
+    "list": "blind75",
+    "slug": "implement-trie-prefix-tree",
+    "title": "Implement Trie Prefix Tree",
+    "section": "Tries",
+    "subsection": null,
+    "position": 36
+  },
+  {
+    "list": "neetcode150",
+    "slug": "implement-trie-prefix-tree",
+    "title": "Implement Trie Prefix Tree",
+    "section": "Tries",
+    "subsection": null,
+    "position": 61
+  },
+  {
+    "list": "blind75",
+    "slug": "design-add-and-search-words-data-structure",
+    "title": "Design Add And Search Words Data Structure",
+    "section": "Tries",
+    "subsection": null,
+    "position": 37
+  },
+  {
+    "list": "neetcode150",
+    "slug": "design-add-and-search-words-data-structure",
+    "title": "Design Add And Search Words Data Structure",
+    "section": "Tries",
+    "subsection": null,
+    "position": 62
+  },
+  {
+    "list": "blind75",
+    "slug": "word-search-ii",
+    "title": "Word Search II",
+    "section": "Tries",
+    "subsection": null,
+    "position": 38
+  },
+  {
+    "list": "neetcode150",
+    "slug": "word-search-ii",
+    "title": "Word Search II",
+    "section": "Tries",
+    "subsection": null,
+    "position": 63
+  },
+  {
+    "list": "neetcode150",
+    "slug": "kth-largest-element-in-a-stream",
+    "title": "Kth Largest Element In a Stream",
+    "section": "Heap / Priority Queue",
+    "subsection": null,
+    "position": 64
+  },
+  {
+    "list": "neetcode150",
+    "slug": "last-stone-weight",
+    "title": "Last Stone Weight",
+    "section": "Heap / Priority Queue",
+    "subsection": null,
+    "position": 65
+  },
+  {
+    "list": "neetcode150",
+    "slug": "k-closest-points-to-origin",
+    "title": "K Closest Points to Origin",
+    "section": "Heap / Priority Queue",
+    "subsection": null,
+    "position": 66
+  },
+  {
+    "list": "neetcode150",
+    "slug": "kth-largest-element-in-an-array",
+    "title": "Kth Largest Element In An Array",
+    "section": "Heap / Priority Queue",
+    "subsection": null,
+    "position": 67
+  },
+  {
+    "list": "neetcode150",
+    "slug": "task-scheduler",
+    "title": "Task Scheduler",
+    "section": "Heap / Priority Queue",
+    "subsection": null,
+    "position": 68
+  },
+  {
+    "list": "neetcode150",
+    "slug": "design-twitter",
+    "title": "Design Twitter",
+    "section": "Heap / Priority Queue",
+    "subsection": null,
+    "position": 69
+  },
+  {
+    "list": "blind75",
+    "slug": "find-median-from-data-stream",
+    "title": "Find Median From Data Stream",
+    "section": "Heap / Priority Queue",
+    "subsection": null,
+    "position": 39
+  },
+  {
+    "list": "neetcode150",
+    "slug": "find-median-from-data-stream",
+    "title": "Find Median From Data Stream",
+    "section": "Heap / Priority Queue",
+    "subsection": null,
+    "position": 70
+  },
+  {
+    "list": "neetcode150",
+    "slug": "subsets",
+    "title": "Subsets",
+    "section": "Backtracking",
+    "subsection": null,
+    "position": 71
+  },
+  {
+    "list": "blind75",
+    "slug": "combination-sum",
+    "title": "Combination Sum",
+    "section": "Backtracking",
+    "subsection": null,
+    "position": 40
+  },
+  {
+    "list": "neetcode150",
+    "slug": "combination-sum",
+    "title": "Combination Sum",
+    "section": "Backtracking",
+    "subsection": null,
+    "position": 72
+  },
+  {
+    "list": "neetcode150",
+    "slug": "permutations",
+    "title": "Permutations",
+    "section": "Backtracking",
+    "subsection": null,
+    "position": 73
+  },
+  {
+    "list": "neetcode150",
+    "slug": "subsets-ii",
+    "title": "Subsets II",
+    "section": "Backtracking",
+    "subsection": null,
+    "position": 74
+  },
+  {
+    "list": "neetcode150",
+    "slug": "combination-sum-ii",
+    "title": "Combination Sum II",
+    "section": "Backtracking",
+    "subsection": null,
+    "position": 75
+  },
+  {
+    "list": "blind75",
+    "slug": "word-search",
+    "title": "Word Search",
+    "section": "Backtracking",
+    "subsection": null,
+    "position": 41
+  },
+  {
+    "list": "neetcode150",
+    "slug": "word-search",
+    "title": "Word Search",
+    "section": "Backtracking",
+    "subsection": null,
+    "position": 76
+  },
+  {
+    "list": "neetcode150",
+    "slug": "palindrome-partitioning",
+    "title": "Palindrome Partitioning",
+    "section": "Backtracking",
+    "subsection": null,
+    "position": 77
+  },
+  {
+    "list": "neetcode150",
+    "slug": "letter-combinations-of-a-phone-number",
+    "title": "Letter Combinations of a Phone Number",
+    "section": "Backtracking",
+    "subsection": null,
+    "position": 78
+  },
+  {
+    "list": "neetcode150",
+    "slug": "n-queens",
+    "title": "N Queens",
+    "section": "Backtracking",
+    "subsection": null,
+    "position": 79
+  },
+  {
+    "list": "blind75",
+    "slug": "number-of-islands",
+    "title": "Number of Islands",
+    "section": "Graphs",
+    "subsection": null,
+    "position": 42
+  },
+  {
+    "list": "neetcode150",
+    "slug": "number-of-islands",
+    "title": "Number of Islands",
+    "section": "Graphs",
+    "subsection": null,
+    "position": 80
+  },
+  {
+    "list": "blind75",
+    "slug": "clone-graph",
+    "title": "Clone Graph",
+    "section": "Graphs",
+    "subsection": null,
+    "position": 43
+  },
+  {
+    "list": "neetcode150",
+    "slug": "clone-graph",
+    "title": "Clone Graph",
+    "section": "Graphs",
+    "subsection": null,
+    "position": 81
+  },
+  {
+    "list": "neetcode150",
+    "slug": "max-area-of-island",
+    "title": "Max Area of Island",
+    "section": "Graphs",
+    "subsection": null,
+    "position": 82
+  },
+  {
+    "list": "blind75",
+    "slug": "pacific-atlantic-water-flow",
+    "title": "Pacific Atlantic Water Flow",
+    "section": "Graphs",
+    "subsection": null,
+    "position": 44
+  },
+  {
+    "list": "neetcode150",
+    "slug": "pacific-atlantic-water-flow",
+    "title": "Pacific Atlantic Water Flow",
+    "section": "Graphs",
+    "subsection": null,
+    "position": 83
+  },
+  {
+    "list": "neetcode150",
+    "slug": "surrounded-regions",
+    "title": "Surrounded Regions",
+    "section": "Graphs",
+    "subsection": null,
+    "position": 84
+  },
+  {
+    "list": "neetcode150",
+    "slug": "rotting-oranges",
+    "title": "Rotting Oranges",
+    "section": "Graphs",
+    "subsection": null,
+    "position": 85
+  },
+  {
+    "list": "neetcode150",
+    "slug": "walls-and-gates",
+    "title": "Walls And Gates",
+    "section": "Graphs",
+    "subsection": null,
+    "position": 86
+  },
+  {
+    "list": "blind75",
+    "slug": "course-schedule",
+    "title": "Course Schedule",
+    "section": "Graphs",
+    "subsection": null,
+    "position": 45
+  },
+  {
+    "list": "neetcode150",
+    "slug": "course-schedule",
+    "title": "Course Schedule",
+    "section": "Graphs",
+    "subsection": null,
+    "position": 87
+  },
+  {
+    "list": "neetcode150",
+    "slug": "course-schedule-ii",
+    "title": "Course Schedule II",
+    "section": "Graphs",
+    "subsection": null,
+    "position": 88
+  },
+  {
+    "list": "neetcode150",
+    "slug": "redundant-connection",
+    "title": "Redundant Connection",
+    "section": "Graphs",
+    "subsection": null,
+    "position": 89
+  },
+  {
+    "list": "blind75",
+    "slug": "number-of-connected-components-in-an-undirected-graph",
+    "title": "Number of Connected Components In An Undirected Graph",
+    "section": "Graphs",
+    "subsection": null,
+    "position": 46
+  },
+  {
+    "list": "neetcode150",
+    "slug": "number-of-connected-components-in-an-undirected-graph",
+    "title": "Number of Connected Components In An Undirected Graph",
+    "section": "Graphs",
+    "subsection": null,
+    "position": 90
+  },
+  {
+    "list": "blind75",
+    "slug": "graph-valid-tree",
+    "title": "Graph Valid Tree",
+    "section": "Graphs",
+    "subsection": null,
+    "position": 47
+  },
+  {
+    "list": "neetcode150",
+    "slug": "graph-valid-tree",
+    "title": "Graph Valid Tree",
+    "section": "Graphs",
+    "subsection": null,
+    "position": 91
+  },
+  {
+    "list": "neetcode150",
+    "slug": "word-ladder",
+    "title": "Word Ladder",
+    "section": "Graphs",
+    "subsection": null,
+    "position": 92
+  },
+  {
+    "list": "neetcode150",
+    "slug": "reconstruct-itinerary",
+    "title": "Reconstruct Itinerary",
+    "section": "Advanced Graphs",
+    "subsection": null,
+    "position": 93
+  },
+  {
+    "list": "neetcode150",
+    "slug": "min-cost-to-connect-all-points",
+    "title": "Min Cost to Connect All Points",
+    "section": "Advanced Graphs",
+    "subsection": null,
+    "position": 94
+  },
+  {
+    "list": "neetcode150",
+    "slug": "network-delay-time",
+    "title": "Network Delay Time",
+    "section": "Advanced Graphs",
+    "subsection": null,
+    "position": 95
+  },
+  {
+    "list": "neetcode150",
+    "slug": "swim-in-rising-water",
+    "title": "Swim In Rising Water",
+    "section": "Advanced Graphs",
+    "subsection": null,
+    "position": 96
+  },
+  {
+    "list": "blind75",
+    "slug": "alien-dictionary",
+    "title": "Alien Dictionary",
+    "section": "Advanced Graphs",
+    "subsection": null,
+    "position": 48
+  },
+  {
+    "list": "neetcode150",
+    "slug": "alien-dictionary",
+    "title": "Alien Dictionary",
+    "section": "Advanced Graphs",
+    "subsection": null,
+    "position": 97
+  },
+  {
+    "list": "neetcode150",
+    "slug": "cheapest-flights-within-k-stops",
+    "title": "Cheapest Flights Within K Stops",
+    "section": "Advanced Graphs",
+    "subsection": null,
+    "position": 98
+  },
+  {
+    "list": "blind75",
+    "slug": "climbing-stairs",
+    "title": "Climbing Stairs",
+    "section": "1-D Dynamic Programming",
+    "subsection": null,
+    "position": 49
+  },
+  {
+    "list": "neetcode150",
+    "slug": "climbing-stairs",
+    "title": "Climbing Stairs",
+    "section": "1-D Dynamic Programming",
+    "subsection": null,
+    "position": 99
+  },
+  {
+    "list": "neetcode150",
+    "slug": "min-cost-climbing-stairs",
+    "title": "Min Cost Climbing Stairs",
+    "section": "1-D Dynamic Programming",
+    "subsection": null,
+    "position": 100
+  },
+  {
+    "list": "blind75",
+    "slug": "house-robber",
+    "title": "House Robber",
+    "section": "1-D Dynamic Programming",
+    "subsection": null,
+    "position": 50
+  },
+  {
+    "list": "neetcode150",
+    "slug": "house-robber",
+    "title": "House Robber",
+    "section": "1-D Dynamic Programming",
+    "subsection": null,
+    "position": 101
+  },
+  {
+    "list": "blind75",
+    "slug": "house-robber-ii",
+    "title": "House Robber II",
+    "section": "1-D Dynamic Programming",
+    "subsection": null,
+    "position": 51
+  },
+  {
+    "list": "neetcode150",
+    "slug": "house-robber-ii",
+    "title": "House Robber II",
+    "section": "1-D Dynamic Programming",
+    "subsection": null,
+    "position": 102
+  },
+  {
+    "list": "blind75",
+    "slug": "longest-palindromic-substring",
+    "title": "Longest Palindromic Substring",
+    "section": "1-D Dynamic Programming",
+    "subsection": null,
+    "position": 52
+  },
+  {
+    "list": "neetcode150",
+    "slug": "longest-palindromic-substring",
+    "title": "Longest Palindromic Substring",
+    "section": "1-D Dynamic Programming",
+    "subsection": null,
+    "position": 103
+  },
+  {
+    "list": "blind75",
+    "slug": "palindromic-substrings",
+    "title": "Palindromic Substrings",
+    "section": "1-D Dynamic Programming",
+    "subsection": null,
+    "position": 53
+  },
+  {
+    "list": "neetcode150",
+    "slug": "palindromic-substrings",
+    "title": "Palindromic Substrings",
+    "section": "1-D Dynamic Programming",
+    "subsection": null,
+    "position": 104
+  },
+  {
+    "list": "blind75",
+    "slug": "decode-ways",
+    "title": "Decode Ways",
+    "section": "1-D Dynamic Programming",
+    "subsection": null,
+    "position": 54
+  },
+  {
+    "list": "neetcode150",
+    "slug": "decode-ways",
+    "title": "Decode Ways",
+    "section": "1-D Dynamic Programming",
+    "subsection": null,
+    "position": 105
+  },
+  {
+    "list": "blind75",
+    "slug": "coin-change",
+    "title": "Coin Change",
+    "section": "1-D Dynamic Programming",
+    "subsection": null,
+    "position": 55
+  },
+  {
+    "list": "neetcode150",
+    "slug": "coin-change",
+    "title": "Coin Change",
+    "section": "1-D Dynamic Programming",
+    "subsection": null,
+    "position": 106
+  },
+  {
+    "list": "blind75",
+    "slug": "maximum-product-subarray",
+    "title": "Maximum Product Subarray",
+    "section": "1-D Dynamic Programming",
+    "subsection": null,
+    "position": 56
+  },
+  {
+    "list": "neetcode150",
+    "slug": "maximum-product-subarray",
+    "title": "Maximum Product Subarray",
+    "section": "1-D Dynamic Programming",
+    "subsection": null,
+    "position": 107
+  },
+  {
+    "list": "blind75",
+    "slug": "word-break",
+    "title": "Word Break",
+    "section": "1-D Dynamic Programming",
+    "subsection": null,
+    "position": 57
+  },
+  {
+    "list": "neetcode150",
+    "slug": "word-break",
+    "title": "Word Break",
+    "section": "1-D Dynamic Programming",
+    "subsection": null,
+    "position": 108
+  },
+  {
+    "list": "blind75",
+    "slug": "longest-increasing-subsequence",
+    "title": "Longest Increasing Subsequence",
+    "section": "1-D Dynamic Programming",
+    "subsection": null,
+    "position": 58
+  },
+  {
+    "list": "neetcode150",
+    "slug": "longest-increasing-subsequence",
+    "title": "Longest Increasing Subsequence",
+    "section": "1-D Dynamic Programming",
+    "subsection": null,
+    "position": 109
+  },
+  {
+    "list": "neetcode150",
+    "slug": "partition-equal-subset-sum",
+    "title": "Partition Equal Subset Sum",
+    "section": "1-D Dynamic Programming",
+    "subsection": null,
+    "position": 110
+  },
+  {
+    "list": "blind75",
+    "slug": "unique-paths",
+    "title": "Unique Paths",
+    "section": "2-D Dynamic Programming",
+    "subsection": null,
+    "position": 59
+  },
+  {
+    "list": "neetcode150",
+    "slug": "unique-paths",
+    "title": "Unique Paths",
+    "section": "2-D Dynamic Programming",
+    "subsection": null,
+    "position": 111
+  },
+  {
+    "list": "blind75",
+    "slug": "longest-common-subsequence",
+    "title": "Longest Common Subsequence",
+    "section": "2-D Dynamic Programming",
+    "subsection": null,
+    "position": 60
+  },
+  {
+    "list": "neetcode150",
+    "slug": "longest-common-subsequence",
+    "title": "Longest Common Subsequence",
+    "section": "2-D Dynamic Programming",
+    "subsection": null,
+    "position": 112
+  },
+  {
+    "list": "neetcode150",
+    "slug": "best-time-to-buy-and-sell-stock-with-cooldown",
+    "title": "Best Time to Buy And Sell Stock With Cooldown",
+    "section": "2-D Dynamic Programming",
+    "subsection": null,
+    "position": 113
+  },
+  {
+    "list": "neetcode150",
+    "slug": "coin-change-ii",
+    "title": "Coin Change II",
+    "section": "2-D Dynamic Programming",
+    "subsection": null,
+    "position": 114
+  },
+  {
+    "list": "neetcode150",
+    "slug": "target-sum",
+    "title": "Target Sum",
+    "section": "2-D Dynamic Programming",
+    "subsection": null,
+    "position": 115
+  },
+  {
+    "list": "neetcode150",
+    "slug": "interleaving-string",
+    "title": "Interleaving String",
+    "section": "2-D Dynamic Programming",
+    "subsection": null,
+    "position": 116
+  },
+  {
+    "list": "neetcode150",
+    "slug": "longest-increasing-path-in-a-matrix",
+    "title": "Longest Increasing Path In a Matrix",
+    "section": "2-D Dynamic Programming",
+    "subsection": null,
+    "position": 117
+  },
+  {
+    "list": "neetcode150",
+    "slug": "distinct-subsequences",
+    "title": "Distinct Subsequences",
+    "section": "2-D Dynamic Programming",
+    "subsection": null,
+    "position": 118
+  },
+  {
+    "list": "neetcode150",
+    "slug": "edit-distance",
+    "title": "Edit Distance",
+    "section": "2-D Dynamic Programming",
+    "subsection": null,
+    "position": 119
+  },
+  {
+    "list": "neetcode150",
+    "slug": "burst-balloons",
+    "title": "Burst Balloons",
+    "section": "2-D Dynamic Programming",
+    "subsection": null,
+    "position": 120
+  },
+  {
+    "list": "neetcode150",
+    "slug": "regular-expression-matching",
+    "title": "Regular Expression Matching",
+    "section": "2-D Dynamic Programming",
+    "subsection": null,
+    "position": 121
+  },
+  {
+    "list": "blind75",
+    "slug": "maximum-subarray",
+    "title": "Maximum Subarray",
+    "section": "Greedy",
+    "subsection": null,
+    "position": 61
+  },
+  {
+    "list": "neetcode150",
+    "slug": "maximum-subarray",
+    "title": "Maximum Subarray",
+    "section": "Greedy",
+    "subsection": null,
+    "position": 122
+  },
+  {
+    "list": "blind75",
+    "slug": "jump-game",
+    "title": "Jump Game",
+    "section": "Greedy",
+    "subsection": null,
+    "position": 62
+  },
+  {
+    "list": "neetcode150",
+    "slug": "jump-game",
+    "title": "Jump Game",
+    "section": "Greedy",
+    "subsection": null,
+    "position": 123
+  },
+  {
+    "list": "neetcode150",
+    "slug": "jump-game-ii",
+    "title": "Jump Game II",
+    "section": "Greedy",
+    "subsection": null,
+    "position": 124
+  },
+  {
+    "list": "neetcode150",
+    "slug": "gas-station",
+    "title": "Gas Station",
+    "section": "Greedy",
+    "subsection": null,
+    "position": 125
+  },
+  {
+    "list": "neetcode150",
+    "slug": "hand-of-straights",
+    "title": "Hand of Straights",
+    "section": "Greedy",
+    "subsection": null,
+    "position": 126
+  },
+  {
+    "list": "neetcode150",
+    "slug": "merge-triplets-to-form-target-triplet",
+    "title": "Merge Triplets to Form Target Triplet",
+    "section": "Greedy",
+    "subsection": null,
+    "position": 127
+  },
+  {
+    "list": "neetcode150",
+    "slug": "partition-labels",
+    "title": "Partition Labels",
+    "section": "Greedy",
+    "subsection": null,
+    "position": 128
+  },
+  {
+    "list": "neetcode150",
+    "slug": "valid-parenthesis-string",
+    "title": "Valid Parenthesis String",
+    "section": "Greedy",
+    "subsection": null,
+    "position": 129
+  },
+  {
+    "list": "blind75",
+    "slug": "insert-interval",
+    "title": "Insert Interval",
+    "section": "Intervals",
+    "subsection": null,
+    "position": 63
+  },
+  {
+    "list": "neetcode150",
+    "slug": "insert-interval",
+    "title": "Insert Interval",
+    "section": "Intervals",
+    "subsection": null,
+    "position": 130
+  },
+  {
+    "list": "blind75",
+    "slug": "merge-intervals",
+    "title": "Merge Intervals",
+    "section": "Intervals",
+    "subsection": null,
+    "position": 64
+  },
+  {
+    "list": "neetcode150",
+    "slug": "merge-intervals",
+    "title": "Merge Intervals",
+    "section": "Intervals",
+    "subsection": null,
+    "position": 131
+  },
+  {
+    "list": "blind75",
+    "slug": "non-overlapping-intervals",
+    "title": "Non Overlapping Intervals",
+    "section": "Intervals",
+    "subsection": null,
+    "position": 65
+  },
+  {
+    "list": "neetcode150",
+    "slug": "non-overlapping-intervals",
+    "title": "Non Overlapping Intervals",
+    "section": "Intervals",
+    "subsection": null,
+    "position": 132
+  },
+  {
+    "list": "blind75",
+    "slug": "meeting-rooms",
+    "title": "Meeting Rooms",
+    "section": "Intervals",
+    "subsection": null,
+    "position": 66
+  },
+  {
+    "list": "neetcode150",
+    "slug": "meeting-rooms",
+    "title": "Meeting Rooms",
+    "section": "Intervals",
+    "subsection": null,
+    "position": 133
+  },
+  {
+    "list": "blind75",
+    "slug": "meeting-rooms-ii",
+    "title": "Meeting Rooms II",
+    "section": "Intervals",
+    "subsection": null,
+    "position": 67
+  },
+  {
+    "list": "neetcode150",
+    "slug": "meeting-rooms-ii",
+    "title": "Meeting Rooms II",
+    "section": "Intervals",
+    "subsection": null,
+    "position": 134
+  },
+  {
+    "list": "neetcode150",
+    "slug": "minimum-interval-to-include-each-query",
+    "title": "Minimum Interval to Include Each Query",
+    "section": "Intervals",
+    "subsection": null,
+    "position": 135
+  },
+  {
+    "list": "blind75",
+    "slug": "rotate-image",
+    "title": "Rotate Image",
+    "section": "Math & Geometry",
+    "subsection": null,
+    "position": 68
+  },
+  {
+    "list": "neetcode150",
+    "slug": "rotate-image",
+    "title": "Rotate Image",
+    "section": "Math & Geometry",
+    "subsection": null,
+    "position": 136
+  },
+  {
+    "list": "blind75",
+    "slug": "spiral-matrix",
+    "title": "Spiral Matrix",
+    "section": "Math & Geometry",
+    "subsection": null,
+    "position": 69
+  },
+  {
+    "list": "neetcode150",
+    "slug": "spiral-matrix",
+    "title": "Spiral Matrix",
+    "section": "Math & Geometry",
+    "subsection": null,
+    "position": 137
+  },
+  {
+    "list": "blind75",
+    "slug": "set-matrix-zeroes",
+    "title": "Set Matrix Zeroes",
+    "section": "Math & Geometry",
+    "subsection": null,
+    "position": 70
+  },
+  {
+    "list": "neetcode150",
+    "slug": "set-matrix-zeroes",
+    "title": "Set Matrix Zeroes",
+    "section": "Math & Geometry",
+    "subsection": null,
+    "position": 138
+  },
+  {
+    "list": "neetcode150",
+    "slug": "happy-number",
+    "title": "Happy Number",
+    "section": "Math & Geometry",
+    "subsection": null,
+    "position": 139
+  },
+  {
+    "list": "neetcode150",
+    "slug": "plus-one",
+    "title": "Plus One",
+    "section": "Math & Geometry",
+    "subsection": null,
+    "position": 140
+  },
+  {
+    "list": "neetcode150",
+    "slug": "powx-n",
+    "title": "Pow(x, n)",
+    "section": "Math & Geometry",
+    "subsection": null,
+    "position": 141
+  },
+  {
+    "list": "neetcode150",
+    "slug": "multiply-strings",
+    "title": "Multiply Strings",
+    "section": "Math & Geometry",
+    "subsection": null,
+    "position": 142
+  },
+  {
+    "list": "neetcode150",
+    "slug": "detect-squares",
+    "title": "Detect Squares",
+    "section": "Math & Geometry",
+    "subsection": null,
+    "position": 143
+  },
+  {
+    "list": "neetcode150",
+    "slug": "single-number",
+    "title": "Single Number",
+    "section": "Bit Manipulation",
+    "subsection": null,
+    "position": 144
+  },
+  {
+    "list": "blind75",
+    "slug": "number-of-1-bits",
+    "title": "Number of 1 Bits",
+    "section": "Bit Manipulation",
+    "subsection": null,
+    "position": 71
+  },
+  {
+    "list": "neetcode150",
+    "slug": "number-of-1-bits",
+    "title": "Number of 1 Bits",
+    "section": "Bit Manipulation",
+    "subsection": null,
+    "position": 145
+  },
+  {
+    "list": "blind75",
+    "slug": "counting-bits",
+    "title": "Counting Bits",
+    "section": "Bit Manipulation",
+    "subsection": null,
+    "position": 72
+  },
+  {
+    "list": "neetcode150",
+    "slug": "counting-bits",
+    "title": "Counting Bits",
+    "section": "Bit Manipulation",
+    "subsection": null,
+    "position": 146
+  },
+  {
+    "list": "blind75",
+    "slug": "reverse-bits",
+    "title": "Reverse Bits",
+    "section": "Bit Manipulation",
+    "subsection": null,
+    "position": 73
+  },
+  {
+    "list": "neetcode150",
+    "slug": "reverse-bits",
+    "title": "Reverse Bits",
+    "section": "Bit Manipulation",
+    "subsection": null,
+    "position": 147
+  },
+  {
+    "list": "blind75",
+    "slug": "missing-number",
+    "title": "Missing Number",
+    "section": "Bit Manipulation",
+    "subsection": null,
+    "position": 74
+  },
+  {
+    "list": "neetcode150",
+    "slug": "missing-number",
+    "title": "Missing Number",
+    "section": "Bit Manipulation",
+    "subsection": null,
+    "position": 148
+  },
+  {
+    "list": "blind75",
+    "slug": "sum-of-two-integers",
+    "title": "Sum of Two Integers",
+    "section": "Bit Manipulation",
+    "subsection": null,
+    "position": 75
+  },
+  {
+    "list": "neetcode150",
+    "slug": "sum-of-two-integers",
+    "title": "Sum of Two Integers",
+    "section": "Bit Manipulation",
+    "subsection": null,
+    "position": 149
+  },
+  {
+    "list": "neetcode150",
+    "slug": "reverse-integer",
+    "title": "Reverse Integer",
+    "section": "Bit Manipulation",
+    "subsection": null,
+    "position": 150
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "reverse-integer",
+    "title": "Reverse a number",
+    "section": "Beginner Problems",
+    "subsection": "Basic Maths",
+    "position": 1
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "palindrome-number",
+    "title": "Palindrome Number",
+    "section": "Beginner Problems",
+    "subsection": "Basic Maths",
+    "position": 2
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "armstrong-number",
+    "title": "Check if the Number is Armstrong",
+    "section": "Beginner Problems",
+    "subsection": "Basic Maths",
+    "position": 3
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "perfect-number",
+    "title": "Check for Perfect Number",
+    "section": "Beginner Problems",
+    "subsection": "Basic Maths",
+    "position": 4
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "count-primes",
+    "title": "Count of Prime Numbers till N",
+    "section": "Beginner Problems",
+    "subsection": "Basic Maths",
+    "position": 5
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "frequency-of-the-most-frequent-element",
+    "title": "Highest Occurring Element in an Array",
+    "section": "Beginner Problems",
+    "subsection": "Basic Hashing",
+    "position": 6
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "reverse-string",
+    "title": "Reverse a String II",
+    "section": "Beginner Problems",
+    "subsection": "Basic Strings",
+    "position": 7
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "valid-palindrome",
+    "title": "Palindrome Check",
+    "section": "Beginner Problems",
+    "subsection": "Basic Strings",
+    "position": 8
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "largest-odd-number-in-string",
+    "title": "Largest Odd Number in a String",
+    "section": "Beginner Problems",
+    "subsection": "Basic Strings",
+    "position": 9
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "longest-common-prefix",
+    "title": "Longest Common Prefix",
+    "section": "Beginner Problems",
+    "subsection": "Basic Strings",
+    "position": 10
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "isomorphic-strings",
+    "title": "Isomorphic Strings",
+    "section": "Beginner Problems",
+    "subsection": "Basic Strings",
+    "position": 11
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "rotate-string",
+    "title": "Rotate String",
+    "section": "Beginner Problems",
+    "subsection": "Basic Strings",
+    "position": 12
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "valid-anagram",
+    "title": "Valid Anagram",
+    "section": "Beginner Problems",
+    "subsection": "Basic Strings",
+    "position": 13
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "sort-characters-by-frequency",
+    "title": "Sort Characters by Frequency",
+    "section": "Beginner Problems",
+    "subsection": "Basic Strings",
+    "position": 14
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "check-if-array-is-sorted-and-rotated",
+    "title": "Check if the Array is Sorted II",
+    "section": "Beginner Problems",
+    "subsection": "Basic Recursion",
+    "position": 15
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "fibonacci-number",
+    "title": "Fibonacci Number",
+    "section": "Beginner Problems",
+    "subsection": "Basic Recursion",
+    "position": 16
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "max-consecutive-ones",
+    "title": "Maximum Consecutive Ones",
+    "section": "Arrays",
+    "subsection": "Fundamentals",
+    "position": 17
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "rotate-array",
+    "title": "Left Rotate Array by One",
+    "section": "Arrays",
+    "subsection": "Fundamentals",
+    "position": 18
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "move-zeroes",
+    "title": "Move Zeros to End",
+    "section": "Arrays",
+    "subsection": "Logic Building",
+    "position": 19
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "remove-duplicates-from-sorted-array",
+    "title": "Remove duplicates from sorted array",
+    "section": "Arrays",
+    "subsection": "Logic Building",
+    "position": 20
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "missing-number",
+    "title": "Find missing number",
+    "section": "Arrays",
+    "subsection": "Logic Building",
+    "position": 21
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "majority-element",
+    "title": "Majority Element-I",
+    "section": "Arrays",
+    "subsection": "FAQs(Medium)",
+    "position": 22
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "buildings-with-an-ocean-view",
+    "title": "Leaders in an Array",
+    "section": "Arrays",
+    "subsection": "FAQs(Medium)",
+    "position": 23
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "rearrange-array-elements-by-sign",
+    "title": "Rearrange array elements by sign",
+    "section": "Arrays",
+    "subsection": "FAQs(Medium)",
+    "position": 24
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "spiral-matrix",
+    "title": "Print the matrix in spiral manner",
+    "section": "Arrays",
+    "subsection": "FAQs(Medium)",
+    "position": 25
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "pascals-triangle",
+    "title": "Pascal's Triangle I",
+    "section": "Arrays",
+    "subsection": "FAQs(Medium)",
+    "position": 26
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "pascals-triangle-ii",
+    "title": "Pascal's Triangle II",
+    "section": "Arrays",
+    "subsection": "FAQs(Medium)",
+    "position": 27
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "rotate-image",
+    "title": "Rotate matrix by 90 degrees",
+    "section": "Arrays",
+    "subsection": "FAQs(Medium)",
+    "position": 28
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "set-matrix-zeroes",
+    "title": "Set Matrix Zeroes",
+    "section": "Arrays",
+    "subsection": "FAQs(Medium)",
+    "position": 29
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "two-sum",
+    "title": "Two Sum",
+    "section": "Arrays",
+    "subsection": "FAQs(Medium)",
+    "position": 30
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "3sum",
+    "title": "3 Sum",
+    "section": "Arrays",
+    "subsection": "FAQs(Medium)",
+    "position": 31
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "4sum",
+    "title": "4 Sum",
+    "section": "Arrays",
+    "subsection": "FAQs(Medium)",
+    "position": 32
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "sort-colors",
+    "title": "Sort an array of 0's 1's and 2's",
+    "section": "Arrays",
+    "subsection": "FAQs(Medium)",
+    "position": 33
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "maximum-subarray",
+    "title": "Kadane's Algorithm",
+    "section": "Arrays",
+    "subsection": "FAQs(Medium)",
+    "position": 34
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "next-permutation",
+    "title": "Next Permutation",
+    "section": "Arrays",
+    "subsection": "FAQs(Medium)",
+    "position": 35
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "majority-element-ii",
+    "title": "Majority Element-II",
+    "section": "Arrays",
+    "subsection": "FAQs(Hard)",
+    "position": 36
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "reverse-pairs",
+    "title": "Reverse Pairs",
+    "section": "Arrays",
+    "subsection": "FAQs(Hard)",
+    "position": 37
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "maximum-product-subarray",
+    "title": "Maximum Product Subarray in an Array",
+    "section": "Arrays",
+    "subsection": "FAQs(Hard)",
+    "position": 38
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "merge-sorted-array",
+    "title": "Merge two sorted arrays without extra space",
+    "section": "Arrays",
+    "subsection": "FAQs(Hard)",
+    "position": 39
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "longest-consecutive-sequence",
+    "title": "Longest Consecutive Sequence in an Array",
+    "section": "Hashing",
+    "subsection": "FAQs",
+    "position": 40
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "maximum-size-subarray-sum-equals-k",
+    "title": "Longest subarray with sum K",
+    "section": "Hashing",
+    "subsection": "FAQs",
+    "position": 41
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "subarray-sum-equals-k",
+    "title": "Count subarrays with given sum",
+    "section": "Hashing",
+    "subsection": "FAQs",
+    "position": 42
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "binary-search",
+    "title": "Search X in sorted array",
+    "section": "Binary Search",
+    "subsection": "Fundamentals",
+    "position": 43
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "search-insert-position",
+    "title": "Search insert position",
+    "section": "Binary Search",
+    "subsection": "Logic Building",
+    "position": 44
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "find-first-and-last-position-of-element-in-sorted-array",
+    "title": "First and last occurrence",
+    "section": "Binary Search",
+    "subsection": "Logic Building",
+    "position": 45
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "search-in-rotated-sorted-array",
+    "title": "Search in rotated sorted array-I",
+    "section": "Binary Search",
+    "subsection": "Logic Building",
+    "position": 46
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "search-in-rotated-sorted-array-ii",
+    "title": "Search in rotated sorted array-II",
+    "section": "Binary Search",
+    "subsection": "Logic Building",
+    "position": 47
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "find-minimum-in-rotated-sorted-array",
+    "title": "Find minimum in Rotated Sorted Array",
+    "section": "Binary Search",
+    "subsection": "Logic Building",
+    "position": 48
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "single-element-in-a-sorted-array",
+    "title": "Single element in sorted array",
+    "section": "Binary Search",
+    "subsection": "Logic Building",
+    "position": 49
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "sqrtx",
+    "title": "Find square root of a number",
+    "section": "Binary Search",
+    "subsection": "On answers",
+    "position": 50
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "find-the-smallest-divisor-given-a-threshold",
+    "title": "Find the smallest divisor",
+    "section": "Binary Search",
+    "subsection": "On answers",
+    "position": 51
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "koko-eating-bananas",
+    "title": "Koko eating bananas",
+    "section": "Binary Search",
+    "subsection": "On answers",
+    "position": 52
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "minimum-number-of-days-to-make-m-bouquets",
+    "title": "Minimum days to make M bouquets",
+    "section": "Binary Search",
+    "subsection": "On answers",
+    "position": 53
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "capacity-to-ship-packages-within-d-days",
+    "title": "Capacity to Ship Packages Within D Days",
+    "section": "Binary Search",
+    "subsection": "On answers",
+    "position": 54
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "kth-missing-positive-number",
+    "title": "Kth Missing Positive Number",
+    "section": "Binary Search",
+    "subsection": "On answers",
+    "position": 55
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "split-array-largest-sum",
+    "title": "Painter's Partition",
+    "section": "Binary Search",
+    "subsection": "On answers",
+    "position": 56
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "find-peak-element",
+    "title": "Find peak element",
+    "section": "Binary Search",
+    "subsection": "FAQs",
+    "position": 57
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "median-of-two-sorted-arrays",
+    "title": "Median of 2 sorted arrays",
+    "section": "Binary Search",
+    "subsection": "FAQs",
+    "position": 58
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "minimize-max-distance-to-gas-station",
+    "title": "Minimize Max Distance to Gas Station",
+    "section": "Binary Search",
+    "subsection": "FAQs",
+    "position": 59
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "search-a-2d-matrix",
+    "title": "Search in a 2D Matrix",
+    "section": "Binary Search",
+    "subsection": "2D Arrays",
+    "position": 60
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "search-a-2d-matrix-ii",
+    "title": "Search in 2D matrix - II",
+    "section": "Binary Search",
+    "subsection": "2D Arrays",
+    "position": 61
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "find-a-peak-element-ii",
+    "title": "Find Peak Element - II",
+    "section": "Binary Search",
+    "subsection": "2D Arrays",
+    "position": 62
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "median-of-a-row-wise-sorted-matrix",
+    "title": "Matrix Median",
+    "section": "Binary Search",
+    "subsection": "2D Arrays",
+    "position": 63
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "remove-outermost-parentheses",
+    "title": "Remove Outermost Parentheses",
+    "section": "Strings (Basic and Medium)",
+    "subsection": "Parentheses",
+    "position": 64
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "maximum-nesting-depth-of-the-parentheses",
+    "title": "Maximum Nesting Depth of the Parentheses",
+    "section": "Strings (Basic and Medium)",
+    "subsection": "Parentheses",
+    "position": 65
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "roman-to-integer",
+    "title": "Roman to Integer",
+    "section": "Strings (Basic and Medium)",
+    "subsection": "String Conversions",
+    "position": 66
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "string-to-integer-atoi",
+    "title": "String to Integer (atoi)",
+    "section": "Strings (Basic and Medium)",
+    "subsection": "String Conversions",
+    "position": 67
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "longest-palindromic-substring",
+    "title": "Longest Palindromic Substring",
+    "section": "Strings (Basic and Medium)",
+    "subsection": "Substring Problems",
+    "position": 68
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "sum-of-beauty-of-all-substrings",
+    "title": "Sum of Beauty of All Substrings",
+    "section": "Strings (Basic and Medium)",
+    "subsection": "Substring Problems",
+    "position": 69
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "powx-n",
+    "title": "Pow(x,n)",
+    "section": "Recursion",
+    "subsection": "Implementation Problems",
+    "position": 70
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "generate-parentheses",
+    "title": "Generate Parentheses",
+    "section": "Recursion",
+    "subsection": "Implementation Problems",
+    "position": 71
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "subsets",
+    "title": "Power Set",
+    "section": "Recursion",
+    "subsection": "Implementation Problems",
+    "position": 72
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "count-good-numbers",
+    "title": "Count Good Numbers",
+    "section": "Recursion",
+    "subsection": "Implementation Problems",
+    "position": 73
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "combination-sum",
+    "title": "Combination Sum",
+    "section": "Recursion",
+    "subsection": "FAQs (Medium)",
+    "position": 74
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "combination-sum-ii",
+    "title": "Combination Sum II",
+    "section": "Recursion",
+    "subsection": "FAQs (Medium)",
+    "position": 75
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "subsets-ii",
+    "title": "Subsets II",
+    "section": "Recursion",
+    "subsection": "FAQs (Medium)",
+    "position": 76
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "combination-sum-iii",
+    "title": "Combination Sum III",
+    "section": "Recursion",
+    "subsection": "FAQs (Medium)",
+    "position": 77
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "letter-combinations-of-a-phone-number",
+    "title": "Letter Combinations of a Phone Number",
+    "section": "Recursion",
+    "subsection": "Hard",
+    "position": 78
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "palindrome-partitioning",
+    "title": "Palindrome partitioning",
+    "section": "Recursion",
+    "subsection": "FAQs (Hard)",
+    "position": 79
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "word-search",
+    "title": "Word Search",
+    "section": "Recursion",
+    "subsection": "FAQs (Hard)",
+    "position": 80
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "n-queens",
+    "title": "N Queen",
+    "section": "Recursion",
+    "subsection": "FAQs (Hard)",
+    "position": 81
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "sudoku-solver",
+    "title": "Sudoku Solver",
+    "section": "Recursion",
+    "subsection": "FAQs (Hard)",
+    "position": 82
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "expression-add-operators",
+    "title": "Expression Add Operators",
+    "section": "Recursion",
+    "subsection": "FAQs (Hard)",
+    "position": 83
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "delete-node-in-a-linked-list",
+    "title": "Deletion of the head of LL",
+    "section": "Linked-List",
+    "subsection": "Fundamentals (Single LL)",
+    "position": 84
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "reverse-linked-list",
+    "title": "Reverse a Doubly Linked List",
+    "section": "Linked-List",
+    "subsection": "Fundamentals (Doubly LL)",
+    "position": 85
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "add-two-numbers",
+    "title": "Add two numbers in Linked List",
+    "section": "Linked-List",
+    "subsection": "Logic Building",
+    "position": 86
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "odd-even-linked-list",
+    "title": "Segregate odd and even nodes in Linked List",
+    "section": "Linked-List",
+    "subsection": "Logic Building",
+    "position": 87
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "remove-nth-node-from-end-of-list",
+    "title": "Remove Nth node from the back of the LL",
+    "section": "Linked-List",
+    "subsection": "Logic Building",
+    "position": 88
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "plus-one-linked-list",
+    "title": "Add one to a number represented by LL",
+    "section": "Linked-List",
+    "subsection": "FAQs (Medium)",
+    "position": 89
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "middle-of-the-linked-list",
+    "title": "Find Middle of Linked List",
+    "section": "Linked-List",
+    "subsection": "FAQs (Medium)",
+    "position": 90
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "delete-the-middle-node-of-a-linked-list",
+    "title": "Delete the middle node in LL",
+    "section": "Linked-List",
+    "subsection": "FAQs (Medium)",
+    "position": 91
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "palindrome-linked-list",
+    "title": "Check if LL is palindrome or not",
+    "section": "Linked-List",
+    "subsection": "FAQs (Medium)",
+    "position": 92
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "intersection-of-two-linked-lists",
+    "title": "Find the intersection point of Y LL",
+    "section": "Linked-List",
+    "subsection": "FAQs (Medium)",
+    "position": 93
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "linked-list-cycle",
+    "title": "Detect a loop in LL",
+    "section": "Linked-List",
+    "subsection": "FAQs (Medium)",
+    "position": 94
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "linked-list-cycle-ii",
+    "title": "Find the starting point in LL",
+    "section": "Linked-List",
+    "subsection": "FAQs (Medium)",
+    "position": 95
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "reverse-nodes-in-k-group",
+    "title": "Reverse LL in group of given size K",
+    "section": "Linked-List",
+    "subsection": "FAQs (Hard)",
+    "position": 96
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "rotate-list",
+    "title": "Rotate a LL",
+    "section": "Linked-List",
+    "subsection": "FAQs (Hard)",
+    "position": 97
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "merge-two-sorted-lists",
+    "title": "Merge two Sorted Lists",
+    "section": "Linked-List",
+    "subsection": "FAQs (Hard)",
+    "position": 98
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "merge-k-sorted-lists",
+    "title": "Flattening of LL",
+    "section": "Linked-List",
+    "subsection": "FAQs (Hard)",
+    "position": 99
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "sort-list",
+    "title": "Sort LL",
+    "section": "Linked-List",
+    "subsection": "FAQs (Hard)",
+    "position": 100
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "copy-list-with-random-pointer",
+    "title": "Clone a LL with random and next pointer",
+    "section": "Linked-List",
+    "subsection": "FAQs (Hard)",
+    "position": 101
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "power-of-two",
+    "title": "Check if a Number is Power of 2 or Not",
+    "section": "Bit Manipulation",
+    "subsection": "Bit Fundamentals",
+    "position": 102
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "number-of-1-bits",
+    "title": "Count the Number of Set Bits",
+    "section": "Bit Manipulation",
+    "subsection": "Bit Fundamentals",
+    "position": 103
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "minimum-bit-flips-to-convert-number",
+    "title": "Minimum Bit Flips to Convert Number",
+    "section": "Bit Manipulation",
+    "subsection": "Problems",
+    "position": 104
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "single-number",
+    "title": "Single Number - I",
+    "section": "Bit Manipulation",
+    "subsection": "Problems",
+    "position": 105
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "single-number-ii",
+    "title": "Single Number - II",
+    "section": "Bit Manipulation",
+    "subsection": "Problems",
+    "position": 106
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "single-number-iii",
+    "title": "Single Number - III",
+    "section": "Bit Manipulation",
+    "subsection": "Problems",
+    "position": 107
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "divide-two-integers",
+    "title": "Divide two numbers without multiplication and division",
+    "section": "Bit Manipulation",
+    "subsection": "Problems",
+    "position": 108
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "assign-cookies",
+    "title": "Assign Cookies",
+    "section": "Greedy Algorithms",
+    "subsection": "Easy",
+    "position": 109
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "lemonade-change",
+    "title": "Lemonade Change",
+    "section": "Greedy Algorithms",
+    "subsection": "Easy",
+    "position": 110
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "jump-game",
+    "title": "Jump Game - I",
+    "section": "Greedy Algorithms",
+    "subsection": "Easy",
+    "position": 111
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "non-overlapping-intervals",
+    "title": "Non-overlapping Intervals",
+    "section": "Greedy Algorithms",
+    "subsection": "Scheduling and Interval Problems",
+    "position": 112
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "insert-interval",
+    "title": "Insert Interval",
+    "section": "Greedy Algorithms",
+    "subsection": "Scheduling and Interval Problems",
+    "position": 113
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "merge-intervals",
+    "title": "Merge Intervals",
+    "section": "Greedy Algorithms",
+    "subsection": "Scheduling and Interval Problems",
+    "position": 114
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "divide-intervals-into-minimum-number-of-groups",
+    "title": "Minimum number of platforms required for a railway",
+    "section": "Greedy Algorithms",
+    "subsection": "Scheduling and Interval Problems",
+    "position": 115
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "valid-parenthesis-string",
+    "title": "Valid Paranthesis Checker",
+    "section": "Greedy Algorithms",
+    "subsection": "Hard",
+    "position": 116
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "candy",
+    "title": "Candy",
+    "section": "Greedy Algorithms",
+    "subsection": "Hard",
+    "position": 117
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "jump-game-ii",
+    "title": "Jump Game II",
+    "section": "Greedy Algorithms",
+    "subsection": "Hard",
+    "position": 118
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "maximum-points-you-can-obtain-from-cards",
+    "title": "Maximum Points You Can Obtain from Cards",
+    "section": "Sliding Window / 2 Pointer",
+    "subsection": "Constant Window",
+    "position": 119
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "longest-substring-without-repeating-characters",
+    "title": "Longest Substring Without Repeating Characters",
+    "section": "Sliding Window / 2 Pointer",
+    "subsection": "Longest and Smallest Window Problems",
+    "position": 120
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "max-consecutive-ones-iii",
+    "title": "Max Consecutive Ones III",
+    "section": "Sliding Window / 2 Pointer",
+    "subsection": "Longest and Smallest Window Problems",
+    "position": 121
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "fruit-into-baskets",
+    "title": "Fruit Into Baskets",
+    "section": "Sliding Window / 2 Pointer",
+    "subsection": "Longest and Smallest Window Problems",
+    "position": 122
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "longest-substring-with-at-most-k-distinct-characters",
+    "title": "Longest Substring With At Most K Distinct Characters",
+    "section": "Sliding Window / 2 Pointer",
+    "subsection": "Longest and Smallest Window Problems",
+    "position": 123
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "longest-repeating-character-replacement",
+    "title": "Longest Repeating Character Replacement",
+    "section": "Sliding Window / 2 Pointer",
+    "subsection": "Longest and Smallest Window Problems",
+    "position": 124
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "minimum-window-substring",
+    "title": "Minimum Window Substring",
+    "section": "Sliding Window / 2 Pointer",
+    "subsection": "Longest and Smallest Window Problems",
+    "position": 125
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "minimum-window-subsequence",
+    "title": "Minimum Window Subsequence",
+    "section": "Sliding Window / 2 Pointer",
+    "subsection": "Longest and Smallest Window Problems",
+    "position": 126
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "number-of-substrings-containing-all-three-characters",
+    "title": "Number of Substrings Containing All Three Characters",
+    "section": "Sliding Window / 2 Pointer",
+    "subsection": "Counting Subarrays / Substrings Problems",
+    "position": 127
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "binary-subarrays-with-sum",
+    "title": "Binary Subarrays With Sum",
+    "section": "Sliding Window / 2 Pointer",
+    "subsection": "Counting Subarrays / Substrings Problems",
+    "position": 128
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "count-number-of-nice-subarrays",
+    "title": "Count number of Nice subarrays",
+    "section": "Sliding Window / 2 Pointer",
+    "subsection": "Counting Subarrays / Substrings Problems",
+    "position": 129
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "subarrays-with-k-different-integers",
+    "title": "Subarrays with K Different Integers",
+    "section": "Sliding Window / 2 Pointer",
+    "subsection": "Counting Subarrays / Substrings Problems",
+    "position": 130
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "implement-stack-using-queues",
+    "title": "Implement Stack using Queue",
+    "section": "Stack / Queues",
+    "subsection": "Implementation",
+    "position": 131
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "implement-queue-using-stacks",
+    "title": "Implement Queue using Stack",
+    "section": "Stack / Queues",
+    "subsection": "Implementation",
+    "position": 132
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "valid-parentheses",
+    "title": "Balanced Paranthesis",
+    "section": "Stack / Queues",
+    "subsection": "Implementation",
+    "position": 133
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "next-greater-element-i",
+    "title": "Next Greater Element",
+    "section": "Stack / Queues",
+    "subsection": "Monotonic Stack",
+    "position": 134
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "next-greater-element-ii",
+    "title": "Next Greater Element - 2",
+    "section": "Stack / Queues",
+    "subsection": "Monotonic Stack",
+    "position": 135
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "asteroid-collision",
+    "title": "Asteroid Collision",
+    "section": "Stack / Queues",
+    "subsection": "Monotonic Stack",
+    "position": 136
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "sum-of-subarray-minimums",
+    "title": "Sum of Subarray Minimums",
+    "section": "Stack / Queues",
+    "subsection": "Monotonic Stack",
+    "position": 137
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "sum-of-subarray-ranges",
+    "title": "Sum of Subarray Ranges",
+    "section": "Stack / Queues",
+    "subsection": "Monotonic Stack",
+    "position": 138
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "remove-k-digits",
+    "title": "Remove K Digits",
+    "section": "Stack / Queues",
+    "subsection": "Monotonic Stack",
+    "position": 139
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "min-stack",
+    "title": "Implement Min Stack",
+    "section": "Stack / Queues",
+    "subsection": "FAQs",
+    "position": 140
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "sliding-window-maximum",
+    "title": "Sliding Window Maximum",
+    "section": "Stack / Queues",
+    "subsection": "FAQs",
+    "position": 141
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "trapping-rain-water",
+    "title": "Trapping Rainwater",
+    "section": "Stack / Queues",
+    "subsection": "FAQs",
+    "position": 142
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "largest-rectangle-in-histogram",
+    "title": "Largest rectangle in a histogram",
+    "section": "Stack / Queues",
+    "subsection": "FAQs",
+    "position": 143
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "maximal-rectangle",
+    "title": "Maximum Rectangles",
+    "section": "Stack / Queues",
+    "subsection": "FAQs",
+    "position": 144
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "online-stock-span",
+    "title": "Stock span problem",
+    "section": "Stack / Queues",
+    "subsection": "FAQs",
+    "position": 145
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "find-the-celebrity",
+    "title": "Celebrity Problem",
+    "section": "Stack / Queues",
+    "subsection": "FAQs",
+    "position": 146
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "lru-cache",
+    "title": "LRU Cache",
+    "section": "Stack / Queues",
+    "subsection": "FAQs",
+    "position": 147
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "lfu-cache",
+    "title": "LFU Cache",
+    "section": "Stack / Queues",
+    "subsection": "FAQs",
+    "position": 148
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "binary-tree-inorder-traversal",
+    "title": "Inorder Traversal",
+    "section": "Binary Trees",
+    "subsection": "Theory/Traversals",
+    "position": 149
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "binary-tree-preorder-traversal",
+    "title": "Preorder Traversal",
+    "section": "Binary Trees",
+    "subsection": "Theory/Traversals",
+    "position": 150
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "binary-tree-postorder-traversal",
+    "title": "Postorder Traversal",
+    "section": "Binary Trees",
+    "subsection": "Theory/Traversals",
+    "position": 151
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "binary-tree-level-order-traversal",
+    "title": "Level Order Traversal",
+    "section": "Binary Trees",
+    "subsection": "Theory/Traversals",
+    "position": 152
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "maximum-depth-of-binary-tree",
+    "title": "Maximum Depth in BT",
+    "section": "Binary Trees",
+    "subsection": "Medium Problems",
+    "position": 153
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "same-tree",
+    "title": "Check if two trees are identical or not",
+    "section": "Binary Trees",
+    "subsection": "Medium Problems",
+    "position": 154
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "balanced-binary-tree",
+    "title": "Check for balanced binary tree",
+    "section": "Binary Trees",
+    "subsection": "Medium Problems",
+    "position": 155
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "diameter-of-binary-tree",
+    "title": "Diameter of Binary Tree",
+    "section": "Binary Trees",
+    "subsection": "Medium Problems",
+    "position": 156
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "binary-tree-maximum-path-sum",
+    "title": "Maximum path sum",
+    "section": "Binary Trees",
+    "subsection": "Medium Problems",
+    "position": 157
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "symmetric-tree",
+    "title": "Check for symmetrical BTs",
+    "section": "Binary Trees",
+    "subsection": "Medium Problems",
+    "position": 158
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "binary-tree-zigzag-level-order-traversal",
+    "title": "Zig Zag or Spiral Traversal",
+    "section": "Binary Trees",
+    "subsection": "FAQs",
+    "position": 159
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "boundary-of-binary-tree",
+    "title": "Boundary Traversal",
+    "section": "Binary Trees",
+    "subsection": "FAQs",
+    "position": 160
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "vertical-order-traversal-of-a-binary-tree",
+    "title": "Vertical Order Traversal",
+    "section": "Binary Trees",
+    "subsection": "FAQs",
+    "position": 161
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "binary-tree-right-side-view",
+    "title": "Right/Left View of BT",
+    "section": "Binary Trees",
+    "subsection": "FAQs",
+    "position": 162
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "lowest-common-ancestor-of-a-binary-tree",
+    "title": "LCA in BT",
+    "section": "Binary Trees",
+    "subsection": "FAQs",
+    "position": 163
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "maximum-width-of-binary-tree",
+    "title": "Maximum Width of BT",
+    "section": "Binary Trees",
+    "subsection": "FAQs",
+    "position": 164
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "all-nodes-distance-k-in-binary-tree",
+    "title": "Print all nodes at a distance of K in BT",
+    "section": "Binary Trees",
+    "subsection": "FAQs",
+    "position": 165
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "count-complete-tree-nodes",
+    "title": "Count total nodes in a complete BT",
+    "section": "Binary Trees",
+    "subsection": "FAQs",
+    "position": 166
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "flatten-binary-tree-to-linked-list",
+    "title": "Flatten Binary Tree to Linked List",
+    "section": "Binary Trees",
+    "subsection": "FAQs",
+    "position": 167
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "construct-binary-tree-from-preorder-and-inorder-traversal",
+    "title": "Construct a BT from Preorder and Inorder",
+    "section": "Binary Trees",
+    "subsection": "Construction Problems",
+    "position": 168
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "construct-binary-tree-from-inorder-and-postorder-traversal",
+    "title": "Construct a BT from Postorder and Inorder",
+    "section": "Binary Trees",
+    "subsection": "Construction Problems",
+    "position": 169
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "serialize-and-deserialize-binary-tree",
+    "title": "Serialize and De-serialize BT",
+    "section": "Binary Trees",
+    "subsection": "Construction Problems",
+    "position": 170
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "search-in-a-binary-search-tree",
+    "title": "Search in BST",
+    "section": "Binary Search Trees",
+    "subsection": "Theory and Basics",
+    "position": 171
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "insert-into-a-binary-search-tree",
+    "title": "Insert a given node in BST",
+    "section": "Binary Search Trees",
+    "subsection": "Medium",
+    "position": 172
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "delete-node-in-a-bst",
+    "title": "Delete a node in BST",
+    "section": "Binary Search Trees",
+    "subsection": "Medium",
+    "position": 173
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "kth-smallest-element-in-a-bst",
+    "title": "Kth Smallest and Largest element in BST",
+    "section": "Binary Search Trees",
+    "subsection": "Medium",
+    "position": 174
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "validate-binary-search-tree",
+    "title": "Check if a tree is a BST or not",
+    "section": "Binary Search Trees",
+    "subsection": "Medium",
+    "position": 175
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "lowest-common-ancestor-of-a-binary-search-tree",
+    "title": "LCA in BST",
+    "section": "Binary Search Trees",
+    "subsection": "Medium",
+    "position": 176
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "construct-binary-search-tree-from-preorder-traversal",
+    "title": "Construct a BST from a preorder traversal",
+    "section": "Binary Search Trees",
+    "subsection": "Medium",
+    "position": 177
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "inorder-successor-in-bst",
+    "title": "Inorder successor and predecessor in BST",
+    "section": "Binary Search Trees",
+    "subsection": "Medium",
+    "position": 178
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "binary-search-tree-iterator",
+    "title": "BST iterator",
+    "section": "Binary Search Trees",
+    "subsection": "FAQs",
+    "position": 179
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "two-sum-iv-input-is-a-bst",
+    "title": "Two sum in BST",
+    "section": "Binary Search Trees",
+    "subsection": "FAQs",
+    "position": 180
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "recover-binary-search-tree",
+    "title": "Correct BST with two nodes swapped",
+    "section": "Binary Search Trees",
+    "subsection": "FAQs",
+    "position": 181
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "largest-bst-subtree",
+    "title": "Largest BST in Binary Tree",
+    "section": "Binary Search Trees",
+    "subsection": "FAQs",
+    "position": 182
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "kth-largest-element-in-an-array",
+    "title": "K-th Largest element in an array",
+    "section": "Heaps",
+    "subsection": "Theory and Implementation",
+    "position": 183
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "kth-largest-element-in-a-stream",
+    "title": "Kth largest element in a stream of running integers",
+    "section": "Heaps",
+    "subsection": "FAQs",
+    "position": 184
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "rank-transform-of-an-array",
+    "title": "Replace Elements by Their Rank",
+    "section": "Heaps",
+    "subsection": "FAQs",
+    "position": 185
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "task-scheduler",
+    "title": "Task Scheduler",
+    "section": "Heaps",
+    "subsection": "FAQs",
+    "position": 186
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "hand-of-straights",
+    "title": "Hand of Straights",
+    "section": "Heaps",
+    "subsection": "FAQs",
+    "position": 187
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "design-twitter",
+    "title": "Design Twitter",
+    "section": "Heaps",
+    "subsection": "FAQs",
+    "position": 188
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "minimum-cost-to-connect-sticks",
+    "title": "Minimum Cost to Connect Sticks",
+    "section": "Heaps",
+    "subsection": "FAQs",
+    "position": 189
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "find-median-from-data-stream",
+    "title": "Find Median from Data Stream",
+    "section": "Heaps",
+    "subsection": "FAQs",
+    "position": 190
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "top-k-frequent-elements",
+    "title": "Top K Frequent Elements",
+    "section": "Heaps",
+    "subsection": "FAQs",
+    "position": 191
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "number-of-connected-components-in-an-undirected-graph",
+    "title": "Connected Components",
+    "section": "Graphs",
+    "subsection": "Theory and traversals",
+    "position": 192
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "number-of-provinces",
+    "title": "Number of provinces",
+    "section": "Graphs",
+    "subsection": "Traversal Problems",
+    "position": 193
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "number-of-islands",
+    "title": "Number of islands",
+    "section": "Graphs",
+    "subsection": "Traversal Problems",
+    "position": 194
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "flood-fill",
+    "title": "Flood fill algorithm",
+    "section": "Graphs",
+    "subsection": "Traversal Problems",
+    "position": 195
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "number-of-enclaves",
+    "title": "Number of enclaves",
+    "section": "Graphs",
+    "subsection": "Traversal Problems",
+    "position": 196
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "rotting-oranges",
+    "title": "Rotten Oranges",
+    "section": "Graphs",
+    "subsection": "Traversal Problems",
+    "position": 197
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "01-matrix",
+    "title": "Distance of nearest cell having one",
+    "section": "Graphs",
+    "subsection": "Traversal Problems",
+    "position": 198
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "surrounded-regions",
+    "title": "Surrounded Regions",
+    "section": "Graphs",
+    "subsection": "Traversal Problems",
+    "position": 199
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "number-of-distinct-islands",
+    "title": "Number of distinct islands",
+    "section": "Graphs",
+    "subsection": "Traversal Problems",
+    "position": 200
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "course-schedule",
+    "title": "Detect a cycle in an undirected graph",
+    "section": "Graphs",
+    "subsection": "Cycles",
+    "position": 201
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "is-graph-bipartite",
+    "title": "Bipartite graph",
+    "section": "Graphs",
+    "subsection": "Cycles",
+    "position": 202
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "find-eventual-safe-states",
+    "title": "Find eventual safe states",
+    "section": "Graphs",
+    "subsection": "Hard Problems",
+    "position": 203
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "course-schedule-ii",
+    "title": "Course Schedule II",
+    "section": "Graphs",
+    "subsection": "Hard Problems",
+    "position": 204
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "alien-dictionary",
+    "title": "Alien Dictionary",
+    "section": "Graphs",
+    "subsection": "Hard Problems",
+    "position": 205
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "word-ladder",
+    "title": "Word ladder I",
+    "section": "Graphs",
+    "subsection": "Hard Problems",
+    "position": 206
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "word-ladder-ii",
+    "title": "Word ladder II",
+    "section": "Graphs",
+    "subsection": "Hard Problems",
+    "position": 207
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "shortest-path-in-binary-matrix",
+    "title": "Shortest Distance in a Binary Maze",
+    "section": "Graphs",
+    "subsection": "Shortest Path Algorithms",
+    "position": 208
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "path-with-minimum-effort",
+    "title": "Path with minimum effort",
+    "section": "Graphs",
+    "subsection": "Shortest Path Algorithms",
+    "position": 209
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "cheapest-flights-within-k-stops",
+    "title": "Cheapest flight within K stops",
+    "section": "Graphs",
+    "subsection": "Shortest Path Algorithms",
+    "position": 210
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "number-of-ways-to-arrive-at-destination",
+    "title": "Number of ways to arrive at destination",
+    "section": "Graphs",
+    "subsection": "Shortest Path Algorithms",
+    "position": 211
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "find-the-city-with-the-smallest-number-of-neighbors-at-a-threshold-distance",
+    "title": "Find the city with the smallest number of neighbors",
+    "section": "Graphs",
+    "subsection": "Shortest Path Algorithms",
+    "position": 212
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "network-delay-time",
+    "title": "Network Delay Time",
+    "section": "Graphs",
+    "subsection": "Shortest Path Algorithms",
+    "position": 213
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "swim-in-rising-water",
+    "title": "Swim in Rising Water",
+    "section": "Graphs",
+    "subsection": "Shortest Path Algorithms",
+    "position": 214
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "connecting-cities-with-minimum-cost",
+    "title": "Find the MST weight",
+    "section": "Graphs",
+    "subsection": "Minimum Spanning Tree",
+    "position": 215
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "number-of-operations-to-make-network-connected",
+    "title": "Number of operations to make network connected",
+    "section": "Graphs",
+    "subsection": "Hard Problems II",
+    "position": 216
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "accounts-merge",
+    "title": "Accounts merge",
+    "section": "Graphs",
+    "subsection": "Hard Problems II",
+    "position": 217
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "number-of-islands-ii",
+    "title": "Number of islands II",
+    "section": "Graphs",
+    "subsection": "Hard Problems II",
+    "position": 218
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "making-a-large-island",
+    "title": "Making a large island",
+    "section": "Graphs",
+    "subsection": "Hard Problems II",
+    "position": 219
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "most-stones-removed-with-same-row-or-column",
+    "title": "Most stones removed with same row or column",
+    "section": "Graphs",
+    "subsection": "Hard Problems II",
+    "position": 220
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "maximum-number-of-non-overlapping-substrings",
+    "title": "Kosaraju's algorithm",
+    "section": "Graphs",
+    "subsection": "Additional Algorithms",
+    "position": 221
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "critical-connections-in-a-network",
+    "title": "Bridges in graph",
+    "section": "Graphs",
+    "subsection": "Additional Algorithms",
+    "position": 222
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "climbing-stairs",
+    "title": "Climbing stairs",
+    "section": "Dynamic Programming",
+    "subsection": "1D DP",
+    "position": 223
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "house-robber",
+    "title": "Maximum sum of non adjacent elements",
+    "section": "Dynamic Programming",
+    "subsection": "1D DP",
+    "position": 224
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "unique-paths",
+    "title": "Grid unique paths",
+    "section": "Dynamic Programming",
+    "subsection": "DP on grids",
+    "position": 225
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "unique-paths-ii",
+    "title": "Unique paths II",
+    "section": "Dynamic Programming",
+    "subsection": "DP on grids",
+    "position": 226
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "minimum-falling-path-sum",
+    "title": "Minimum Falling Path Sum",
+    "section": "Dynamic Programming",
+    "subsection": "DP on grids",
+    "position": 227
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "triangle",
+    "title": "Triangle",
+    "section": "Dynamic Programming",
+    "subsection": "DP on grids",
+    "position": 228
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "cherry-pickup-ii",
+    "title": "Cherry pickup II",
+    "section": "Dynamic Programming",
+    "subsection": "DP on grids",
+    "position": 229
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "count-square-submatrices-with-all-ones",
+    "title": "Count Square Submatrices with All Ones",
+    "section": "Dynamic Programming",
+    "subsection": "DP on grids",
+    "position": 230
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "best-time-to-buy-and-sell-stock",
+    "title": "Best time to buy and sell stock",
+    "section": "Dynamic Programming",
+    "subsection": "DP on stocks",
+    "position": 231
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "best-time-to-buy-and-sell-stock-ii",
+    "title": "Best time to buy and sell stock II",
+    "section": "Dynamic Programming",
+    "subsection": "DP on stocks",
+    "position": 232
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "best-time-to-buy-and-sell-stock-iii",
+    "title": "Best time to buy and sell stock III",
+    "section": "Dynamic Programming",
+    "subsection": "DP on stocks",
+    "position": 233
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "best-time-to-buy-and-sell-stock-iv",
+    "title": "Best time to buy and sell stock IV",
+    "section": "Dynamic Programming",
+    "subsection": "DP on stocks",
+    "position": 234
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "best-time-to-buy-and-sell-stock-with-transaction-fee",
+    "title": "Best time to buy and sell stock with transaction fees",
+    "section": "Dynamic Programming",
+    "subsection": "DP on stocks",
+    "position": 235
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "best-time-to-buy-and-sell-stock-with-cooldown",
+    "title": "Best Time to Buy and Sell Stock with Cooldown",
+    "section": "Dynamic Programming",
+    "subsection": "DP on stocks",
+    "position": 236
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "partition-equal-subset-sum",
+    "title": "Partition equal subset sum",
+    "section": "Dynamic Programming",
+    "subsection": "DP on subsequences",
+    "position": 237
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "last-stone-weight-ii",
+    "title": "Partition a set into two subsets with minimum absolute sum difference",
+    "section": "Dynamic Programming",
+    "subsection": "DP on subsequences",
+    "position": 238
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "coin-change",
+    "title": "Minimum coins",
+    "section": "Dynamic Programming",
+    "subsection": "DP on subsequences",
+    "position": 239
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "target-sum",
+    "title": "Target sum",
+    "section": "Dynamic Programming",
+    "subsection": "DP on subsequences",
+    "position": 240
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "coin-change-ii",
+    "title": "Coin change II",
+    "section": "Dynamic Programming",
+    "subsection": "DP on subsequences",
+    "position": 241
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "longest-increasing-subsequence",
+    "title": "Longest Increasing Subsequence",
+    "section": "Dynamic Programming",
+    "subsection": "LIS",
+    "position": 242
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "largest-divisible-subset",
+    "title": "Largest Divisible Subset",
+    "section": "Dynamic Programming",
+    "subsection": "LIS",
+    "position": 243
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "longest-string-chain",
+    "title": "Longest String Chain",
+    "section": "Dynamic Programming",
+    "subsection": "LIS",
+    "position": 244
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "number-of-longest-increasing-subsequence",
+    "title": "Number of Longest Increasing Subsequences",
+    "section": "Dynamic Programming",
+    "subsection": "LIS",
+    "position": 245
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "longest-common-subsequence",
+    "title": "Longest common subsequence",
+    "section": "Dynamic Programming",
+    "subsection": "DP on strings",
+    "position": 246
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "longest-palindromic-subsequence",
+    "title": "Longest palindromic subsequence",
+    "section": "Dynamic Programming",
+    "subsection": "DP on strings",
+    "position": 247
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "minimum-insertion-steps-to-make-a-string-palindrome",
+    "title": "Minimum insertions to make string palindrome",
+    "section": "Dynamic Programming",
+    "subsection": "DP on strings",
+    "position": 248
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "delete-operation-for-two-strings",
+    "title": "Minimum insertions or deletions to convert string A to B",
+    "section": "Dynamic Programming",
+    "subsection": "DP on strings",
+    "position": 249
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "shortest-common-supersequence",
+    "title": "Shortest common supersequence",
+    "section": "Dynamic Programming",
+    "subsection": "DP on strings",
+    "position": 250
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "distinct-subsequences",
+    "title": "Distinct subsequences",
+    "section": "Dynamic Programming",
+    "subsection": "DP on strings",
+    "position": 251
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "edit-distance",
+    "title": "Edit distance",
+    "section": "Dynamic Programming",
+    "subsection": "DP on strings",
+    "position": 252
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "wildcard-matching",
+    "title": "Wildcard matching",
+    "section": "Dynamic Programming",
+    "subsection": "DP on strings",
+    "position": 253
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "word-break",
+    "title": "Word Break",
+    "section": "Dynamic Programming",
+    "subsection": "DP on strings",
+    "position": 254
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "count-palindromic-subsequences",
+    "title": "Count Palindromic Subsequences",
+    "section": "Dynamic Programming",
+    "subsection": "DP on strings",
+    "position": 255
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "burst-balloons",
+    "title": "Burst balloons",
+    "section": "Dynamic Programming",
+    "subsection": "MCM DP",
+    "position": 256
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "palindrome-partitioning-ii",
+    "title": "Palindrome partitioning II",
+    "section": "Dynamic Programming",
+    "subsection": "MCM DP",
+    "position": 257
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "partition-array-for-maximum-sum",
+    "title": "Partition Array for Maximum Sum",
+    "section": "Dynamic Programming",
+    "subsection": "MCM DP",
+    "position": 258
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "minimum-cost-to-cut-a-stick",
+    "title": "Minimum cost to cut the stick",
+    "section": "Dynamic Programming",
+    "subsection": "MCM DP",
+    "position": 259
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "parsing-a-boolean-expression",
+    "title": "Different Ways to Evaluate a Boolean Expression",
+    "section": "Dynamic Programming",
+    "subsection": "MCM DP",
+    "position": 260
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "implement-trie-prefix-tree",
+    "title": "Trie Implementation and Operations",
+    "section": "Tries",
+    "subsection": "Theory",
+    "position": 261
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "implement-trie-ii-prefix-tree",
+    "title": "Trie Implementation and Advanced Operations",
+    "section": "Tries",
+    "subsection": "Theory",
+    "position": 262
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "longest-word-with-all-prefixes",
+    "title": "Longest Word with All Prefixes",
+    "section": "Tries",
+    "subsection": "Problems",
+    "position": 263
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "number-of-distinct-substrings-in-a-string",
+    "title": "Number of distinct substrings in a string",
+    "section": "Tries",
+    "subsection": "Problems",
+    "position": 264
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "maximum-xor-of-two-numbers-in-an-array",
+    "title": "Maximum XOR of two numbers in an array",
+    "section": "Tries",
+    "subsection": "Problems",
+    "position": 265
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "maximum-xor-with-an-element-from-array",
+    "title": "Maximum Xor with an element from an array",
+    "section": "Tries",
+    "subsection": "Problems",
+    "position": 266
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "reverse-words-in-a-string",
+    "title": "Reverse every word in a string",
+    "section": "Strings (Advanced Algo)",
+    "subsection": "Medium Problems",
+    "position": 267
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "minimum-add-to-make-parentheses-valid",
+    "title": "Minimum number of bracket reversals to make an expression balanced",
+    "section": "Strings (Advanced Algo)",
+    "subsection": "Medium Problems",
+    "position": 268
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "count-and-say",
+    "title": "Count and say",
+    "section": "Strings (Advanced Algo)",
+    "subsection": "Medium Problems",
+    "position": 269
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "repeated-string-match",
+    "title": "Rabin Karp Algorithm",
+    "section": "Strings (Advanced Algo)",
+    "subsection": "Advanced Problems (Less asked)",
+    "position": 270
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "find-the-index-of-the-first-occurrence-in-a-string",
+    "title": "KMP Algorithm or LPS array",
+    "section": "Strings (Advanced Algo)",
+    "subsection": "Advanced Problems (Less asked)",
+    "position": 271
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "shortest-palindrome",
+    "title": "Shortest Palindrome",
+    "section": "Strings (Advanced Algo)",
+    "subsection": "Advanced Problems (Less asked)",
+    "position": 272
+  },
+  {
+    "list": "striver_a2z",
+    "slug": "longest-happy-prefix",
+    "title": "Longest happy prefix",
+    "section": "Strings (Advanced Algo)",
+    "subsection": "Advanced Problems (Less asked)",
+    "position": 273
+  }
+]

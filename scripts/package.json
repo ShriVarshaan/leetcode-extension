@@ -1,0 +1,20 @@
+{
+  "name": "scripts",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "fetch-lists": "node src/fetch-lists.ts",
+    "enrich": "node src/enrich.ts",
+    "upload": "node --env-file=.env src/upload.ts",
+    "seed": "pnpm fetch-lists && pnpm enrich && pnpm upload",
+    "check-env": "node --env-file=.env src/check-env.ts",
+    "compile": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "typescript": "^5.9.3"
+  }
+}
