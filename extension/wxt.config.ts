@@ -7,7 +7,8 @@ export default defineConfig({
   manifest: {
     name: 'LeetCode Revision Buddy',
     description: 'Daily spaced-repetition revision for LeetCode',
-    permissions: ['storage'],
+    permissions: ['storage', 'alarms'],
+    host_permissions: ['https://leetcode.com/*'],
   },
   vite: () => ({
     plugins: [tailwindcss()],
