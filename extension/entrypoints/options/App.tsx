@@ -27,9 +27,19 @@ function NotConfigured() {
 function Configured() {
   // undefined = still checking storage for a saved session
   const [session, setSession] = useState<Session | null | undefined>(undefined);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    supabase.auth.getSession().then(({ data }) => setSession(data.session));
+    supabase.auth
+      .getSession()
+      .then(({ data, error }) => {
+        if (error) setError(error.message);
+        setSession(data.session);
+      })
+      .catch((e: Error) => {
+        setError(e.message);
+        setSession(null);
+      });
     const { data: sub } = supabase.auth.onAuthStateChange((_event, s) => setSession(s));
     return () => sub.subscription.unsubscribe();
   }, []);
@@ -47,7 +57,8 @@ function Configured() {
           </div>
         )}
       </header>
-      {session === undefined ? null : session ? <SettingsForm /> : <SignIn />}
+      {error && <p className="mb-4 max-w-lg text-sm text-red-400">Couldn't restore your session: {error}</p>}
+      {session === undefined ? <p className="text-slate-400">Loading…</p> : session ? <SettingsForm /> : <SignIn />}
     </div>
   );
 }

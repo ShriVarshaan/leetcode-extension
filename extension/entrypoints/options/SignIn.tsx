@@ -12,20 +12,30 @@ export function SignIn() {
     e.preventDefault();
     setBusy(true);
     setError(null);
-    const { error } = await supabase.auth.signInWithOtp({ email, options: { shouldCreateUser: true } });
-    setBusy(false);
-    if (error) setError(error.message);
-    else setStep('code');
+    try {
+      const { error } = await supabase.auth.signInWithOtp({ email, options: { shouldCreateUser: true } });
+      if (error) setError(error.message);
+      else setStep('code');
+    } catch (err) {
+      setError((err as Error).message);
+    } finally {
+      setBusy(false);
+    }
   }
 
   async function verifyCode(e: FormEvent) {
     e.preventDefault();
     setBusy(true);
     setError(null);
-    const { error } = await supabase.auth.verifyOtp({ email, token: code.trim(), type: 'email' });
-    setBusy(false);
-    // On success, onAuthStateChange in App switches to the settings view.
-    if (error) setError(error.message);
+    try {
+      const { error } = await supabase.auth.verifyOtp({ email, token: code.trim(), type: 'email' });
+      // On success, onAuthStateChange in App switches to the settings view.
+      if (error) setError(error.message);
+    } catch (err) {
+      setError((err as Error).message);
+    } finally {
+      setBusy(false);
+    }
   }
 
   return (
