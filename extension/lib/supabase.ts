@@ -1,10 +1,10 @@
 import { createClient, type SupportedStorage } from '@supabase/supabase-js';
 
-const url = import.meta.env.WXT_SUPABASE_URL;
-const anonKey = import.meta.env.WXT_SUPABASE_ANON_KEY;
-if (!url || !anonKey) {
-  throw new Error('Missing WXT_SUPABASE_URL / WXT_SUPABASE_ANON_KEY in extension/.env');
-}
+const url: string | undefined = import.meta.env.WXT_SUPABASE_URL;
+const anonKey: string | undefined = import.meta.env.WXT_SUPABASE_ANON_KEY;
+
+// Lets the UI show a setup message instead of crashing when extension/.env is missing.
+export const isSupabaseConfigured = Boolean(url && anonKey);
 
 // supabase-js stores the session in localStorage by default, which doesn't exist in the
 // background service worker and isn't shared between popup/options/background.
@@ -22,7 +22,8 @@ const chromeStorage: SupportedStorage = {
   },
 };
 
-export const supabase = createClient(url, anonKey, {
+// Placeholder values keep createClient from throwing; no requests are made while unconfigured.
+export const supabase = createClient(url || 'https://not-configured.supabase.co', anonKey || 'not-configured', {
   auth: {
     storage: chromeStorage,
     persistSession: true,

@@ -1,10 +1,30 @@
 import { useEffect, useState } from 'react';
 import type { Session } from '@supabase/supabase-js';
-import { supabase } from '@/lib/supabase';
+import { isSupabaseConfigured, supabase } from '@/lib/supabase';
 import { SignIn } from './SignIn';
 import { SettingsForm } from './SettingsForm';
 
 function App() {
+  if (!isSupabaseConfigured) return <NotConfigured />;
+  return <Configured />;
+}
+
+function NotConfigured() {
+  return (
+    <div className="min-h-screen bg-slate-900 p-8 text-slate-100">
+      <h1 className="text-2xl font-semibold">Settings</h1>
+      <div className="mt-6 max-w-lg rounded-lg border border-amber-500/50 bg-amber-500/10 p-4 text-sm">
+        <p className="font-medium text-amber-300">Supabase isn't configured yet.</p>
+        <p className="mt-2 text-slate-300">
+          Copy <code>extension/.env.example</code> to <code>extension/.env</code>, fill in{' '}
+          <code>WXT_SUPABASE_URL</code> and <code>WXT_SUPABASE_ANON_KEY</code>, then restart <code>pnpm dev</code>.
+        </p>
+      </div>
+    </div>
+  );
+}
+
+function Configured() {
   // undefined = still checking storage for a saved session
   const [session, setSession] = useState<Session | null | undefined>(undefined);
 
