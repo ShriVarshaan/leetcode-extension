@@ -3,6 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "migrate": "node --env-file=.env src/migrate.ts",
     "fetch-lists": "node src/fetch-lists.ts",
     "enrich": "node src/enrich.ts",
     "upload": "node --env-file=.env src/upload.ts",

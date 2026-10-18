@@ -31,7 +31,9 @@ Run from the repo root (pnpm workspace: `extension/`, `scripts/`).
 - Build: `pnpm build`, then load `extension/.output/chrome-mv3` unpacked
 - Type-check: `pnpm compile`
 - Tests: added in Phase 4 (Vitest)
-- Seed catalog: added in Phase 1 (`scripts/`)
+- Seed catalog (from `scripts/`): `pnpm seed` (= `fetch-lists` → `enrich` → `upload`)
+- Run a migration (from `scripts/`): `pnpm migrate ../supabase/migrations/<file>.sql` (needs `psql` and `SUPABASE_DB_URL` in `scripts/.env`)
+- Check `scripts/.env`: `pnpm check-env`
 
 ## Debugging
 - Background logs: `chrome://extensions` → this extension → "Inspect views: service worker"
