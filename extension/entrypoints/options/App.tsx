@@ -3,6 +3,7 @@ import type { Session } from '@supabase/supabase-js';
 import { isSupabaseConfigured, supabase } from '@/lib/supabase';
 import { SignIn } from './SignIn';
 import { SettingsForm } from './SettingsForm';
+import { SyncSection } from './SyncSection';
 
 function App() {
   if (!isSupabaseConfigured) return <NotConfigured />;
@@ -58,7 +59,14 @@ function Configured() {
         )}
       </header>
       {error && <p className="mb-4 max-w-lg text-sm text-red-400">Couldn't restore your session: {error}</p>}
-      {session === undefined ? <p className="text-slate-400">Loading…</p> : session ? <SettingsForm /> : <SignIn />}
+      {session === undefined ? <p className="text-slate-400">Loading…</p> : session ? (
+        <>
+          <SettingsForm />
+          <SyncSection />
+        </>
+      ) : (
+        <SignIn />
+      )}
     </div>
   );
 }
