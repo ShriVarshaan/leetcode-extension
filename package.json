@@ -1,0 +1,10 @@
+{
+  "name": "leetcode-revision-buddy-root",
+  "private": true,
+  "scripts": {
+    "dev": "pnpm --filter leetcode-revision-buddy dev",
+    "build": "pnpm --filter leetcode-revision-buddy build",
+    "compile": "pnpm --filter leetcode-revision-buddy compile",
+    "zip": "pnpm --filter leetcode-revision-buddy zip"
+  }
+}

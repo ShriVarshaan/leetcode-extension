@@ -25,11 +25,13 @@ The user is learning. They know JavaScript, some React and Supabase, and have ne
 - Keep code comments normal and minimal. Don't write tutorial text, walkthroughs or explainer docs into the repo.
 
 ## Commands
-Fill these in once Phase 0 scaffolding exists.
-- Dev (hot reload): `pnpm --dir extension dev`
-- Build: `pnpm --dir extension build`, then load `extension/.output/chrome-mv3` unpacked
-- Tests: `pnpm --dir extension test`
-- Seed catalog: `pnpm --dir scripts scrape && pnpm --dir scripts upload`
+Run from the repo root (pnpm workspace: `extension/`, `scripts/`).
+- Install: `pnpm install`
+- Dev (opens Chrome with hot reload): `pnpm dev`
+- Build: `pnpm build`, then load `extension/.output/chrome-mv3` unpacked
+- Type-check: `pnpm compile`
+- Tests: added in Phase 4 (Vitest)
+- Seed catalog: added in Phase 1 (`scripts/`)
 
 ## Debugging
 - Background logs: `chrome://extensions` → this extension → "Inspect views: service worker"
