@@ -1,0 +1,8 @@
+plan.md
+node_modules/
+.output/
+.wxt/
+dist/
+.env
+.env.*
+!.env.example
