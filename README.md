@@ -16,7 +16,7 @@
 
 </div>
 
-A browser extension that picks three LeetCode problems a day for you to revise, from topics you've already solved, so the patterns you learned are still there when the interview comes.
+A browser extension that gives you three LeetCode problems a day from topics you've already learned, usually new problems and occasionally old ones, scheduled so each topic comes back just before you'd forget it.
 
 ## Overview
 
@@ -36,6 +36,7 @@ flowchart LR
 ## Features
 
 - **Three picks a day.** New picks arrive at a time you choose and stay the same all day. "Pick again" swaps any you haven't finished.
+- **New problems, familiar topics.** Picks favour problems you haven't solved yet in topics you have, so each review is fresh practice instead of a memory test. An old problem comes back only once a topic has no unsolved ones left in your chosen lists.
 - **Spaced repetition per topic.** Each topic (Trees, Two Pointers, 1-D DP and so on) has its own SM-2 schedule. Rate a finished pick Again, Hard, Good or Easy, and the topic's next due date moves to match.
 - **Solve detection.** When LeetCode shows "Accepted", the extension syncs your recent submissions. Solves made outside your picks count as reviews too.
 - **History import.** Pull in everything you've already solved, so the schedule starts from where you really are.
