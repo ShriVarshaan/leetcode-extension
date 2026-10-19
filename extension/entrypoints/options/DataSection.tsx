@@ -1,3 +1,4 @@
+import { Trash2 } from 'lucide-react';
 import { useState } from 'react';
 import { Button, Card, Notice, Spinner } from '@/components/ui';
 import { todayCache } from '@/lib/daily';
@@ -45,10 +46,11 @@ export function DataSection() {
     >
       {!confirming ? (
         <Button variant="danger-outline" onClick={() => setConfirming(true)}>
+          <Trash2 className="h-4 w-4" aria-hidden />
           Delete my account and data
         </Button>
       ) : (
-        <div className="space-y-3 rounded-xl border border-bad/40 bg-bad/5 p-4 text-sm">
+        <div role="alertdialog" aria-label="Confirm account deletion" className="space-y-4 rounded-xl border border-bad/40 bg-bad/5 p-4 text-sm">
           <p>This permanently deletes your account and everything above. It can't be undone.</p>
           <div className="flex gap-2">
             <Button variant="danger" onClick={deleteAccount} disabled={deleting}>
@@ -62,7 +64,7 @@ export function DataSection() {
         </div>
       )}
       {error && (
-        <div className="mt-3">
+        <div className="mt-4">
           <Notice kind="error">{error}</Notice>
         </div>
       )}

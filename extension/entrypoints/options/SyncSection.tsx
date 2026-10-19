@@ -1,3 +1,4 @@
+import { Download } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import type { ImportHistoryRequest, ImportHistoryResponse } from '@/lib/messages';
 import { Button, Card, Notice, Spinner } from '@/components/ui';
@@ -44,18 +45,18 @@ export function SyncSection() {
     >
       <div className="flex flex-wrap items-center gap-4">
         <Button onClick={runImport} disabled={importing}>
-          {importing && <Spinner />}
+          {importing ? <Spinner /> : <Download className="h-4 w-4" aria-hidden />}
           {importing ? 'Importing…' : status?.lastImportAt ? 'Re-import solved problems' : 'Import solved problems'}
         </Button>
         {status && (
           <dl className="flex gap-6 text-sm">
             <div>
               <dt className="text-xs text-muted">Last import</dt>
-              <dd>{formatTime(status.lastImportAt)}</dd>
+              <dd className="mt-0.5">{formatTime(status.lastImportAt)}</dd>
             </div>
             <div>
               <dt className="text-xs text-muted">Last sync</dt>
-              <dd>{formatTime(status.lastSyncAt)}</dd>
+              <dd className="mt-0.5">{formatTime(status.lastSyncAt)}</dd>
             </div>
           </dl>
         )}

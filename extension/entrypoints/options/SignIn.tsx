@@ -1,3 +1,4 @@
+import { Mail } from 'lucide-react';
 import { useState, type FormEvent } from 'react';
 import { Button, inputClass, Notice, Spinner } from '@/components/ui';
 import { supabase } from '@/lib/supabase';
@@ -66,7 +67,7 @@ export function SignIn() {
   }
 
   return (
-    <section className="mx-auto max-w-sm rounded-2xl border border-line bg-surface p-7 shadow-sm">
+    <section className="mx-auto max-w-sm rounded-2xl border border-line bg-surface p-8 shadow-sm">
       <h2 className="text-center text-lg font-semibold">{step === 'email' ? 'Sign in' : 'Check your email'}</h2>
       <p className="mt-1 text-center text-sm text-muted">
         {step === 'email' ? "We'll email you a one-time code. No password needed." : `We sent a code to ${email}.`}
@@ -87,11 +88,12 @@ export function SignIn() {
           </label>
           <Button disabled={busy} className="w-full">
             {busy && <Spinner />}
+            {!busy && <Mail className="h-4 w-4" aria-hidden />}
             {busy ? 'Sending…' : 'Email me a code'}
           </Button>
           {googleEnabled && (
             <>
-              <div className="flex items-center gap-3 text-xs text-subtle">
+              <div className="flex items-center gap-3 text-xs text-muted">
                 <span className="h-px flex-1 bg-line" />
                 or
                 <span className="h-px flex-1 bg-line" />

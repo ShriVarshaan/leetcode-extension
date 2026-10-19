@@ -1,3 +1,4 @@
+import { ArrowDown, ListChecks } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { Button, Card, Notice, Spinner } from '@/components/ui';
 import { loadTopicSummary, type TopicSummary } from '@/lib/progress';
@@ -59,10 +60,10 @@ export function TopicsSection() {
       <button
         type="button"
         onClick={() => setSort(key)}
-        className={`rounded hover:text-fg ${sort === key ? 'text-fg' : ''}`}
+        className={`-mx-1 inline-flex items-center gap-1 rounded px-1 transition duration-200 hover:text-fg ${sort === key ? 'text-fg' : ''}`}
       >
         {label}
-        {sort === key && ' ↓'}
+        {sort === key && <ArrowDown className="h-3 w-3" aria-hidden />}
       </button>
     </th>
   );
@@ -73,9 +74,13 @@ export function TopicsSection() {
       description="Your review schedule per topic. A higher weight makes a due topic more likely to be picked; leave it empty to use the default."
     >
       {topics.length === 0 ? (
-        <p className="rounded-xl border border-dashed border-line py-8 text-center text-sm text-muted">
-          Import your solved problems above to see your topics here.
-        </p>
+        <div className="flex flex-col items-center rounded-xl border border-dashed border-line px-6 py-8 text-center">
+          <span className="flex h-10 w-10 items-center justify-center rounded-full bg-raised text-muted">
+            <ListChecks className="h-5 w-5" aria-hidden />
+          </span>
+          <p className="mt-4 text-sm font-medium">No topics yet</p>
+          <p className="mt-1 text-sm text-muted">Import your solved problems above and your topics will show up here.</p>
+        </div>
       ) : (
         <>
           <div className="-mx-6 overflow-x-auto">
@@ -95,27 +100,27 @@ export function TopicsSection() {
                 {sorted.map((t) => {
                   const due = dueLabel(t.dueAt);
                   return (
-                    <tr key={t.topic} className="hover:bg-raised/40">
+                    <tr key={t.topic} className="transition duration-200 hover:bg-raised/60">
                       <td className="pl-6">
                         <span className={`block h-2 w-2 rounded-full ${DUE_DOT[due.tone]}`} />
                       </td>
-                      <td className="px-3 py-2.5 font-medium">{t.topic}</td>
-                      <td className="px-3 py-2.5 text-right tabular-nums">{t.solved}</td>
-                      <td className={`px-3 py-2.5 ${DUE_TEXT[due.tone]}`}>{due.text}</td>
-                      <td className="px-3 py-2.5 text-right text-muted tabular-nums">
+                      <td className="px-3 py-3 font-medium">{t.topic}</td>
+                      <td className="px-3 py-3 text-right tabular-nums">{t.solved}</td>
+                      <td className={`px-3 py-3 ${DUE_TEXT[due.tone]}`}>{due.text}</td>
+                      <td className="px-3 py-3 text-right text-muted tabular-nums">
                         {t.intervalDays > 0 ? `${formatNumber(t.intervalDays)}d` : 'New'}
                       </td>
-                      <td className={`px-3 py-2.5 text-right tabular-nums ${t.ease < 2 ? 'text-warn' : ''}`}>
+                      <td className={`px-3 py-3 text-right tabular-nums ${t.ease < 2 ? 'text-warn' : ''}`}>
                         {t.ease.toFixed(2)}
                       </td>
-                      <td className="py-1.5 pr-6 pl-3 text-right">
+                      <td className="py-2 pr-6 pl-3 text-right">
                         <input
                           aria-label={`${t.topic} weight`}
                           inputMode="decimal"
                           value={overrides[t.topic] ?? ''}
                           placeholder={t.baseWeight.toFixed(2)}
                           onChange={(e) => setOverrides({ ...overrides, [t.topic]: e.target.value })}
-                          className="h-8 w-16 rounded-md border border-line bg-page px-2 text-right text-sm tabular-nums placeholder:text-subtle focus:border-accent focus:outline-none"
+                          className="h-8 w-16 rounded-md border border-line bg-page px-2 text-right text-sm tabular-nums transition duration-200 placeholder:text-muted hover:border-subtle focus:border-accent focus:ring-2 focus:ring-accent/30 focus:outline-none"
                         />
                       </td>
                     </tr>
@@ -124,7 +129,7 @@ export function TopicsSection() {
               </tbody>
             </table>
           </div>
-          <div className="mt-5 flex flex-wrap items-center justify-between gap-3">
+          <div className="mt-6 flex flex-wrap items-center justify-between gap-3">
             <div className="flex gap-4 text-xs text-muted">
               <Legend tone="due">Due now</Legend>
               <Legend tone="soon">Within 2 days</Legend>
@@ -157,12 +162,12 @@ const SORTS: Record<SortKey, (a: TopicSummary, b: TopicSummary) => number> = {
 };
 
 type Tone = 'due' | 'soon' | 'later';
-const DUE_DOT: Record<Tone, string> = { due: 'bg-hard', soon: 'bg-warn', later: 'bg-subtle/60' };
-const DUE_TEXT: Record<Tone, string> = { due: 'text-hard font-medium', soon: 'text-warn', later: 'text-muted' };
+const DUE_DOT: Record<Tone, string> = { due: 'bg-hard', soon: 'bg-medium', later: 'bg-subtle' };
+const DUE_TEXT: Record<Tone, string> = { due: 'text-hard font-medium', soon: 'text-medium', later: 'text-muted' };
 
 function Legend({ tone, children }: { tone: Tone; children: string }) {
   return (
-    <span className="flex items-center gap-1.5">
+    <span className="flex items-center gap-2">
       <span className={`h-2 w-2 rounded-full ${DUE_DOT[tone]}`} />
       {children}
     </span>

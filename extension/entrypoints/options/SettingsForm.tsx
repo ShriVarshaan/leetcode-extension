@@ -1,3 +1,4 @@
+import { Save } from 'lucide-react';
 import { useEffect, useState, type FormEvent } from 'react';
 import type { SettingsChanged } from '@/lib/messages';
 import { Button, Card, inputClass, Notice, Spinner, Toggle } from '@/components/ui';
@@ -70,7 +71,7 @@ export function SettingsForm() {
             className={inputClass}
           />
         </label>
-        <fieldset className="mt-5">
+        <fieldset className="mt-6">
           <legend className="text-sm font-medium">Problem lists</legend>
           <div className="mt-2 grid gap-2 sm:grid-cols-3">
             {LISTS.map((list) => {
@@ -78,15 +79,15 @@ export function SettingsForm() {
               return (
                 <label
                   key={list.id}
-                  className={`flex cursor-pointer items-start gap-3 rounded-xl border p-3 transition ${
-                    on ? 'border-accent/70 bg-accent/10' : 'border-line hover:border-subtle'
+                  className={`flex cursor-pointer items-start gap-3 rounded-xl border p-4 transition duration-200 ${
+                    on ? 'border-accent/60 bg-accent/10' : 'border-line hover:border-subtle hover:bg-raised/60'
                   }`}
                 >
                   <input
                     type="checkbox"
                     checked={on}
                     onChange={() => toggleList(list.id)}
-                    className="mt-0.5 h-4 w-4 accent-amber-500"
+                    className="mt-0.5 h-4 w-4 accent-accent"
                   />
                   <span>
                     <span className="block text-sm font-medium">{list.name}</span>
@@ -97,7 +98,7 @@ export function SettingsForm() {
             })}
           </div>
         </fieldset>
-        <div className="mt-3 border-t border-line pt-2">
+        <div className="mt-4 border-t border-line pt-2">
           <Toggle
             checked={settings.include_paid}
             onChange={(include_paid) => update({ include_paid })}
@@ -116,9 +117,9 @@ export function SettingsForm() {
             onChange={(e) => update({ daily_time: e.target.value })}
             className={`${inputClass} max-w-[10rem]`}
           />
-          <span className="mt-1.5 block text-xs font-normal text-muted">Time zone: {settings.timezone}</span>
+          <span className="mt-2 block text-xs font-normal text-muted">Time zone: {settings.timezone}</span>
         </label>
-        <div className="mt-3 divide-y divide-line border-t border-line">
+        <div className="mt-4 divide-y divide-line border-t border-line">
           <Toggle
             checked={settings.daily_notification}
             onChange={(daily_notification) => update({ daily_notification })}
@@ -134,11 +135,12 @@ export function SettingsForm() {
         </div>
       </Card>
 
-      <div className="sticky bottom-4 z-10 flex items-center justify-between gap-3 rounded-2xl border border-line bg-surface/90 px-5 py-3 shadow-lg backdrop-blur">
+      <div className="sticky bottom-4 z-10 flex items-center justify-between gap-3 rounded-2xl border border-line bg-surface px-6 py-4 shadow-lg">
         <span className={`text-sm ${error ? 'text-bad' : status ? 'text-ok' : 'text-muted'}`} role="status">
           {error ?? status ?? (dirty ? 'You have unsaved changes.' : 'All changes saved.')}
         </span>
-        <Button variant={dirty ? 'primary' : 'secondary'} disabled={!dirty || saving}>{saving ? <Spinner /> : 'Save changes'}</Button>
+        <Button variant={dirty ? 'primary' : 'secondary'} disabled={!dirty || saving}>{saving ? <Spinner /> : <Save className="h-4 w-4" aria-hidden />}
+          Save changes</Button>
       </div>
     </form>
   );

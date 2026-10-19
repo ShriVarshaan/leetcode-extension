@@ -1,3 +1,4 @@
+import { CircleUserRound } from 'lucide-react';
 import { useEffect, useState, type ReactNode } from 'react';
 import type { Session } from '@supabase/supabase-js';
 import { todayCache } from '@/lib/today-cache';
@@ -28,7 +29,7 @@ function NotConfigured() {
 
 function Shell(props: { account?: ReactNode; children: ReactNode }) {
   return (
-    <div className="min-h-screen px-4 py-10 sm:py-14">
+    <div className="min-h-screen px-4 py-12 sm:py-16">
       <div className="mx-auto w-full max-w-3xl">
         <header className="mb-8 flex flex-col items-center gap-3 text-center">
           <Logo className="h-12 w-12" />
@@ -73,7 +74,8 @@ function Configured() {
   }, []);
 
   const account = session && (
-    <div className="flex items-center gap-2 rounded-full border border-line bg-surface py-1 pr-1 pl-4 text-sm text-muted">
+    <div className="flex items-center gap-2 rounded-full border border-line bg-surface py-1 pr-1 pl-3 text-sm text-muted">
+      <CircleUserRound className="h-4 w-4 shrink-0" aria-hidden />
       <span className="max-w-[16rem] truncate">{session.user.email}</span>
       <Button variant="ghost" size="sm" className="rounded-full" onClick={() => supabase.auth.signOut()}>
         Sign out
@@ -89,8 +91,8 @@ function Configured() {
         </div>
       )}
       {session === undefined ? (
-        <div className="flex justify-center py-16 text-muted">
-          <Spinner />
+        <div className="flex justify-center py-16 text-muted" aria-busy="true" aria-label="Loading">
+          <Spinner className="h-6 w-6" />
         </div>
       ) : session ? (
         <div className="space-y-6">
