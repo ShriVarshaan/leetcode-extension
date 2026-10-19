@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import type { ImportHistoryRequest, ImportHistoryResponse } from '@/lib/messages';
+import { Button, Card, Notice, Spinner } from '@/components/ui';
 import { syncStatus, type SyncStatus } from '@/lib/solves';
 
 export function SyncSection() {
@@ -37,42 +38,43 @@ export function SyncSection() {
   }
 
   return (
-    <section className="mt-10 max-w-lg space-y-4">
-      <h2 className="text-lg font-semibold">LeetCode sync</h2>
-      <p className="text-sm text-slate-400">
-        Imports every problem you've solved. You need to be logged in to leetcode.com in this browser. New solves are picked
-        up automatically after that.
-      </p>
-      <button
-        onClick={runImport}
-        disabled={importing}
-        className="rounded bg-amber-500 px-4 py-2 font-medium text-slate-900 disabled:opacity-50"
-      >
-        {importing ? 'Importing…' : status?.lastImportAt ? 'Re-import solved problems' : 'Import solved problems'}
-      </button>
+    <Card
+      title="LeetCode sync"
+      description="Imports every problem you've solved. You need to be logged in to leetcode.com in this browser. New solves are picked up automatically after that."
+    >
+      <div className="flex flex-wrap items-center gap-4">
+        <Button onClick={runImport} disabled={importing}>
+          {importing && <Spinner />}
+          {importing ? 'Importing…' : status?.lastImportAt ? 'Re-import solved problems' : 'Import solved problems'}
+        </Button>
+        {status && (
+          <dl className="flex gap-6 text-sm">
+            <div>
+              <dt className="text-xs text-muted">Last import</dt>
+              <dd>{formatTime(status.lastImportAt)}</dd>
+            </div>
+            <div>
+              <dt className="text-xs text-muted">Last sync</dt>
+              <dd>{formatTime(status.lastSyncAt)}</dd>
+            </div>
+          </dl>
+        )}
+      </div>
       {message && (
-        <p className={`text-sm ${message.kind === 'ok' ? 'text-green-400' : 'text-red-400'}`}>{message.text}</p>
+        <div className="mt-4">
+          <Notice kind={message.kind}>{message.text}</Notice>
+        </div>
       )}
-      {status && (
-        <dl className="grid grid-cols-[auto_1fr] gap-x-4 gap-y-1 text-sm text-slate-400">
-          <dt>Last import</dt>
-          <dd>{formatTime(status.lastImportAt)}</dd>
-          <dt>Last sync</dt>
-          <dd>{formatTime(status.lastSyncAt)}</dd>
-          {status.lastError && (
-            <>
-              <dt>Last error</dt>
-              <dd className="text-red-400">{status.lastError}</dd>
-            </>
-          )}
-        </dl>
+      {status?.lastError && (
+        <div className="mt-4">
+          <Notice kind="warn">Last sync failed: {status.lastError}</Notice>
+        </div>
       )}
-
-    </section>
+    </Card>
   );
 }
 
 function formatTime(iso: string | null) {
-  return iso ? new Date(iso).toLocaleString() : 'Never';
+  return iso ? new Date(iso).toLocaleString(undefined, { dateStyle: 'medium', timeStyle: 'short' }) : 'Never';
 }
 

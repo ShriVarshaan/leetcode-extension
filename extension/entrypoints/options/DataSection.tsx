@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Button, Card, Notice, Spinner } from '@/components/ui';
 import { todayCache } from '@/lib/daily';
 import { syncStatus } from '@/lib/solves';
 import { supabase } from '@/lib/supabase';
@@ -25,37 +26,46 @@ export function DataSection() {
   }
 
   return (
-    <section className="mt-10 max-w-lg space-y-3">
-      <h2 className="text-lg font-semibold">Your data</h2>
-      <p className="text-sm text-slate-400">
-        Stored in Supabase: your email, LeetCode username, settings, which catalog problems you solved and when, your
-        review schedule and ratings, and your daily picks. Problem statements and your code are never stored.{' '}
-        <a href={browser.runtime.getURL('/privacy.html')} target="_blank" rel="noreferrer" className="underline">
-          Privacy policy
-        </a>
-      </p>
+    <Card
+      title="Your data"
+      description={
+        <>
+          Stored in Supabase: your email, LeetCode username, settings, which catalog problems you solved and when, your
+          review schedule and ratings, and your daily picks. Problem statements and your code are never stored.{' '}
+          <a
+            href={browser.runtime.getURL('/privacy.html')}
+            target="_blank"
+            rel="noreferrer"
+            className="text-accent-strong underline-offset-2 hover:underline"
+          >
+            Privacy policy
+          </a>
+        </>
+      }
+    >
       {!confirming ? (
-        <button onClick={() => setConfirming(true)} className="rounded border border-red-500/60 px-3 py-1.5 text-sm text-red-300">
+        <Button variant="danger-outline" onClick={() => setConfirming(true)}>
           Delete my account and data
-        </button>
+        </Button>
       ) : (
-        <div className="space-y-2 rounded border border-red-500/60 p-3 text-sm">
+        <div className="space-y-3 rounded-xl border border-bad/40 bg-bad/5 p-4 text-sm">
           <p>This permanently deletes your account and everything above. It can't be undone.</p>
           <div className="flex gap-2">
-            <button
-              onClick={deleteAccount}
-              disabled={deleting}
-              className="rounded bg-red-600 px-3 py-1.5 font-medium text-white disabled:opacity-50"
-            >
+            <Button variant="danger" onClick={deleteAccount} disabled={deleting}>
+              {deleting && <Spinner />}
               {deleting ? 'Deleting…' : 'Yes, delete everything'}
-            </button>
-            <button onClick={() => setConfirming(false)} disabled={deleting} className="rounded px-3 py-1.5 text-slate-300">
+            </Button>
+            <Button variant="ghost" onClick={() => setConfirming(false)} disabled={deleting}>
               Cancel
-            </button>
+            </Button>
           </div>
         </div>
       )}
-      {error && <p className="text-sm text-red-400">{error}</p>}
-    </section>
+      {error && (
+        <div className="mt-3">
+          <Notice kind="error">{error}</Notice>
+        </div>
+      )}
+    </Card>
   );
 }

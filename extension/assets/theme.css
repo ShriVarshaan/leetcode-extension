@@ -1,0 +1,77 @@
+/* Shared colour tokens for the popup and options page. Dark by default, light when the OS asks for it. */
+@theme {
+  --color-page: var(--rb-page);
+  --color-surface: var(--rb-surface);
+  --color-raised: var(--rb-raised);
+  --color-line: var(--rb-line);
+  --color-fg: var(--rb-fg);
+  --color-muted: var(--rb-muted);
+  --color-subtle: var(--rb-subtle);
+  --color-accent: var(--rb-accent);
+  --color-accent-strong: var(--rb-accent-strong);
+  --color-on-accent: var(--rb-on-accent);
+  --color-ok: var(--rb-ok);
+  --color-warn: var(--rb-warn);
+  --color-bad: var(--rb-bad);
+  --color-easy: var(--rb-easy);
+  --color-medium: var(--rb-medium);
+  --color-hard: var(--rb-hard);
+}
+
+:root {
+  color-scheme: dark;
+  --rb-page: #0b1120;
+  --rb-surface: #111827;
+  --rb-raised: #1e293b;
+  --rb-line: #263244;
+  --rb-fg: #e2e8f0;
+  --rb-muted: #94a3b8;
+  --rb-subtle: #64748b;
+  --rb-accent: #f59e0b;
+  --rb-accent-strong: #fbbf24;
+  --rb-on-accent: #1c1206;
+  --rb-ok: #34d399;
+  --rb-warn: #fbbf24;
+  --rb-bad: #f87171;
+  --rb-easy: #2dd4bf;
+  --rb-medium: #fbbf24;
+  --rb-hard: #fb7185;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color-scheme: light;
+    --rb-page: #f6f7f9;
+    --rb-surface: #ffffff;
+    --rb-raised: #f1f5f9;
+    --rb-line: #e2e8f0;
+    --rb-fg: #0f172a;
+    --rb-muted: #475569;
+    --rb-subtle: #94a3b8;
+    --rb-accent: #f59e0b;
+    --rb-accent-strong: #b45309;
+    --rb-on-accent: #1c1206;
+    --rb-ok: #059669;
+    --rb-warn: #b45309;
+    --rb-bad: #dc2626;
+    --rb-easy: #0d9488;
+    --rb-medium: #b45309;
+    --rb-hard: #e11d48;
+  }
+}
+
+@layer base {
+  body {
+    background: var(--rb-page);
+    color: var(--rb-fg);
+    font-family: ui-sans-serif, system-ui, 'Segoe UI', Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  :focus-visible {
+    outline: 2px solid var(--rb-accent);
+    outline-offset: 2px;
+  }
+  button:not(:disabled) {
+    cursor: pointer;
+  }
+}

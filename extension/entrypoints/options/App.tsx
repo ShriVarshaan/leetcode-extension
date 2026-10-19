@@ -1,7 +1,9 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, type ReactNode } from 'react';
 import type { Session } from '@supabase/supabase-js';
+import { todayCache } from '@/lib/today-cache';
 import type { SettingsChanged } from '@/lib/messages';
 import { isSupabaseConfigured, supabase } from '@/lib/supabase';
+import { Button, Logo, Notice, Spinner } from '@/components/ui';
 import { DataSection } from './DataSection';
 import { SignIn } from './SignIn';
 import { SettingsForm } from './SettingsForm';
@@ -15,14 +17,28 @@ function App() {
 
 function NotConfigured() {
   return (
-    <div className="min-h-screen bg-slate-900 p-8 text-slate-100">
-      <h1 className="text-2xl font-semibold">Settings</h1>
-      <div className="mt-6 max-w-lg rounded-lg border border-amber-500/50 bg-amber-500/10 p-4 text-sm">
-        <p className="font-medium text-amber-300">Supabase isn't configured yet.</p>
-        <p className="mt-2 text-slate-300">
-          Copy <code>extension/.env.example</code> to <code>extension/.env</code>, fill in{' '}
-          <code>WXT_SUPABASE_URL</code> and <code>WXT_SUPABASE_ANON_KEY</code>, then restart <code>pnpm dev</code>.
-        </p>
+    <Shell>
+      <Notice kind="warn">
+        Supabase isn't configured yet. Copy <code>extension/.env.example</code> to <code>extension/.env</code>, fill in{' '}
+        <code>WXT_SUPABASE_URL</code> and <code>WXT_SUPABASE_ANON_KEY</code>, then restart <code>pnpm dev</code>.
+      </Notice>
+    </Shell>
+  );
+}
+
+function Shell(props: { account?: ReactNode; children: ReactNode }) {
+  return (
+    <div className="min-h-screen px-4 py-10 sm:py-14">
+      <div className="mx-auto w-full max-w-3xl">
+        <header className="mb-8 flex flex-col items-center gap-3 text-center">
+          <Logo className="h-12 w-12" />
+          <div>
+            <h1 className="text-2xl font-semibold tracking-tight">Revision Buddy</h1>
+            <p className="mt-1 text-sm text-muted">Three LeetCode revision problems a day, on topics you've already solved.</p>
+          </div>
+          {props.account}
+        </header>
+        {props.children}
       </div>
     </div>
   );
@@ -47,6 +63,8 @@ function Configured() {
     const { data: sub } = supabase.auth.onAuthStateChange((event, s) => {
       setSession(s);
       // The background schedules the daily alarm only while someone is signed in.
+      // The popup shows the cached picks before checking the session, so don't leave them behind.
+      if (event === 'SIGNED_OUT') void todayCache.removeValue();
       if (event === 'SIGNED_IN' || event === 'SIGNED_OUT') {
         void browser.runtime.sendMessage({ type: 'settings-changed' } satisfies SettingsChanged).catch(() => {});
       }
@@ -54,31 +72,37 @@ function Configured() {
     return () => sub.subscription.unsubscribe();
   }, []);
 
+  const account = session && (
+    <div className="flex items-center gap-2 rounded-full border border-line bg-surface py-1 pr-1 pl-4 text-sm text-muted">
+      <span className="max-w-[16rem] truncate">{session.user.email}</span>
+      <Button variant="ghost" size="sm" className="rounded-full" onClick={() => supabase.auth.signOut()}>
+        Sign out
+      </Button>
+    </div>
+  );
+
   return (
-    <div className="min-h-screen bg-slate-900 p-8 text-slate-100">
-      <header className="mb-8 flex max-w-lg items-center justify-between">
-        <h1 className="text-2xl font-semibold">Settings</h1>
-        {session && (
-          <div className="text-right text-sm text-slate-400">
-            {session.user.email}
-            <button onClick={() => supabase.auth.signOut()} className="ml-3 text-slate-300 underline hover:text-white">
-              Sign out
-            </button>
-          </div>
-        )}
-      </header>
-      {error && <p className="mb-4 max-w-lg text-sm text-red-400">Couldn't restore your session: {error}</p>}
-      {session === undefined ? <p className="text-slate-400">Loading…</p> : session ? (
-        <>
+    <Shell account={account}>
+      {error && (
+        <div className="mb-6">
+          <Notice kind="error">Couldn't restore your session: {error}</Notice>
+        </div>
+      )}
+      {session === undefined ? (
+        <div className="flex justify-center py-16 text-muted">
+          <Spinner />
+        </div>
+      ) : session ? (
+        <div className="space-y-6">
           <SettingsForm />
           <SyncSection />
           <TopicsSection />
           <DataSection />
-        </>
+        </div>
       ) : (
         <SignIn />
       )}
-    </div>
+    </Shell>
   );
 }
 

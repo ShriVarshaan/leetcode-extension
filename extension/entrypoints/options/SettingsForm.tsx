@@ -1,9 +1,18 @@
 import { useEffect, useState, type FormEvent } from 'react';
 import type { SettingsChanged } from '@/lib/messages';
+import { Button, Card, inputClass, Notice, Spinner, Toggle } from '@/components/ui';
 import { LISTS, loadSettings, saveSettings, type ListId, type UserSettings } from '@/lib/settings';
+
+const LIST_HINTS: Record<ListId, string> = {
+  blind75: 'The classic 75',
+  neetcode150: 'Blind 75 plus 75 more',
+  striver_a2z: 'The LeetCode problems in the A2Z sheet',
+};
 
 export function SettingsForm() {
   const [settings, setSettings] = useState<UserSettings | null>(null);
+  const [dirty, setDirty] = useState(false);
+  const [saving, setSaving] = useState(false);
   const [status, setStatus] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
 
@@ -13,10 +22,14 @@ export function SettingsForm() {
       .catch((e: Error) => setError(e.message));
   }, []);
 
-  if (error && !settings) return <p className="text-red-400">{error}</p>;
-  if (!settings) return <p className="text-slate-400">Loading…</p>;
+  if (error && !settings) return <Notice kind="error">{error}</Notice>;
+  if (!settings) return <CardSkeleton />;
 
-  const update = (patch: Partial<UserSettings>) => setSettings({ ...settings, ...patch });
+  const update = (patch: Partial<UserSettings>) => {
+    setSettings({ ...settings, ...patch });
+    setDirty(true);
+    setStatus(null);
+  };
 
   function toggleList(id: ListId) {
     const lists = settings!.lists.includes(id)
@@ -30,86 +43,114 @@ export function SettingsForm() {
     setStatus(null);
     setError(null);
     if (settings!.lists.length === 0) return setError('Pick at least one list.');
+    setSaving(true);
     try {
       const { weight_overrides: _, ...rest } = settings!; // edited in the topic table
       await saveSettings({ ...rest, lc_username: rest.lc_username?.trim() || null });
       // The background reschedules the daily alarm for the new time.
       await browser.runtime.sendMessage({ type: 'settings-changed' } satisfies SettingsChanged);
+      setDirty(false);
       setStatus('Saved');
     } catch (err) {
       setError((err as Error).message);
+    } finally {
+      setSaving(false);
     }
   }
 
-  const input = 'mt-1 w-full rounded bg-slate-800 px-3 py-2 text-slate-100';
-
   return (
-    <form onSubmit={onSave} className="max-w-lg space-y-8">
-      <section className="space-y-3">
-        <h2 className="text-lg font-semibold">LeetCode</h2>
-        <label className="block text-sm text-slate-300">
+    <form onSubmit={onSave} className="space-y-6">
+      <Card title="LeetCode" description="Which problems your picks come from.">
+        <label className="block text-sm font-medium">
           LeetCode username
           <input
             value={settings.lc_username ?? ''}
             onChange={(e) => update({ lc_username: e.target.value })}
             placeholder="e.g. neal_wu"
-            className={input}
+            className={inputClass}
           />
         </label>
-        <fieldset className="space-y-2">
-          <legend className="text-sm text-slate-300">Problem lists</legend>
-          {LISTS.map((list) => (
-            <label key={list.id} className="flex items-center gap-2 text-sm">
-              <input type="checkbox" checked={settings.lists.includes(list.id)} onChange={() => toggleList(list.id)} />
-              {list.name}
-            </label>
-          ))}
+        <fieldset className="mt-5">
+          <legend className="text-sm font-medium">Problem lists</legend>
+          <div className="mt-2 grid gap-2 sm:grid-cols-3">
+            {LISTS.map((list) => {
+              const on = settings.lists.includes(list.id);
+              return (
+                <label
+                  key={list.id}
+                  className={`flex cursor-pointer items-start gap-3 rounded-xl border p-3 transition ${
+                    on ? 'border-accent/70 bg-accent/10' : 'border-line hover:border-subtle'
+                  }`}
+                >
+                  <input
+                    type="checkbox"
+                    checked={on}
+                    onChange={() => toggleList(list.id)}
+                    className="mt-0.5 h-4 w-4 accent-amber-500"
+                  />
+                  <span>
+                    <span className="block text-sm font-medium">{list.name}</span>
+                    <span className="block text-xs text-muted">{LIST_HINTS[list.id]}</span>
+                  </span>
+                </label>
+              );
+            })}
+          </div>
         </fieldset>
-        <label className="flex items-center gap-2 text-sm">
-          <input
-            type="checkbox"
+        <div className="mt-3 border-t border-line pt-2">
+          <Toggle
             checked={settings.include_paid}
-            onChange={(e) => update({ include_paid: e.target.checked })}
+            onChange={(include_paid) => update({ include_paid })}
+            label="Include premium-only problems"
+            hint="Only turn this on if you have LeetCode Premium."
           />
-          Include premium-only problems
-        </label>
-      </section>
+        </div>
+      </Card>
 
-      <section className="space-y-3">
-        <h2 className="text-lg font-semibold">Reminders</h2>
-        <label className="block text-sm text-slate-300">
+      <Card title="Reminders" description="When new picks arrive and how you hear about them.">
+        <label className="block text-sm font-medium">
           New picks every day at
           <input
             type="time"
             value={settings.daily_time.slice(0, 5)}
             onChange={(e) => update({ daily_time: e.target.value })}
-            className={input}
+            className={`${inputClass} max-w-[10rem]`}
           />
-          <span className="mt-1 block text-xs text-slate-500">Time zone: {settings.timezone}</span>
+          <span className="mt-1.5 block text-xs font-normal text-muted">Time zone: {settings.timezone}</span>
         </label>
-        <label className="flex items-center gap-2 text-sm">
-          <input
-            type="checkbox"
+        <div className="mt-3 divide-y divide-line border-t border-line">
+          <Toggle
             checked={settings.daily_notification}
-            onChange={(e) => update({ daily_notification: e.target.checked })}
+            onChange={(daily_notification) => update({ daily_notification })}
+            label="Daily notification"
+            hint="Let me know when today's picks are ready."
           />
-          Show a notification when today's picks are ready
-        </label>
-        <label className="flex items-center gap-2 text-sm">
-          <input
-            type="checkbox"
+          <Toggle
             checked={settings.weekly_email}
-            onChange={(e) => update({ weekly_email: e.target.checked })}
+            onChange={(weekly_email) => update({ weekly_email })}
+            label="Weekly summary email"
+            hint="Sent on Sunday evenings: solves, reviews, streak and what's due next."
           />
-          Email me a weekly summary on Sunday evenings
-        </label>
-      </section>
+        </div>
+      </Card>
 
-      <div className="flex items-center gap-3">
-        <button className="rounded bg-amber-500 px-4 py-2 font-medium text-slate-900">Save</button>
-        {status && <span className="text-sm text-green-400">{status}</span>}
-        {error && <span className="text-sm text-red-400">{error}</span>}
+      <div className="sticky bottom-4 z-10 flex items-center justify-between gap-3 rounded-2xl border border-line bg-surface/90 px-5 py-3 shadow-lg backdrop-blur">
+        <span className={`text-sm ${error ? 'text-bad' : status ? 'text-ok' : 'text-muted'}`} role="status">
+          {error ?? status ?? (dirty ? 'You have unsaved changes.' : 'All changes saved.')}
+        </span>
+        <Button variant={dirty ? 'primary' : 'secondary'} disabled={!dirty || saving}>{saving ? <Spinner /> : 'Save changes'}</Button>
       </div>
     </form>
+  );
+}
+
+export function CardSkeleton() {
+  return (
+    <div className="animate-pulse rounded-2xl border border-line bg-surface p-6">
+      <div className="h-4 w-32 rounded bg-raised" />
+      <div className="mt-2 h-3 w-56 rounded bg-raised" />
+      <div className="mt-6 h-10 rounded-lg bg-raised" />
+      <div className="mt-3 h-10 rounded-lg bg-raised" />
+    </div>
   );
 }

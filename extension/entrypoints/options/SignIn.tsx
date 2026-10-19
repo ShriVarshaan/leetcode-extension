@@ -1,4 +1,5 @@
 import { useState, type FormEvent } from 'react';
+import { Button, inputClass, Notice, Spinner } from '@/components/ui';
 import { supabase } from '@/lib/supabase';
 
 const googleEnabled = import.meta.env.WXT_GOOGLE_SIGN_IN === 'true';
@@ -65,57 +66,70 @@ export function SignIn() {
   }
 
   return (
-    <section className="max-w-sm rounded-lg border border-slate-700 p-6">
-      <h2 className="text-lg font-semibold">Sign in</h2>
+    <section className="mx-auto max-w-sm rounded-2xl border border-line bg-surface p-7 shadow-sm">
+      <h2 className="text-center text-lg font-semibold">{step === 'email' ? 'Sign in' : 'Check your email'}</h2>
+      <p className="mt-1 text-center text-sm text-muted">
+        {step === 'email' ? "We'll email you a one-time code. No password needed." : `We sent a code to ${email}.`}
+      </p>
       {step === 'email' ? (
-        <form onSubmit={sendCode} className="mt-4 space-y-3">
-          <label className="block text-sm text-slate-300">
+        <form onSubmit={sendCode} className="mt-6 space-y-4">
+          <label className="block text-sm font-medium">
             Email
             <input
               type="email"
               required
+              autoFocus
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="mt-1 w-full rounded bg-slate-800 px-3 py-2 text-slate-100"
+              placeholder="you@example.com"
+              className={inputClass}
             />
           </label>
-          <button disabled={busy} className="w-full rounded bg-amber-500 py-2 font-medium text-slate-900 disabled:opacity-50">
+          <Button disabled={busy} className="w-full">
+            {busy && <Spinner />}
             {busy ? 'Sending…' : 'Email me a code'}
-          </button>
+          </Button>
           {googleEnabled && (
-            <button
-              type="button"
-              disabled={busy}
-              onClick={signInWithGoogle}
-              className="w-full rounded border border-slate-600 py-2 text-sm hover:bg-slate-800 disabled:opacity-50"
-            >
-              Continue with Google
-            </button>
+            <>
+              <div className="flex items-center gap-3 text-xs text-subtle">
+                <span className="h-px flex-1 bg-line" />
+                or
+                <span className="h-px flex-1 bg-line" />
+              </div>
+              <Button type="button" variant="secondary" disabled={busy} onClick={signInWithGoogle} className="w-full">
+                Continue with Google
+              </Button>
+            </>
           )}
         </form>
       ) : (
-        <form onSubmit={verifyCode} className="mt-4 space-y-3">
-          <p className="text-sm text-slate-400">We sent a code to {email}.</p>
-          <label className="block text-sm text-slate-300">
+        <form onSubmit={verifyCode} className="mt-6 space-y-4">
+          <label className="block text-sm font-medium">
             Code
             <input
               inputMode="numeric"
               autoComplete="one-time-code"
               required
+              autoFocus
               value={code}
               onChange={(e) => setCode(e.target.value)}
-              className="mt-1 w-full rounded bg-slate-800 px-3 py-2 tracking-widest text-slate-100"
+              className={`${inputClass} text-center text-lg tracking-[0.4em]`}
             />
           </label>
-          <button disabled={busy} className="w-full rounded bg-amber-500 py-2 font-medium text-slate-900 disabled:opacity-50">
+          <Button disabled={busy} className="w-full">
+            {busy && <Spinner />}
             {busy ? 'Checking…' : 'Sign in'}
-          </button>
-          <button type="button" onClick={() => setStep('email')} className="w-full text-sm text-slate-400 hover:text-slate-200">
+          </Button>
+          <Button type="button" variant="ghost" onClick={() => setStep('email')} className="w-full">
             Use a different email
-          </button>
+          </Button>
         </form>
       )}
-      {error && <p className="mt-3 text-sm text-red-400">{error}</p>}
+      {error && (
+        <div className="mt-4">
+          <Notice kind="error">{error}</Notice>
+        </div>
+      )}
     </section>
   );
 }

@@ -78,16 +78,37 @@ function showBanner() {
   const root = host.attachShadow({ mode: 'open' });
   const style = document.createElement('style');
   style.textContent = `
-    .box { position: fixed; left: 16px; bottom: 16px; z-index: 2147483647; max-width: 360px; padding: 10px 12px;
-           border-radius: 8px; background: #0f172a; color: #e2e8f0; border: 1px solid #f59e0b80;
-           font: 13px/1.4 system-ui, sans-serif; box-shadow: 0 4px 16px #0006; }
-    .title { color: #fbbf24; font-weight: 600; }
-    .row { margin-top: 6px; display: flex; gap: 4px; flex-wrap: wrap; align-items: center; }
-    button { font: inherit; padding: 2px 8px; border-radius: 4px; border: 0; background: #1e293b; color: #e2e8f0; cursor: pointer; }
-    button:hover { background: #334155; }
-    .close { position: absolute; top: 2px; right: 6px; background: none; color: #64748b; }
-    .muted { color: #94a3b8; }
-    .err { color: #f87171; margin-top: 4px; }`;
+    :host { --bg: #1e1e1e; --fg: #eff1f6; --muted: #a3a8b3; --line: #3a3a3a; --raised: #2a2a2a; --accent: #ffa116;
+            --ok: #2cbb5d; --bad: #ef4743; --warn: #ffb800; --easy: #00b8a3; --shadow: 0 8px 24px #0008; }
+    :host([data-theme='light']) { --bg: #ffffff; --fg: #1a1a1a; --muted: #5c6370; --line: #e6e6e6; --raised: #f3f4f5;
+            --shadow: 0 8px 24px #0002; }
+    .box { position: fixed; left: 20px; bottom: 56px; z-index: 2147483647; width: 320px; box-sizing: border-box;
+           padding: 12px 14px; border-radius: 12px; background: var(--bg); color: var(--fg);
+           border: 1px solid var(--line); border-left: 3px solid var(--accent); box-shadow: var(--shadow);
+           font: 13px/1.45 -apple-system, system-ui, 'Segoe UI', sans-serif; animation: in .2s ease-out; }
+    @keyframes in { from { opacity: 0; transform: translateY(8px); } }
+    .head { display: flex; align-items: center; gap: 6px; padding-right: 20px; }
+    .label { color: var(--accent); font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: .04em; }
+    .chip { padding: 1px 8px; border-radius: 999px; background: var(--raised); color: var(--muted); font-size: 11px; }
+    .reason { margin-top: 4px; color: var(--muted); }
+    .ask { margin-top: 10px; font-weight: 600; font-size: 12px; }
+    .row { margin-top: 6px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; }
+    button { font: inherit; font-size: 12px; font-weight: 500; padding: 5px 0; border-radius: 8px; cursor: pointer;
+             border: 1px solid var(--line); background: var(--raised); color: var(--fg); transition: .15s; }
+    button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+    .r1:hover { border-color: var(--bad); color: var(--bad); }
+    .r2:hover { border-color: var(--warn); color: var(--warn); }
+    .r3:hover { border-color: var(--ok); color: var(--ok); }
+    .r4:hover { border-color: var(--easy); color: var(--easy); }
+    .close { position: absolute; top: 8px; right: 8px; width: 24px; height: 24px; padding: 0; border: 0;
+             background: none; color: var(--muted); font-size: 16px; line-height: 1; }
+    .close:hover { background: var(--raised); color: var(--fg); }
+    .done { margin-top: 8px; color: var(--ok); font-weight: 500; }
+    .err { margin-top: 8px; color: var(--bad); }`;
+  // Follow LeetCode's own light/dark theme (it toggles a "dark" class on <html>).
+  const syncTheme = () => host.setAttribute('data-theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+  syncTheme();
+  new MutationObserver(syncTheme).observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
   let recs: DailyRecs | null = null;
   let shownFor = '';
   let dismissed = '';
@@ -129,21 +150,20 @@ function showBanner() {
       dismissed = pick.slug;
       host.remove();
     });
-    const line = el('div', '');
-    line.append(el('span', 'title', 'Review'), ` ${pick.reason}`);
-    box.append(close, line);
+    const head = el('div', 'head');
+    head.append(el('span', 'label', "Today's revision"), el('span', 'chip', pick.topic));
+    box.append(close, head, el('div', 'reason', pick.reason));
 
     if (completed && !rating) {
       const row = el('div', 'row');
-      row.append(el('span', 'muted', 'How did it go?'));
       for (const r of [1, 2, 3, 4] as Rating[]) {
-        const b = el('button', '', RATING_LABELS[r]);
+        const b = el('button', `r${r}`, RATING_LABELS[r]);
         b.addEventListener('click', () => void rate(pick.slug, r));
         row.append(b);
       }
-      box.append(row);
+      box.append(el('div', 'ask', 'Nice! How did it go?'), row);
     } else if (completed) {
-      box.append(el('div', 'row muted', `✓ Done${rating === 'auto' ? '' : ` · rated ${RATING_LABELS[rating as Rating]}`}`));
+      box.append(el('div', 'done', `✓ Done${rating === 'auto' ? '' : ` · rated ${RATING_LABELS[rating as Rating]}`}`));
     }
     if (error) box.append(el('div', 'err', error));
 
