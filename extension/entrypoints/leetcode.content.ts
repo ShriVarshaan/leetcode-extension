@@ -78,30 +78,32 @@ function showBanner() {
   const root = host.attachShadow({ mode: 'open' });
   const style = document.createElement('style');
   style.textContent = `
-    :host { --bg: #1e1e1e; --fg: #eff1f6; --muted: #a3a8b3; --line: #3a3a3a; --raised: #2a2a2a; --accent: #ffa116;
+    :host { --bg: #1e1e1e; --fg: #eff1f6; --muted: #a3a8b3; --line: #3a3a3a; --raised: #2a2a2a; --accent: #ffa116; --accent-text: #ffa116;
             --ok: #2cbb5d; --bad: #ef4743; --warn: #ffb800; --easy: #00b8a3; --shadow: 0 8px 24px #0008; }
     :host([data-theme='light']) { --bg: #ffffff; --fg: #1a1a1a; --muted: #5c6370; --line: #e6e6e6; --raised: #f3f4f5;
-            --shadow: 0 8px 24px #0002; }
+            --accent-text: #b45309; --ok: #1a7f3c; --bad: #c62f2b; --warn: #a15c00; --easy: #00796b; --shadow: 0 8px 24px #0002; }
     .box { position: fixed; left: 20px; bottom: 56px; z-index: 2147483647; width: 320px; box-sizing: border-box;
-           padding: 12px 14px; border-radius: 12px; background: var(--bg); color: var(--fg);
+           padding: 16px; border-radius: 12px; background: var(--bg); color: var(--fg);
            border: 1px solid var(--line); border-left: 3px solid var(--accent); box-shadow: var(--shadow);
            font: 13px/1.45 -apple-system, system-ui, 'Segoe UI', sans-serif; animation: in .2s ease-out; }
     @keyframes in { from { opacity: 0; transform: translateY(8px); } }
-    .head { display: flex; align-items: center; gap: 6px; padding-right: 20px; }
-    .label { color: var(--accent); font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: .04em; }
-    .chip { padding: 1px 8px; border-radius: 999px; background: var(--raised); color: var(--muted); font-size: 11px; }
-    .reason { margin-top: 4px; color: var(--muted); }
-    .ask { margin-top: 10px; font-weight: 600; font-size: 12px; }
-    .row { margin-top: 6px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; }
-    button { font: inherit; font-size: 12px; font-weight: 500; padding: 5px 0; border-radius: 8px; cursor: pointer;
-             border: 1px solid var(--line); background: var(--raised); color: var(--fg); transition: .15s; }
+    @media (prefers-reduced-motion: reduce) { .box { animation: none; } button { transition: none; } }
+    .head { display: flex; align-items: center; gap: 8px; padding-right: 24px; }
+    .label { color: var(--accent-text); font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: .04em; }
+    .chip { padding: 1px 8px; border-radius: 999px; background: var(--raised); color: var(--muted); font-size: 12px; }
+    .reason { margin-top: 8px; color: var(--muted); }
+    .ask { margin-top: 12px; font-weight: 600; font-size: 12px; }
+    .row { margin-top: 8px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; }
+    button { font: inherit; font-size: 12px; font-weight: 500; height: 32px; padding: 0; border-radius: 8px; cursor: pointer;
+             border: 1px solid var(--line); background: var(--raised); color: var(--fg); transition: .2s; }
+    button:active { transform: scale(.96); }
     button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
     .r1:hover { border-color: var(--bad); color: var(--bad); }
     .r2:hover { border-color: var(--warn); color: var(--warn); }
     .r3:hover { border-color: var(--ok); color: var(--ok); }
     .r4:hover { border-color: var(--easy); color: var(--easy); }
-    .close { position: absolute; top: 8px; right: 8px; width: 24px; height: 24px; padding: 0; border: 0;
-             background: none; color: var(--muted); font-size: 16px; line-height: 1; }
+    .close { position: absolute; top: 8px; right: 8px; width: 32px; height: 32px; display: grid; place-items: center;
+             border: 0; background: none; color: var(--muted); }
     .close:hover { background: var(--raised); color: var(--fg); }
     .done { margin-top: 8px; color: var(--ok); font-weight: 500; }
     .err { margin-top: 8px; color: var(--bad); }`;
@@ -144,8 +146,12 @@ function showBanner() {
 
     const box = el('div', 'box');
     box.setAttribute('role', 'status');
-    const close = el('button', 'close', '×');
+    const close = el('button', 'close');
+    // Lucide's "x" icon, inlined since this banner isn't React.
+    close.innerHTML =
+      '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>';
     close.setAttribute('aria-label', 'Hide');
+    close.title = 'Hide';
     close.addEventListener('click', () => {
       dismissed = pick.slug;
       host.remove();
