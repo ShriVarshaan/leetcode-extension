@@ -185,27 +185,27 @@ describe('chooseProblem', () => {
   });
 });
 
-// Real weights from the seed; every topic falls due on day 0 (the worst case), then the
+// Real weights from topic_weights (0009); every topic falls due on day 0 (the worst case), then the
 // simulated user does all 3 picks every day.
 const WEIGHTS: Record<string, number> = {
-  Trees: 1.8,
-  Graphs: 1.56,
-  '1-D Dynamic Programming': 1.44,
-  '2-D Dynamic Programming': 1.32,
-  'Linked List': 1.32,
-  Backtracking: 1.08,
-  'Arrays & Hashing': 1.08,
-  'Math & Geometry': 0.96,
-  Greedy: 0.96,
-  'Heap / Priority Queue': 0.84,
-  'Binary Search': 0.84,
-  'Bit Manipulation': 0.84,
-  Stack: 0.84,
-  'Sliding Window': 0.72,
-  'Advanced Graphs': 0.72,
-  Intervals: 0.72,
-  'Two Pointers': 0.6,
-  Tries: 0.5,
+  'Arrays & Hashing': 2.0,
+  Trees: 1.7,
+  Graphs: 1.6,
+  'Two Pointers': 1.4,
+  'Sliding Window': 1.4,
+  '1-D Dynamic Programming': 1.3,
+  'Binary Search': 1.3,
+  'Heap / Priority Queue': 1.2,
+  Intervals: 1.1,
+  Stack: 1.1,
+  'Linked List': 1.0,
+  Backtracking: 1.0,
+  '2-D Dynamic Programming': 1.0,
+  Greedy: 0.9,
+  'Advanced Graphs': 0.8,
+  Tries: 0.7,
+  'Math & Geometry': 0.6,
+  'Bit Manipulation': 0.5,
 };
 
 function simulate(days: number, rate: (topic: string) => Rating) {
