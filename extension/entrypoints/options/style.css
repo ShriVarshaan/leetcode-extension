@@ -1,2 +1,7 @@
 @import "tailwindcss";
 @import "../../assets/theme.css";
+
+/* Keep keyboard-focused fields clear of the sticky save bar. */
+html {
+  scroll-padding-bottom: 6rem;
+}

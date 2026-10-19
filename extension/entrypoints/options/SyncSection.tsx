@@ -44,7 +44,7 @@ export function SyncSection() {
       description="Imports every problem you've solved. You need to be logged in to leetcode.com in this browser. New solves are picked up automatically after that."
     >
       <div className="flex flex-wrap items-center gap-4">
-        <Button onClick={runImport} disabled={importing}>
+        <Button variant={status?.lastImportAt ? 'secondary' : 'primary'} onClick={runImport} disabled={importing}>
           {importing ? <Spinner /> : <Download className="h-4 w-4" aria-hidden />}
           {importing ? 'Importing…' : status?.lastImportAt ? 'Re-import solved problems' : 'Import solved problems'}
         </Button>

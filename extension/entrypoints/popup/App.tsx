@@ -24,7 +24,8 @@ function App() {
   const [view, setView] = useState<View>({ kind: 'loading' });
   const [recs, setRecs] = useState<DailyRecs | null>(null);
   const [streak, setStreak] = useState<number | null>(null);
-  const [topics, setTopics] = useState<TopicSummary[]>([]);
+  // null while loading, so the due list can hold its space instead of popping in.
+  const [topics, setTopics] = useState<TopicSummary[] | null>(null);
   const [busy, setBusy] = useState(false);
   const [actionError, setActionError] = useState<string | null>(null);
   const [syncError, setSyncError] = useState<string | null>(null);
@@ -56,7 +57,9 @@ function App() {
       const [s, t] = await Promise.all([loadStreak(settings), loadTopicSummary(settings)]);
       setStreak(s);
       setTopics(t);
-    })().catch((e: Error) => setActionError(friendlyError(e)));
+    })()
+      .catch((e: Error) => setActionError(friendlyError(e)))
+      .finally(() => setTopics((t) => t ?? []));
     void syncStatus.getValue().then((s) => setSyncError(s.lastError));
     // A solve detected while the popup is open ticks the pick straight away.
     return todayCache.watch((r) => r && setRecs(r));
@@ -78,8 +81,8 @@ function App() {
   const allDone = recs !== null && recs.picks.length > 0 && done === recs.picks.length;
 
   return (
-    <div className="w-[22.5rem] p-4">
-      <header className="flex items-center gap-3">
+    <div className="w-[22.5rem] px-4 pb-4">
+      <header className="sticky top-0 z-10 -mx-4 flex items-center gap-3 bg-page px-4 pt-4 pb-2">
         <Logo className="h-8 w-8" />
         <div className="min-w-0 flex-1">
           <h1 className="text-sm leading-tight font-semibold">Revision Buddy</h1>
@@ -141,11 +144,24 @@ function App() {
             </StateCard>
           ) : (
             <>
-              <div className="mt-4 flex items-baseline justify-between">
+              <div className="mt-2 flex items-center gap-2">
                 <h2 className="text-xs font-semibold tracking-wide text-muted uppercase">Today's picks</h2>
-                <span className="text-xs text-muted tabular-nums">
-                  {done} of {recs.picks.length} done
+                <span className="flex-1 text-xs text-muted tabular-nums" aria-live="polite">
+                  · {done} of {recs.picks.length} done
                 </span>
+                {!allDone && (
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    className="-mr-2"
+                    onClick={() => run({ type: 'pick-again' })}
+                    disabled={busy}
+                    title="Swap today's unfinished picks for new ones"
+                  >
+                    <RefreshCw className={`h-3.5 w-3.5 ${busy ? 'animate-spin' : ''}`} aria-hidden />
+                    Pick again
+                  </Button>
+                )}
               </div>
               <div
                 className="mt-2 flex gap-1"
@@ -164,7 +180,7 @@ function App() {
                   />
                 ))}
               </div>
-              <ul className="mt-4 space-y-2">
+              <ul className="mt-3 space-y-2">
                 {recs.picks.map((p) => (
                   <PickCard
                     key={p.slug}
@@ -184,15 +200,7 @@ function App() {
               All done for today. See you tomorrow!
             </div>
           )}
-          {!allDone && recs.picks.length > 0 && (
-            <div className="mt-2 flex justify-end">
-              <Button variant="ghost" size="sm" onClick={() => run({ type: 'pick-again' })} disabled={busy}>
-                <RefreshCw className={`h-3.5 w-3.5 ${busy ? 'animate-spin' : ''}`} aria-hidden />
-                Pick again
-              </Button>
-            </div>
-          )}
-          <DuePreview topics={topics} />
+          <DuePreview topics={topics} pickTopics={recs.picks.map((p) => p.topic)} />
         </>
       )}
       {actionError && view.kind === 'ready' && (
@@ -229,7 +237,7 @@ function StateCard(props: { icon: ReactNode; tone?: 'bad'; title: string; text: 
 
 function PicksSkeleton() {
   return (
-    <div className="mt-4 animate-pulse" aria-busy="true" aria-label="Loading today's picks">
+    <div className="mt-2 animate-pulse" aria-busy="true" aria-label="Loading today's picks">
       <div className="flex justify-between">
         <div className="h-3 w-24 rounded bg-raised" />
         <div className="h-3 w-16 rounded bg-raised" />
@@ -241,7 +249,7 @@ function PicksSkeleton() {
       </div>
       <div className="mt-4 space-y-2">
         {[0, 1, 2].map((i) => (
-          <div key={i} className="flex gap-3 rounded-xl border border-line bg-surface p-4">
+          <div key={i} className="flex gap-3 rounded-xl border border-line bg-surface p-3">
             <div className="h-5 w-5 shrink-0 rounded-full bg-raised" />
             <div className="flex-1">
               <div className="h-3.5 w-3/5 rounded bg-raised" />
@@ -275,7 +283,7 @@ function PickCard(props: {
   const { pick, completed, rating } = props;
   return (
     <li
-      className={`rounded-xl border p-4 transition duration-200 ${
+      className={`rounded-xl border p-3 transition duration-200 ${
         completed ? 'border-ok/25 bg-ok/5' : 'border-line bg-surface hover:border-subtle hover:bg-raised/40'
       }`}
     >
@@ -313,9 +321,9 @@ function PickCard(props: {
             <span aria-hidden>·</span>
             <span>{pick.topic}</span>
           </div>
-          <p className="mt-2 text-xs leading-relaxed text-muted">{pick.reason}</p>
+          {!completed && <p className="mt-2 text-xs leading-relaxed text-muted">{pick.reason}</p>}
           {completed && !rating && (
-            <fieldset className="mt-3">
+            <fieldset className="mt-2">
               <legend className="text-xs font-medium">How did it go?</legend>
               <div className="mt-2 grid grid-cols-4 gap-1">
                 {([1, 2, 3, 4] as Rating[]).map((r) => (
@@ -343,40 +351,45 @@ function PickCard(props: {
   );
 }
 
-function DuePreview({ topics }: { topics: TopicSummary[] }) {
-  if (topics.length === 0) return null;
+function DuePreview({ topics, pickTopics }: { topics: TopicSummary[] | null; pickTopics: string[] }) {
+  if (topics === null) return <DueSkeleton />;
+  // Topics in today's picks are already on screen, so show what's after them.
+  const next = topics.filter((t) => !pickTopics.includes(t.topic));
+  if (next.length === 0) return null;
   const now = Date.now();
-  const due = topics.filter((t) => Date.parse(t.dueAt) <= now);
-  const upcoming = topics.filter((t) => Date.parse(t.dueAt) > now).slice(0, 4);
+  const dueCount = next.filter((t) => Date.parse(t.dueAt) <= now).length;
   return (
-    <div className="mt-4 space-y-4 border-t border-line pt-4 text-xs">
-      <section>
-        <h2 className="font-semibold tracking-wide text-muted uppercase">Due now</h2>
-        {due.length ? (
-          <div className="mt-2 flex flex-wrap gap-1">
-            {due.map((t) => (
-              <span key={t.topic} className="rounded-full border border-hard/25 bg-hard/10 px-2 py-0.5 text-hard">
-                {t.topic}
+    <section className="mt-4 border-t border-line pt-4 text-xs">
+      <div className="flex items-baseline justify-between">
+        <h2 className="font-semibold tracking-wide text-muted uppercase">Up next</h2>
+        {dueCount > 3 && <span className="text-hard">{dueCount} topics due</span>}
+      </div>
+      <ul className="mt-2 space-y-1">
+        {next.slice(0, 3).map((t) => {
+          const due = Date.parse(t.dueAt) <= now;
+          return (
+            <li key={t.topic} className="flex justify-between gap-4">
+              <span className="truncate">{t.topic}</span>
+              <span className={`shrink-0 ${due ? 'font-medium text-hard' : 'text-muted'}`}>
+                {due ? 'due now' : relativeDay(t.dueAt)}
               </span>
-            ))}
-          </div>
-        ) : (
-          <p className="mt-2 text-muted">Nothing. You're all caught up.</p>
-        )}
-      </section>
-      {upcoming.length > 0 && (
-        <section>
-          <h2 className="font-semibold tracking-wide text-muted uppercase">Coming up</h2>
-          <ul className="mt-2 space-y-1">
-            {upcoming.map((t) => (
-              <li key={t.topic} className="flex justify-between gap-4">
-                <span className="truncate">{t.topic}</span>
-                <span className="shrink-0 text-muted">{relativeDay(t.dueAt)}</span>
-              </li>
-            ))}
-          </ul>
-        </section>
-      )}
+            </li>
+          );
+        })}
+      </ul>
+    </section>
+  );
+}
+
+function DueSkeleton() {
+  return (
+    <div className="mt-4 animate-pulse border-t border-line pt-4" aria-hidden>
+      <div className="h-3 w-16 rounded bg-raised" />
+      <div className="mt-2 space-y-2">
+        {[0, 1, 2].map((i) => (
+          <div key={i} className="h-3 w-full rounded bg-raised" />
+        ))}
+      </div>
     </div>
   );
 }
