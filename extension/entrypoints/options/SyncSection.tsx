@@ -1,27 +1,16 @@
 import { useEffect, useState } from 'react';
 import type { ImportHistoryRequest, ImportHistoryResponse } from '@/lib/messages';
-import { loadTopicSummary, type TopicSummary } from '@/lib/progress';
 import { syncStatus, type SyncStatus } from '@/lib/solves';
 
 export function SyncSection() {
   const [status, setStatus] = useState<SyncStatus | null>(null);
-  const [topics, setTopics] = useState<TopicSummary[] | null>(null);
   const [importing, setImporting] = useState(false);
   const [message, setMessage] = useState<{ kind: 'ok' | 'error'; text: string } | null>(null);
 
-  const refreshTopics = () =>
-    loadTopicSummary()
-      .then(setTopics)
-      .catch((e: Error) => setMessage({ kind: 'error', text: e.message }));
-
   useEffect(() => {
     syncStatus.getValue().then(setStatus);
-    void refreshTopics();
     // Re-render when the background finishes a sync.
-    return syncStatus.watch((s) => {
-      setStatus(s);
-      void refreshTopics();
-    });
+    return syncStatus.watch(setStatus);
   }, []);
 
   async function runImport() {
@@ -40,7 +29,6 @@ export function SyncSection() {
       } else {
         setMessage({ kind: 'error', text: res.error });
       }
-      await refreshTopics();
     } catch (e) {
       setMessage({ kind: 'error', text: (e as Error).message });
     } finally {
@@ -80,26 +68,6 @@ export function SyncSection() {
         </dl>
       )}
 
-      {topics && topics.length > 0 && (
-        <table className="w-full text-left text-sm">
-          <thead className="text-slate-400">
-            <tr>
-              <th className="py-1 font-normal">Topic</th>
-              <th className="py-1 font-normal">Solved</th>
-              <th className="py-1 font-normal">Next review</th>
-            </tr>
-          </thead>
-          <tbody>
-            {topics.map((t) => (
-              <tr key={t.topic} className="border-t border-slate-800">
-                <td className="py-1">{t.topic}</td>
-                <td className="py-1">{t.solved}</td>
-                <td className="py-1">{formatDue(t.dueAt)}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      )}
     </section>
   );
 }
@@ -108,9 +76,3 @@ function formatTime(iso: string | null) {
   return iso ? new Date(iso).toLocaleString() : 'Never';
 }
 
-function formatDue(iso: string) {
-  const days = Math.round((new Date(iso).getTime() - Date.now()) / 86_400_000);
-  if (days <= 0) return 'Due now';
-  if (days === 1) return 'Tomorrow';
-  return `In ${days} days`;
-}

@@ -1,36 +1,22 @@
 import { useEffect, useState, type FormEvent } from 'react';
-import {
-  DEFAULT_MODELS,
-  LISTS,
-  llmSettings,
-  loadSettings,
-  saveSettings,
-  type ListId,
-  type LlmProvider,
-  type LlmSettings,
-  type UserSettings,
-} from '@/lib/settings';
+import type { SettingsChanged } from '@/lib/messages';
+import { LISTS, loadSettings, saveSettings, type ListId, type UserSettings } from '@/lib/settings';
 
 export function SettingsForm() {
   const [settings, setSettings] = useState<UserSettings | null>(null);
-  const [llm, setLlm] = useState<LlmSettings | null>(null);
   const [status, setStatus] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    Promise.all([loadSettings(), llmSettings.getValue()])
-      .then(([s, l]) => {
-        setSettings(s);
-        setLlm(l);
-      })
+    loadSettings()
+      .then(setSettings)
       .catch((e: Error) => setError(e.message));
   }, []);
 
   if (error && !settings) return <p className="text-red-400">{error}</p>;
-  if (!settings || !llm) return <p className="text-slate-400">Loading…</p>;
+  if (!settings) return <p className="text-slate-400">Loading…</p>;
 
   const update = (patch: Partial<UserSettings>) => setSettings({ ...settings, ...patch });
-  const updateLlm = (patch: Partial<LlmSettings>) => setLlm({ ...llm, ...patch });
 
   function toggleList(id: ListId) {
     const lists = settings!.lists.includes(id)
@@ -45,10 +31,10 @@ export function SettingsForm() {
     setError(null);
     if (settings!.lists.length === 0) return setError('Pick at least one list.');
     try {
-      await Promise.all([
-        saveSettings({ ...settings!, lc_username: settings!.lc_username?.trim() || null }),
-        llmSettings.setValue({ ...llm!, apiKey: llm!.apiKey.trim() }),
-      ]);
+      const { weight_overrides: _, ...rest } = settings!; // edited in the topic table
+      await saveSettings({ ...rest, lc_username: rest.lc_username?.trim() || null });
+      // The background reschedules the daily alarm for the new time.
+      await browser.runtime.sendMessage({ type: 'settings-changed' } satisfies SettingsChanged);
       setStatus('Saved');
     } catch (err) {
       setError((err as Error).message);
@@ -87,49 +73,35 @@ export function SettingsForm() {
           />
           Include premium-only problems
         </label>
+      </section>
+
+      <section className="space-y-3">
+        <h2 className="text-lg font-semibold">Reminders</h2>
         <label className="block text-sm text-slate-300">
-          Daily reminder time
+          New picks every day at
           <input
             type="time"
             value={settings.daily_time.slice(0, 5)}
             onChange={(e) => update({ daily_time: e.target.value })}
             className={input}
           />
+          <span className="mt-1 block text-xs text-slate-500">Time zone: {settings.timezone}</span>
         </label>
-      </section>
-
-      <section className="space-y-3">
-        <h2 className="text-lg font-semibold">AI picker (optional)</h2>
-        <p className="text-sm text-slate-400">
-          Your key is stored only in this browser and sent only to the provider. Without a key, a simple built-in picker is used.
-        </p>
-        <label className="block text-sm text-slate-300">
-          Provider
-          <select
-            value={llm.provider}
-            onChange={(e) => {
-              const provider = e.target.value as LlmProvider;
-              updateLlm({ provider, model: DEFAULT_MODELS[provider] });
-            }}
-            className={input}
-          >
-            <option value="anthropic">Anthropic (Claude)</option>
-            <option value="openai">OpenAI</option>
-          </select>
-        </label>
-        <label className="block text-sm text-slate-300">
-          Model
-          <input value={llm.model} onChange={(e) => updateLlm({ model: e.target.value })} className={input} />
-        </label>
-        <label className="block text-sm text-slate-300">
-          API key
+        <label className="flex items-center gap-2 text-sm">
           <input
-            type="password"
-            autoComplete="off"
-            value={llm.apiKey}
-            onChange={(e) => updateLlm({ apiKey: e.target.value })}
-            className={input}
+            type="checkbox"
+            checked={settings.daily_notification}
+            onChange={(e) => update({ daily_notification: e.target.checked })}
           />
+          Show a notification when today's picks are ready
+        </label>
+        <label className="flex items-center gap-2 text-sm">
+          <input
+            type="checkbox"
+            checked={settings.weekly_email}
+            onChange={(e) => update({ weekly_email: e.target.checked })}
+          />
+          Email me a weekly summary on Sunday evenings
         </label>
       </section>
 

@@ -1,6 +1,8 @@
 import { useState, type FormEvent } from 'react';
 import { supabase } from '@/lib/supabase';
 
+const googleEnabled = import.meta.env.WXT_GOOGLE_SIGN_IN === 'true';
+
 export function SignIn() {
   const [email, setEmail] = useState('');
   const [code, setCode] = useState('');
@@ -16,6 +18,30 @@ export function SignIn() {
       const { error } = await supabase.auth.signInWithOtp({ email, options: { shouldCreateUser: true } });
       if (error) setError(error.message);
       else setStep('code');
+    } catch (err) {
+      setError((err as Error).message);
+    } finally {
+      setBusy(false);
+    }
+  }
+
+  // Opens Google's sign-in in a Chrome-managed window. Chrome catches the redirect to
+  // https://<extension-id>.chromiumapp.org/ and hands the URL back instead of loading it.
+  async function signInWithGoogle() {
+    setBusy(true);
+    setError(null);
+    try {
+      const { data, error } = await supabase.auth.signInWithOAuth({
+        provider: 'google',
+        options: { redirectTo: browser.identity.getRedirectURL(), skipBrowserRedirect: true },
+      });
+      if (error) throw error;
+      const redirect = await browser.identity.launchWebAuthFlow({ url: data.url, interactive: true });
+      const params = new URL(redirect!).searchParams;
+      const code = params.get('code');
+      if (!code) throw new Error(params.get('error_description') ?? 'Google sign-in was cancelled.');
+      const { error: exchangeError } = await supabase.auth.exchangeCodeForSession(code);
+      if (exchangeError) throw exchangeError;
     } catch (err) {
       setError((err as Error).message);
     } finally {
@@ -56,6 +82,16 @@ export function SignIn() {
           <button disabled={busy} className="w-full rounded bg-amber-500 py-2 font-medium text-slate-900 disabled:opacity-50">
             {busy ? 'Sending…' : 'Email me a code'}
           </button>
+          {googleEnabled && (
+            <button
+              type="button"
+              disabled={busy}
+              onClick={signInWithGoogle}
+              className="w-full rounded border border-slate-600 py-2 text-sm hover:bg-slate-800 disabled:opacity-50"
+            >
+              Continue with Google
+            </button>
+          )}
         </form>
       ) : (
         <form onSubmit={verifyCode} className="mt-4 space-y-3">

@@ -5,7 +5,7 @@ Chrome extension (WXT + React + TypeScript + Tailwind, Manifest V3) that recomme
 ## Layout
 - `extension/`: WXT app (`entrypoints/` for background, popup, options, content script; `lib/` for logic)
 - `scripts/`: one-off scrapers and seed upload (Blind 75, NeetCode 150, Striver)
-- `supabase/`: SQL migrations and seed data
+- `supabase/`: SQL migrations and the `weekly-summary` Edge Function
 
 ## Rules
 - The Supabase service-role key is only for `scripts/` and Edge Functions (as a secret). Never put it in `extension/`.
@@ -29,12 +29,15 @@ Run from the repo root (pnpm workspace: `extension/`, `scripts/`).
 - Dev (opens Chrome with hot reload): `pnpm dev`
 - Build: `pnpm build`, then load `extension/.output/chrome-mv3` unpacked
 - Type-check: `pnpm compile`
-- Tests: added in Phase 4 (Vitest)
+- Tests (Vitest): `pnpm test`
 - Seed catalog (from `scripts/`): `pnpm seed` (= `fetch-lists` → `enrich` → `upload`)
 - Run a migration (from `scripts/`): `pnpm migrate ../supabase/migrations/<file>.sql` (needs `psql` and `SUPABASE_DB_URL` in `scripts/.env`)
 - Check `scripts/.env`: `pnpm check-env`
+- Deploy the weekly email function (from `scripts/`, after `npx supabase login` and SMTP vars in `scripts/.env`): `pnpm deploy-weekly`, add `--send` to email yourself now
+- Store zip: `pnpm zip`
 
 ## Debugging
 - Background logs: `chrome://extensions` → this extension → "Inspect views: service worker"
 - Popup: right-click the popup → Inspect
 - Content script logs: DevTools console on the leetcode.com tab
+- Edge Function logs: Supabase dashboard → Edge Functions → weekly-summary → Logs; cron runs: `select * from cron.job_run_details order by start_time desc limit 5`

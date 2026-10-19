@@ -5,6 +5,10 @@
     "dev": "pnpm --filter leetcode-revision-buddy dev",
     "build": "pnpm --filter leetcode-revision-buddy build",
     "compile": "pnpm --filter leetcode-revision-buddy compile",
-    "zip": "pnpm --filter leetcode-revision-buddy zip"
+    "zip": "pnpm --filter leetcode-revision-buddy zip",
+    "test": "pnpm --filter leetcode-revision-buddy test",
+    "dev:firefox": "pnpm --filter leetcode-revision-buddy dev:firefox",
+    "build:firefox": "pnpm --filter leetcode-revision-buddy build:firefox",
+    "zip:firefox": "pnpm --filter leetcode-revision-buddy zip:firefox"
   }
 }

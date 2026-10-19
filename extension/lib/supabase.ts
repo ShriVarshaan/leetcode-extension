@@ -29,5 +29,8 @@ export const supabase = createClient(url || 'https://not-configured.supabase.co'
     persistSession: true,
     autoRefreshToken: true,
     detectSessionInUrl: false,
+    // PKCE: Google sign-in returns a one-time code that's exchanged for a session here,
+    // instead of putting tokens in the redirect URL.
+    flowType: 'pkce',
   },
 });

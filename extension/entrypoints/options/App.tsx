@@ -1,9 +1,12 @@
 import { useEffect, useState } from 'react';
 import type { Session } from '@supabase/supabase-js';
+import type { SettingsChanged } from '@/lib/messages';
 import { isSupabaseConfigured, supabase } from '@/lib/supabase';
+import { DataSection } from './DataSection';
 import { SignIn } from './SignIn';
 import { SettingsForm } from './SettingsForm';
 import { SyncSection } from './SyncSection';
+import { TopicsSection } from './TopicsSection';
 
 function App() {
   if (!isSupabaseConfigured) return <NotConfigured />;
@@ -41,7 +44,13 @@ function Configured() {
         setError(e.message);
         setSession(null);
       });
-    const { data: sub } = supabase.auth.onAuthStateChange((_event, s) => setSession(s));
+    const { data: sub } = supabase.auth.onAuthStateChange((event, s) => {
+      setSession(s);
+      // The background schedules the daily alarm only while someone is signed in.
+      if (event === 'SIGNED_IN' || event === 'SIGNED_OUT') {
+        void browser.runtime.sendMessage({ type: 'settings-changed' } satisfies SettingsChanged).catch(() => {});
+      }
+    });
     return () => sub.subscription.unsubscribe();
   }, []);
 
@@ -63,6 +72,8 @@ function Configured() {
         <>
           <SettingsForm />
           <SyncSection />
+          <TopicsSection />
+          <DataSection />
         </>
       ) : (
         <SignIn />

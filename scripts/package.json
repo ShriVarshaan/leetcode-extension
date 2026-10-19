@@ -9,7 +9,8 @@
     "upload": "node --env-file=.env src/upload.ts",
     "seed": "pnpm fetch-lists && pnpm enrich && pnpm upload",
     "check-env": "node --env-file=.env src/check-env.ts",
-    "compile": "tsc --noEmit"
+    "compile": "tsc --noEmit",
+    "deploy-weekly": "node --env-file=.env src/deploy-weekly.ts"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.0.0"
