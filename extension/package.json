@@ -2,7 +2,7 @@
   "name": "leetcode-revision-buddy",
   "description": "Daily spaced-repetition revision for LeetCode",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "wxt",
