@@ -181,4 +181,4 @@ To debug, open these:
 
 ## Privacy
 
-The backend stores your account email, your LeetCode username, your settings, and which problems from the supported lists you've solved and when. Your code, your submissions and problem statements are never stored. You can delete your account and all its data from the options page. See the full [privacy policy](extension/public/privacy.html).
+The backend stores your account email, your LeetCode username, your settings, and which problems from the supported lists you've solved and when. Your code, your submissions and problem statements are never stored. You can delete your account and all its data from the options page. See the full [privacy policy](https://shrivarshaan.github.io/leetcode-extension/privacy.html).
