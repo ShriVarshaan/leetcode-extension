@@ -1,4 +1,8 @@
-@import "tailwindcss";
+/* Explicit sources so builds match with or without a .git folder (AMO rebuilds from a source zip). */
+@import "tailwindcss" source(none);
+@source "../../entrypoints";
+@source "../../components";
+@source "../../lib";
 @import "../../assets/theme.css";
 
 /* Keep keyboard-focused fields clear of the sticky save bar. */

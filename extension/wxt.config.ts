@@ -9,7 +9,13 @@ export default defineConfig({
   manifest: ({ browser }) => ({
     name: 'LeetCode Revision Buddy',
     description: 'Daily spaced-repetition revision for LeetCode',
-    permissions: ['storage', 'alarms', 'notifications', 'identity'],
+    // `identity` is only used by Google sign-in; store reviewers reject unused permissions.
+    permissions: [
+      'storage',
+      'alarms',
+      'notifications',
+      ...(process.env.WXT_GOOGLE_SIGN_IN === 'true' ? ['identity'] : []),
+    ],
     host_permissions: ['https://leetcode.com/*'],
     ...(browser === 'firefox' && {
       browser_specific_settings: {
@@ -22,6 +28,19 @@ export default defineConfig({
       },
     }),
   }),
+  // The Firefox sources zip for AMO review needs the workspace root (lockfile, workspace config).
+  // Dotfiles such as .env are skipped by default.
+  zip: {
+    sourcesRoot: '..',
+    includeSources: [
+      'extension/**',
+      'scripts/package.json',
+      'package.json',
+      'pnpm-lock.yaml',
+      'pnpm-workspace.yaml',
+      'SOURCE_CODE_REVIEW.md',
+    ],
+  },
   vite: () => ({
     plugins: [tailwindcss()],
   }),
