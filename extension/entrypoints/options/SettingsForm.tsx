@@ -11,8 +11,32 @@ const LIST_HINTS: Record<ListId, string> = {
   striver_a2z: 'The LeetCode problems in the A2Z sheet',
 };
 
-const TIME_ZONES = Intl.supportedValuesOf('timeZone');
 const BROWSER_TIME_ZONE = browserTimeZone();
+
+// "Kolkata (GMT+5:30)", using today's offset.
+function zoneLabel(zone: string, name: string): string {
+  const offset = new Intl.DateTimeFormat('en-US', { timeZone: zone, timeZoneName: 'shortOffset' })
+    .formatToParts(new Date())
+    .find((p) => p.type === 'timeZoneName')?.value;
+  return `${name.replaceAll('_', ' ').replaceAll('/', ' / ')} (${offset})`;
+}
+
+// Zones grouped by region ("America/New_York" -> America). Zones without a region go under Other.
+function groupZones(zones: string[]): [string, { zone: string; label: string }[]][] {
+  const groups = new Map<string, { zone: string; label: string }[]>();
+  for (const zone of zones) {
+    const slash = zone.indexOf('/');
+    const region = slash === -1 ? 'Other' : zone.slice(0, slash);
+    const list = groups.get(region) ?? [];
+    list.push({ zone, label: zoneLabel(zone, slash === -1 ? zone : zone.slice(slash + 1)) });
+    groups.set(region, list);
+  }
+  return [...groups].sort(([a], [b]) => a.localeCompare(b));
+}
+
+const ZONE_NAMES = Intl.supportedValuesOf('timeZone');
+// The browser can report an alias (e.g. Asia/Calcutta) that isn't in the list, so add it.
+const ZONE_GROUPS = groupZones(ZONE_NAMES.includes(BROWSER_TIME_ZONE) ? ZONE_NAMES : [...ZONE_NAMES, BROWSER_TIME_ZONE]);
 
 export function SettingsForm() {
   const [settings, setSettings] = useState<UserSettings | null>(null);
@@ -48,12 +72,11 @@ export function SettingsForm() {
     setStatus(null);
     setError(null);
     if (settings!.lists.length === 0) return setError('Pick at least one list.');
-    const timezone = settings!.timezone.trim();
-    if (!isValidTimeZone(timezone)) return setError('Pick a time zone from the list, e.g. Europe/London.');
+    if (!isValidTimeZone(settings!.timezone)) return setError('Pick a time zone from the list.');
     setSaving(true);
     try {
       const { weight_overrides: _, ...rest } = settings!; // edited in the topic table
-      await saveSettings({ ...rest, timezone, lc_username: rest.lc_username?.trim() || null });
+      await saveSettings({ ...rest, lc_username: rest.lc_username?.trim() || null });
       // The background reschedules the daily alarm for the new time.
       await browser.runtime.sendMessage({ type: 'settings-changed' } satisfies SettingsChanged);
       setDirty(false);
@@ -137,26 +160,37 @@ export function SettingsForm() {
             className={`${inputClass} max-w-[10rem]`}
           />
         </label>
-        <label className="mt-6 block text-sm font-medium">
-          Time zone
-          <input
-            list="time-zones"
-            value={settings.timezone}
-            onChange={(e) => update({ timezone: e.target.value })}
-            placeholder="e.g. Europe/London"
-            spellCheck={false}
-            className={`${inputClass} max-w-[20rem]`}
-          />
-          <datalist id="time-zones">
-            {TIME_ZONES.map((z) => <option key={z} value={z} />)}
-          </datalist>
-          <span className="mt-2 block text-xs font-normal text-muted">Your day, streak and weekly email follow this time zone.</span>
-        </label>
-        {settings.timezone !== BROWSER_TIME_ZONE && (
-          <Button type="button" variant="secondary" size="sm" className="mt-3" onClick={() => update({ timezone: BROWSER_TIME_ZONE })}>
-            Use this browser's time zone ({BROWSER_TIME_ZONE})
+        <div className="mt-6 flex flex-wrap items-end gap-3">
+          <label className="block min-w-0 flex-1 text-sm font-medium sm:max-w-[22rem]">
+            Time zone
+            <select
+              value={settings.timezone}
+              onChange={(e) => update({ timezone: e.target.value })}
+              className={inputClass}
+            >
+              {/* A saved zone that isn't in this browser's list still needs an option to show. */}
+              {!ZONE_GROUPS.some(([, zones]) => zones.some((z) => z.zone === settings.timezone)) && (
+                <option value={settings.timezone}>{settings.timezone}</option>
+              )}
+              {ZONE_GROUPS.map(([region, zones]) => (
+                <optgroup key={region} label={region}>
+                  {zones.map((z) => <option key={z.zone} value={z.zone}>{z.label}</option>)}
+                </optgroup>
+              ))}
+            </select>
+          </label>
+          <Button
+            type="button"
+            variant="secondary"
+            disabled={settings.timezone === BROWSER_TIME_ZONE}
+            onClick={() => update({ timezone: BROWSER_TIME_ZONE })}
+          >
+            Use this browser's time zone
           </Button>
-        )}
+        </div>
+        <span className="mt-2 block text-xs text-muted">
+          Your day, streak and weekly email follow this time zone. This browser is set to {BROWSER_TIME_ZONE}.
+        </span>
         <div className="mt-4 divide-y divide-line border-t border-line">
           <Toggle
             checked={settings.daily_notification}
