@@ -34,6 +34,7 @@ export interface PickInput {
   exclude?: ReadonlySet<string>; // slugs that must not be picked (e.g. "pick again")
   excludeTopics?: ReadonlySet<string>;
   count?: number;
+  maxHard?: number; // most Hard problems allowed in the picks (default: no limit)
 }
 
 export interface DailyPick {
@@ -97,10 +98,12 @@ export function pickDaily(input: PickInput): DailyPick[] {
   ];
 
   const picks: DailyPick[] = [];
+  let hardLeft = input.maxHard ?? count;
   for (const { t, kind } of order) {
     if (picks.length >= count) break;
-    const problem = chooseProblem(t, input);
+    const problem = chooseProblem(t, input, hardLeft > 0);
     if (!problem) continue;
+    if (problem.difficulty === 'Hard') hardLeft--;
     picks.push({
       slug: problem.slug,
       topic: t.topic,
@@ -120,10 +123,11 @@ export function targetDifficulty(t: TopicInput): Difficulty {
 }
 
 // Prefers an unsolved problem near the target difficulty, otherwise the problem solved longest ago.
-export function chooseProblem(t: TopicInput, input: PickInput): CatalogProblem | null {
+export function chooseProblem(t: TopicInput, input: PickInput, allowHard = true): CatalogProblem | null {
   const now = input.now.getTime();
   const pool = input.problems.filter((p) => {
     if (p.topic !== t.topic) return false;
+    if (!allowHard && p.difficulty === 'Hard') return false;
     if (!p.lists.some((l) => input.lists.includes(l))) return false;
     if (p.isPaid && !input.includePaid) return false;
     if (input.recentlyRecommended.has(p.slug) || input.exclude?.has(p.slug)) return false;

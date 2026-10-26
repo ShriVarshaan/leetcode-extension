@@ -98,6 +98,19 @@ export function SettingsForm() {
             })}
           </div>
         </fieldset>
+        <label className="mt-6 block text-sm font-medium">
+          Most Hard problems a day
+          <select
+            value={settings.max_hard}
+            onChange={(e) => update({ max_hard: Number(e.target.value) })}
+            className={`${inputClass} max-w-[10rem]`}
+          >
+            {[0, 1, 2, 3].map((n) => (
+              <option key={n} value={n}>{n === 3 ? '3 (no limit)' : n}</option>
+            ))}
+          </select>
+          <span className="mt-2 block text-xs font-normal text-muted">Over the limit, you get a Medium or Easy problem on that topic instead.</span>
+        </label>
         <div className="mt-4 border-t border-line pt-2">
           <Toggle
             checked={settings.include_paid}

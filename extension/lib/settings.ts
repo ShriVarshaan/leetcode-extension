@@ -13,6 +13,7 @@ export interface UserSettings {
   lc_username: string | null;
   lists: ListId[];
   include_paid: boolean;
+  max_hard: number; // 0-3 Hard problems a day
   daily_time: string; // 'HH:MM' or 'HH:MM:SS' (Postgres time)
   timezone: string;
   weight_overrides: Record<string, number>;
@@ -24,6 +25,7 @@ export const DEFAULT_SETTINGS: UserSettings = {
   lc_username: null,
   lists: ['blind75', 'neetcode150', 'striver_a2z'],
   include_paid: false,
+  max_hard: 3,
   daily_time: '09:00',
   timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
   weight_overrides: {},
@@ -34,7 +36,7 @@ export const DEFAULT_SETTINGS: UserSettings = {
 export async function loadSettings(): Promise<UserSettings> {
   const { data, error } = await supabase
     .from('user_settings')
-    .select('lc_username, lists, include_paid, daily_time, timezone, weight_overrides, daily_notification, weekly_email')
+    .select('lc_username, lists, include_paid, max_hard, daily_time, timezone, weight_overrides, daily_notification, weekly_email')
     .maybeSingle();
   if (error) throw error;
   return data ?? DEFAULT_SETTINGS;

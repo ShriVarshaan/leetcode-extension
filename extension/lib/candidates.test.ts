@@ -125,6 +125,21 @@ describe('pickDaily', () => {
     expect(picks[0]!.slug).toBe('Graphs-Medium-2');
   });
 
+  it('caps Hard picks, falling back to Medium', () => {
+    const topics = ['Trees', 'Graphs', 'Stack'].map((n) => topic(n, 1, 1, { lastRating: 4, lastDifficulty: 'Hard' }));
+    const problems = catalogFor(topics.map((t) => t.topic));
+    const difficulties = (maxHard?: number) => pickDaily(input({ topics, problems, maxHard })).map((p) => p.difficulty);
+    expect(difficulties()).toEqual(['Hard', 'Hard', 'Hard']);
+    expect(difficulties(1)).toEqual(['Hard', 'Medium', 'Medium']);
+    expect(difficulties(0)).toEqual(['Medium', 'Medium', 'Medium']);
+  });
+
+  it('skips a topic with only Hard problems left when Hard is capped', () => {
+    const topics = [topic('Trees', 1.8, 2), topic('Graphs', 1.56, 1), topic('Stack', 1, 1), topic('Tries', 0.5, 1)];
+    const problems = [problem('trees-hard', 'Trees', 'Hard'), ...catalogFor(['Graphs', 'Stack', 'Tries'])];
+    expect(pickDaily(input({ topics, problems, maxHard: 0 })).map((p) => p.topic)).toEqual(['Graphs', 'Stack', 'Tries']);
+  });
+
   it('is deterministic', () => {
     const topics = [topic('Trees', 1.8, 2), topic('Graphs', 1.56, 2), topic('Stack', 1, 2), topic('Tries', 0.5, 2)];
     const i = input({ topics, problems: catalogFor(topics.map((t) => t.topic)) });

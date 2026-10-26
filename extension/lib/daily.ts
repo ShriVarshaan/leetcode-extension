@@ -91,7 +91,7 @@ async function loadRecs(from: string, to: string): Promise<DailyRecs[]> {
 async function generate(
   settings: UserSettings,
   today: string,
-  opts: { exclude?: Set<string>; excludeTopics?: Set<string>; count?: number } = {},
+  opts: { exclude?: Set<string>; excludeTopics?: Set<string>; count?: number; maxHard?: number } = {},
 ): Promise<DailyPick[]> {
   const [topics, problems, solvedAt, lastReviews, recent] = await Promise.all([
     loadTopics(settings),
@@ -117,6 +117,7 @@ async function generate(
     problems,
     lists: settings.lists,
     includePaid: settings.include_paid,
+    maxHard: settings.max_hard,
     solvedAt,
     recentlyRecommended: new Set(recent.flatMap((r) => r.picks.map((p) => p.slug))),
     ...opts,
@@ -197,6 +198,7 @@ export async function pickAgain(): Promise<DailyRecs> {
     exclude: new Set(recs.picks.map((p) => p.slug)),
     excludeTopics: new Set(kept.map((p) => p.topic)),
     count: 3 - kept.length,
+    maxHard: Math.max(0, settings.max_hard - kept.filter((p) => p.difficulty === 'Hard').length),
   });
   if (fresh.length === 0) return recs;
   const picks = [...kept, ...fresh];
