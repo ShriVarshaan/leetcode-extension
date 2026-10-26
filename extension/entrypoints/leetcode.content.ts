@@ -148,9 +148,15 @@ function showBanner() {
     const box = el('div', 'box');
     box.setAttribute('role', 'status');
     const close = el('button', 'close');
-    // Lucide's "x" icon, inlined since this banner isn't React.
-    close.innerHTML =
-      '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>';
+    // Lucide's "x" icon, built with DOM calls since this banner isn't React (AMO flags innerHTML).
+    const svgNs = 'http://www.w3.org/2000/svg';
+    const icon = document.createElementNS(svgNs, 'svg');
+    const iconAttrs = { width: '16', height: '16', viewBox: '0 0 24 24', fill: 'none', stroke: 'currentColor', 'stroke-width': '2', 'stroke-linecap': 'round', 'stroke-linejoin': 'round', 'aria-hidden': 'true' };
+    for (const [k, v] of Object.entries(iconAttrs)) icon.setAttribute(k, v);
+    const iconPath = document.createElementNS(svgNs, 'path');
+    iconPath.setAttribute('d', 'M18 6 6 18M6 6l12 12');
+    icon.append(iconPath);
+    close.append(icon);
     close.setAttribute('aria-label', 'Hide');
     close.title = 'Hide';
     close.addEventListener('click', () => {
