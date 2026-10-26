@@ -1,5 +1,15 @@
 import { describe, expect, it } from 'vitest';
-import { addDays, localDay, nextOccurrence, streak, zonedTime } from './time';
+import { addDays, isValidTimeZone, localDay, nextOccurrence, streak, zonedTime } from './time';
+
+describe('isValidTimeZone', () => {
+  it('accepts IANA names and rejects anything else', () => {
+    expect(isValidTimeZone('Asia/Kolkata')).toBe(true);
+    expect(isValidTimeZone('Asia/Calcutta')).toBe(true);
+    expect(isValidTimeZone('UTC')).toBe(true);
+    expect(isValidTimeZone('Mars/Olympus')).toBe(false);
+    expect(isValidTimeZone('')).toBe(false);
+  });
+});
 
 describe('zonedTime', () => {
   it('converts a local wall-clock time to an instant', () => {

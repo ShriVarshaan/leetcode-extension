@@ -6,7 +6,7 @@ import { supabase } from './supabase';
 import { addDays, localDay } from './time';
 import { todayCache, type DailyRecs } from './today-cache';
 
-export { remaining, todayCache, type DailyRecs } from './today-cache';
+export { remaining, timeZoneCache, todayCache, type DailyRecs } from './today-cache';
 
 export interface TopicRow {
   topic: string;

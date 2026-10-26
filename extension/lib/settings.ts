@@ -1,4 +1,6 @@
 import { supabase } from './supabase';
+import { browserTimeZone } from './time';
+import { timeZoneCache } from './today-cache';
 
 export type ListId = 'blind75' | 'neetcode150' | 'striver_a2z';
 
@@ -27,7 +29,7 @@ export const DEFAULT_SETTINGS: UserSettings = {
   include_paid: false,
   max_hard: 3,
   daily_time: '09:00',
-  timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+  timezone: browserTimeZone(),
   weight_overrides: {},
   daily_notification: false,
   weekly_email: false,
@@ -39,6 +41,7 @@ export async function loadSettings(): Promise<UserSettings> {
     .select('lc_username, lists, include_paid, max_hard, daily_time, timezone, weight_overrides, daily_notification, weekly_email')
     .maybeSingle();
   if (error) throw error;
+  if (data) await timeZoneCache.setValue(data.timezone);
   return data ?? DEFAULT_SETTINGS;
 }
 
@@ -51,4 +54,5 @@ export async function saveSettings(patch: Partial<UserSettings>): Promise<void> 
     .from('user_settings')
     .upsert({ user_id: user.id, ...patch, updated_at: new Date().toISOString() });
   if (error) throw error;
+  if (patch.timezone) await timeZoneCache.setValue(patch.timezone);
 }

@@ -2,7 +2,7 @@ import { useEffect, useState, type ReactNode } from 'react';
 import { Check, CircleCheck, ExternalLink, Flame, Inbox, LogIn, RefreshCw, Settings, TriangleAlert } from 'lucide-react';
 import { Button, IconButton, Logo, Notice } from '@/components/ui';
 import type { DailyPick } from '@/lib/candidates';
-import { todayCache, type DailyRecs } from '@/lib/daily';
+import { timeZoneCache, todayCache, type DailyRecs } from '@/lib/daily';
 import { friendlyError } from '@/lib/errors';
 import type { BackgroundMessage, TodayResponse } from '@/lib/messages';
 import { loadStreak, loadTopicSummary, type TopicSummary } from '@/lib/progress';
@@ -10,7 +10,7 @@ import { loadSettings } from '@/lib/settings';
 import { syncStatus } from '@/lib/solves';
 import { RATING_LABELS, type Rating } from '@/lib/srs';
 import { isSupabaseConfigured, supabase } from '@/lib/supabase';
-import { localDay } from '@/lib/time';
+import { browserTimeZone, localDay } from '@/lib/time';
 
 type View = { kind: 'loading' } | { kind: 'signed-out' } | { kind: 'error'; message: string } | { kind: 'ready' };
 
@@ -33,9 +33,8 @@ function App() {
   useEffect(() => {
     if (!isSupabaseConfigured) return setView({ kind: 'error', message: 'Supabase isn\'t configured.' });
     // Show the cached picks straight away, then check with the background for changes.
-    const today = localDay(new Date(), Intl.DateTimeFormat().resolvedOptions().timeZone);
-    void todayCache.getValue().then((cached) => {
-      if (cached?.date !== today) return;
+    void Promise.all([todayCache.getValue(), timeZoneCache.getValue()]).then(([cached, timeZone]) => {
+      if (cached?.date !== localDay(new Date(), timeZone ?? browserTimeZone())) return;
       setRecs((r) => r ?? cached);
       setView((v) => (v.kind === 'loading' ? { kind: 'ready' } : v));
     });

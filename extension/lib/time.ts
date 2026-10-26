@@ -9,6 +9,21 @@ export function localDay(at: Date | string, timeZone: string): string {
   );
 }
 
+export function browserTimeZone(): string {
+  return Intl.DateTimeFormat().resolvedOptions().timeZone;
+}
+
+// True for any IANA name Intl accepts, including aliases like 'Asia/Calcutta'.
+export function isValidTimeZone(timeZone: string): boolean {
+  if (!timeZone) return false;
+  try {
+    new Intl.DateTimeFormat('en-US', { timeZone });
+    return true;
+  } catch {
+    return false;
+  }
+}
+
 export function addDays(day: string, n: number): string {
   return new Date(Date.parse(`${day}T00:00:00Z`) + n * DAY_MS).toISOString().slice(0, 10);
 }

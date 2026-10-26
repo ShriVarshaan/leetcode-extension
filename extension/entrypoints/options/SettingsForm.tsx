@@ -3,12 +3,16 @@ import { useEffect, useState, type FormEvent } from 'react';
 import type { SettingsChanged } from '@/lib/messages';
 import { Button, Card, inputClass, Notice, Spinner, Toggle } from '@/components/ui';
 import { LISTS, loadSettings, saveSettings, type ListId, type UserSettings } from '@/lib/settings';
+import { browserTimeZone, isValidTimeZone } from '@/lib/time';
 
 const LIST_HINTS: Record<ListId, string> = {
   blind75: 'The classic 75',
   neetcode150: 'Blind 75 plus 75 more',
   striver_a2z: 'The LeetCode problems in the A2Z sheet',
 };
+
+const TIME_ZONES = Intl.supportedValuesOf('timeZone');
+const BROWSER_TIME_ZONE = browserTimeZone();
 
 export function SettingsForm() {
   const [settings, setSettings] = useState<UserSettings | null>(null);
@@ -44,10 +48,12 @@ export function SettingsForm() {
     setStatus(null);
     setError(null);
     if (settings!.lists.length === 0) return setError('Pick at least one list.');
+    const timezone = settings!.timezone.trim();
+    if (!isValidTimeZone(timezone)) return setError('Pick a time zone from the list, e.g. Europe/London.');
     setSaving(true);
     try {
       const { weight_overrides: _, ...rest } = settings!; // edited in the topic table
-      await saveSettings({ ...rest, lc_username: rest.lc_username?.trim() || null });
+      await saveSettings({ ...rest, timezone, lc_username: rest.lc_username?.trim() || null });
       // The background reschedules the daily alarm for the new time.
       await browser.runtime.sendMessage({ type: 'settings-changed' } satisfies SettingsChanged);
       setDirty(false);
@@ -130,8 +136,27 @@ export function SettingsForm() {
             onChange={(e) => update({ daily_time: e.target.value })}
             className={`${inputClass} max-w-[10rem]`}
           />
-          <span className="mt-2 block text-xs font-normal text-muted">Time zone: {settings.timezone}</span>
         </label>
+        <label className="mt-6 block text-sm font-medium">
+          Time zone
+          <input
+            list="time-zones"
+            value={settings.timezone}
+            onChange={(e) => update({ timezone: e.target.value })}
+            placeholder="e.g. Europe/London"
+            spellCheck={false}
+            className={`${inputClass} max-w-[20rem]`}
+          />
+          <datalist id="time-zones">
+            {TIME_ZONES.map((z) => <option key={z} value={z} />)}
+          </datalist>
+          <span className="mt-2 block text-xs font-normal text-muted">Your day, streak and weekly email follow this time zone.</span>
+        </label>
+        {settings.timezone !== BROWSER_TIME_ZONE && (
+          <Button type="button" variant="secondary" size="sm" className="mt-3" onClick={() => update({ timezone: BROWSER_TIME_ZONE })}>
+            Use this browser's time zone ({BROWSER_TIME_ZONE})
+          </Button>
+        )}
         <div className="mt-4 divide-y divide-line border-t border-line">
           <Toggle
             checked={settings.daily_notification}

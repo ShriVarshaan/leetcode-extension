@@ -1,8 +1,8 @@
 import { fetchAllSolved, fetchRecentAccepted, fetchSignedInUser, type SolvedProblem } from '@/lib/leetcode';
 import type { CollectSolvedResponse, ContentMessage, RatePickRequest, SolveDetected, TodayResponse } from '@/lib/messages';
 import { RATING_LABELS, type Rating } from '@/lib/srs';
-import { localDay } from '@/lib/time';
-import { todayCache, type DailyRecs } from '@/lib/today-cache';
+import { browserTimeZone, localDay } from '@/lib/time';
+import { timeZoneCache, todayCache, type DailyRecs } from '@/lib/today-cache';
 
 export default defineContentScript({
   matches: ['https://leetcode.com/*'],
@@ -112,6 +112,7 @@ function showBanner() {
   syncTheme();
   new MutationObserver(syncTheme).observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
   let recs: DailyRecs | null = null;
+  let timeZone = browserTimeZone();
   let shownFor = '';
   let dismissed = '';
   let error = '';
@@ -132,7 +133,7 @@ function showBanner() {
 
   const render = () => {
     const slug = currentSlug();
-    const today = localDay(new Date(), Intl.DateTimeFormat().resolvedOptions().timeZone);
+    const today = localDay(new Date(), timeZone);
     const pick = recs?.date === today ? recs.picks.find((p) => p.slug === slug) : undefined;
     if (!pick || !recs || dismissed === pick.slug) {
       host.remove();
@@ -177,8 +178,13 @@ function showBanner() {
     if (!host.isConnected) document.body.append(host);
   };
 
-  void todayCache.getValue().then((r) => {
+  void Promise.all([todayCache.getValue(), timeZoneCache.getValue()]).then(([r, tz]) => {
     recs = r;
+    timeZone = tz ?? timeZone;
+    render();
+  });
+  timeZoneCache.watch((tz) => {
+    timeZone = tz ?? browserTimeZone();
     render();
   });
   todayCache.watch((r) => {
