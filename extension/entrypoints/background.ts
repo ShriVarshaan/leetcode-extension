@@ -27,7 +27,7 @@ export default defineBackground(() => {
   browser.runtime.onStartup.addListener(onStart);
 
   browser.alarms.onAlarm.addListener((alarm) => {
-    if (alarm.name === SYNC_ALARM) void syncRecent();
+    if (alarm.name === SYNC_ALARM) void checkDaily().then(syncRecent);
     if (alarm.name === DAILY_ALARM) void dailyPicks();
   });
 
@@ -79,20 +79,23 @@ async function onStart() {
     await browser.alarms.create(SYNC_ALARM, { delayInMinutes: 1, periodInMinutes: SYNC_EVERY_MINUTES });
   }
   await scheduleDaily();
-  if (!(await isSignedIn())) return;
-  await catchUpDaily();
-  await refreshBadge(await peekToday().catch(() => null));
+  await checkDaily();
+  if (await isSignedIn()) await refreshBadge(await peekToday().catch(() => null));
 }
 
-// scheduleDaily replaces a daily alarm missed while Chrome was closed with tomorrow's (and
-// Chrome may drop alarms on restart anyway), so build today's picks now if their time has passed.
-async function catchUpDaily() {
+// The daily alarm can be missed: Chrome was closed at daily_time (and scheduleDaily on startup
+// replaces the missed alarm with tomorrow's), Chrome dropped it on restart, or it was never set
+// because the network was down. Run at startup and with every sync, this puts it back and
+// builds today's picks if their time has passed.
+async function checkDaily() {
   try {
+    if (!(await isSignedIn())) return;
+    if (!(await browser.alarms.get(DAILY_ALARM))) await scheduleDaily();
     const settings = await loadSettings();
     if (!isPastToday(new Date(), settings.daily_time, settings.timezone)) return;
     if (!(await peekToday(settings))) await dailyPicks();
   } catch (e) {
-    console.error('Catching up on daily picks failed', e);
+    console.error('Checking daily picks failed', e);
   }
 }
 
