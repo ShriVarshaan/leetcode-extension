@@ -26,7 +26,7 @@ function App() {
   const [streak, setStreak] = useState<number | null>(null);
   // null while loading, so the due list can hold its space instead of popping in.
   const [topics, setTopics] = useState<TopicSummary[] | null>(null);
-  const [hideTopics, setHideTopics] = useState(false);
+  const [hideTopics, setHideTopics] = useState(true);
   const [busy, setBusy] = useState(false);
   const [actionError, setActionError] = useState<string | null>(null);
   const [syncError, setSyncError] = useState<string | null>(null);

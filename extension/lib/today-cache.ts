@@ -17,7 +17,7 @@ export const todayCache = storage.defineItem<DailyRecs | null>('local:todayRecs'
 export const timeZoneCache = storage.defineItem<string | null>('local:timeZone', { fallback: null });
 
 // Whether to hide a pick's topic until it's solved, for the same readers as above.
-export const hideTopicsCache = storage.defineItem<boolean>('local:hideTopics', { fallback: false });
+export const hideTopicsCache = storage.defineItem<boolean>('local:hideTopics', { fallback: true });
 
 export function remaining(recs: DailyRecs | null): number {
   return recs ? recs.picks.filter((p) => !recs.completed.includes(p.slug)).length : 0;

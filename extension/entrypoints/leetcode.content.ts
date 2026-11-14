@@ -113,7 +113,7 @@ function showBanner() {
   new MutationObserver(syncTheme).observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
   let recs: DailyRecs | null = null;
   let timeZone = browserTimeZone();
-  let hideTopics = false;
+  let hideTopics = true;
   let shownFor = '';
   let dismissed = '';
   let error = '';

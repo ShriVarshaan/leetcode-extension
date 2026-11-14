@@ -29,7 +29,7 @@ export const DEFAULT_SETTINGS: UserSettings = {
   lists: ['blind75', 'neetcode150', 'striver_a2z'],
   include_paid: false,
   max_hard: 3,
-  hide_topics_until_solved: false,
+  hide_topics_until_solved: true,
   daily_time: '09:00',
   timezone: browserTimeZone(),
   weight_overrides: {},
