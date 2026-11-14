@@ -98,7 +98,10 @@ Deno.serve(async (req) => {
         text: email.text,
         html: email.html,
       });
-      await supabase.from('weekly_email_log').upsert({ user_id: u.user_id, week_start: week, sent_at: now.toISOString() });
+      // A test send doesn't count as the week's email.
+      if (!body.user_id) {
+        await supabase.from('weekly_email_log').upsert({ user_id: u.user_id, week_start: week, sent_at: now.toISOString() });
+      }
       results.push({ user_id: u.user_id, status: 'sent' });
     } catch (e) {
       console.error('Weekly summary failed for', u.user_id, e);
