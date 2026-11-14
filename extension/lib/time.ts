@@ -68,6 +68,11 @@ export function nextOccurrence(now: Date, time: string, timeZone: string): Date 
   throw new Error('unreachable');
 }
 
+// Whether the local clock in `timeZone` has reached `time` today.
+export function isPastToday(now: Date, time: string, timeZone: string): boolean {
+  return zonedTime(localDay(now, timeZone), time, timeZone).getTime() <= now.getTime();
+}
+
 // Consecutive days with activity, ending today (or yesterday, if today has none yet).
 export function streak(activeDays: ReadonlySet<string>, today: string): number {
   let day = activeDays.has(today) ? today : addDays(today, -1);

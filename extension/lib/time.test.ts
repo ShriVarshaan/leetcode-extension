@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { addDays, isValidTimeZone, localDay, nextOccurrence, streak, zonedTime } from './time';
+import { addDays, isPastToday, isValidTimeZone, localDay, nextOccurrence, streak, zonedTime } from './time';
 
 describe('isValidTimeZone', () => {
   it('accepts IANA names and rejects anything else', () => {
@@ -17,6 +17,15 @@ describe('zonedTime', () => {
     expect(zonedTime('2026-11-02', '09:00', 'Europe/London').toISOString()).toBe('2026-11-02T09:00:00.000Z'); // GMT
     expect(zonedTime('2026-10-19', '09:00:00', 'Asia/Kolkata').toISOString()).toBe('2026-10-19T03:30:00.000Z');
     expect(zonedTime('2026-10-19', '21:30', 'America/Los_Angeles').toISOString()).toBe('2026-10-20T04:30:00.000Z');
+  });
+});
+
+describe('isPastToday', () => {
+  it('is true from the local time onwards, in the given zone', () => {
+    expect(isPastToday(new Date('2026-11-14T08:59:00Z'), '09:00', 'Europe/London')).toBe(false);
+    expect(isPastToday(new Date('2026-11-14T09:00:00Z'), '09:00', 'Europe/London')).toBe(true);
+    expect(isPastToday(new Date('2026-11-14T09:00:00Z'), '15:00', 'Asia/Kolkata')).toBe(false); // 14:30 IST
+    expect(isPastToday(new Date('2026-11-14T09:30:00Z'), '15:00', 'Asia/Kolkata')).toBe(true);
   });
 });
 

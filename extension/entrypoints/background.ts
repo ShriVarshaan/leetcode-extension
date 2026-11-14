@@ -13,7 +13,7 @@ import { recordAutoReviews } from '@/lib/reviews';
 import { loadSettings, saveSettings } from '@/lib/settings';
 import { recordSolves, syncStatus } from '@/lib/solves';
 import { supabase } from '@/lib/supabase';
-import { nextOccurrence } from '@/lib/time';
+import { isPastToday, nextOccurrence } from '@/lib/time';
 
 const SYNC_ALARM = 'sync-recent';
 const SYNC_EVERY_MINUTES = 30;
@@ -79,7 +79,21 @@ async function onStart() {
     await browser.alarms.create(SYNC_ALARM, { delayInMinutes: 1, periodInMinutes: SYNC_EVERY_MINUTES });
   }
   await scheduleDaily();
-  if (await isSignedIn()) await refreshBadge(await peekToday().catch(() => null));
+  if (!(await isSignedIn())) return;
+  await catchUpDaily();
+  await refreshBadge(await peekToday().catch(() => null));
+}
+
+// scheduleDaily replaces a daily alarm missed while Chrome was closed with tomorrow's (and
+// Chrome may drop alarms on restart anyway), so build today's picks now if their time has passed.
+async function catchUpDaily() {
+  try {
+    const settings = await loadSettings();
+    if (!isPastToday(new Date(), settings.daily_time, settings.timezone)) return;
+    if (!(await peekToday(settings))) await dailyPicks();
+  } catch (e) {
+    console.error('Catching up on daily picks failed', e);
+  }
 }
 
 // A one-shot alarm at the next daily_time in the user's time zone, re-created each time it
