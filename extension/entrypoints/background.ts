@@ -105,7 +105,8 @@ async function dailyPicks() {
         type: 'basic',
         iconUrl: browser.runtime.getURL('/icon/128.png'),
         title: "Today's revision is ready",
-        message: recs.picks.map((p) => `${p.title} (${p.topic})`).join('\n'),
+        // Sent before anything is solved, so no topics when they're hidden.
+        message: recs.picks.map((p) => (settings.hide_topics_until_solved ? p.title : `${p.title} (${p.topic})`)).join('\n'),
       });
     }
   } catch (e) {

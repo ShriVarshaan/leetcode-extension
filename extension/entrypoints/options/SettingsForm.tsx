@@ -140,12 +140,18 @@ export function SettingsForm() {
           </select>
           <span className="mt-2 block text-xs font-normal text-muted">Over the limit, you get a Medium or Easy problem on that topic instead.</span>
         </label>
-        <div className="mt-4 border-t border-line pt-2">
+        <div className="mt-4 divide-y divide-line border-t border-line">
           <Toggle
             checked={settings.include_paid}
             onChange={(include_paid) => update({ include_paid })}
             label="Include premium-only problems"
             hint="Only turn this on if you have LeetCode Premium."
+          />
+          <Toggle
+            checked={settings.hide_topics_until_solved}
+            onChange={(hide_topics_until_solved) => update({ hide_topics_until_solved })}
+            label="Hide topics until solved"
+            hint="Work out the pattern yourself. A pick's topic shows once you've solved it."
           />
         </div>
       </Card>

@@ -150,7 +150,7 @@ describe('pickDaily', () => {
     const topics = [topic('Trees', 1.8, 3, { lastRating: 2 })];
     const problems = [problem('invert-binary-tree', 'Trees', 'Easy')];
     const picks = pickDaily(input({ topics, problems, solvedAt: new Map([['invert-binary-tree', daysAgo(41)]]) }));
-    expect(picks[0]!.reason).toBe('Trees · 3 days overdue · tough last time · last solved 41 days ago');
+    expect(picks[0]!.reason).toBe('3 days overdue · tough last time · last solved 41 days ago');
   });
 });
 

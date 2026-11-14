@@ -1,6 +1,6 @@
 import { supabase } from './supabase';
 import { browserTimeZone } from './time';
-import { timeZoneCache } from './today-cache';
+import { hideTopicsCache, timeZoneCache } from './today-cache';
 
 export type ListId = 'blind75' | 'neetcode150' | 'striver_a2z';
 
@@ -16,6 +16,7 @@ export interface UserSettings {
   lists: ListId[];
   include_paid: boolean;
   max_hard: number; // 0-3 Hard problems a day
+  hide_topics_until_solved: boolean;
   daily_time: string; // 'HH:MM' or 'HH:MM:SS' (Postgres time)
   timezone: string;
   weight_overrides: Record<string, number>;
@@ -28,6 +29,7 @@ export const DEFAULT_SETTINGS: UserSettings = {
   lists: ['blind75', 'neetcode150', 'striver_a2z'],
   include_paid: false,
   max_hard: 3,
+  hide_topics_until_solved: false,
   daily_time: '09:00',
   timezone: browserTimeZone(),
   weight_overrides: {},
@@ -38,10 +40,10 @@ export const DEFAULT_SETTINGS: UserSettings = {
 export async function loadSettings(): Promise<UserSettings> {
   const { data, error } = await supabase
     .from('user_settings')
-    .select('lc_username, lists, include_paid, max_hard, daily_time, timezone, weight_overrides, daily_notification, weekly_email')
+    .select('lc_username, lists, include_paid, max_hard, hide_topics_until_solved, daily_time, timezone, weight_overrides, daily_notification, weekly_email')
     .maybeSingle();
   if (error) throw error;
-  if (data) await timeZoneCache.setValue(data.timezone);
+  if (data) await Promise.all([timeZoneCache.setValue(data.timezone), hideTopicsCache.setValue(data.hide_topics_until_solved)]);
   return data ?? DEFAULT_SETTINGS;
 }
 
@@ -55,4 +57,5 @@ export async function saveSettings(patch: Partial<UserSettings>): Promise<void> 
     .upsert({ user_id: user.id, ...patch, updated_at: new Date().toISOString() });
   if (error) throw error;
   if (patch.timezone) await timeZoneCache.setValue(patch.timezone);
+  if (patch.hide_topics_until_solved !== undefined) await hideTopicsCache.setValue(patch.hide_topics_until_solved);
 }

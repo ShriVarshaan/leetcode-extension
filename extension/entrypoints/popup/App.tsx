@@ -2,7 +2,7 @@ import { useEffect, useState, type ReactNode } from 'react';
 import { Check, CircleCheck, ExternalLink, Flame, Inbox, LogIn, RefreshCw, Settings, TriangleAlert } from 'lucide-react';
 import { Button, IconButton, Logo, Notice } from '@/components/ui';
 import type { DailyPick } from '@/lib/candidates';
-import { timeZoneCache, todayCache, type DailyRecs } from '@/lib/daily';
+import { hideTopicsCache, timeZoneCache, todayCache, type DailyRecs } from '@/lib/daily';
 import { friendlyError } from '@/lib/errors';
 import type { BackgroundMessage, TodayResponse } from '@/lib/messages';
 import { loadStreak, loadTopicSummary, type TopicSummary } from '@/lib/progress';
@@ -26,6 +26,7 @@ function App() {
   const [streak, setStreak] = useState<number | null>(null);
   // null while loading, so the due list can hold its space instead of popping in.
   const [topics, setTopics] = useState<TopicSummary[] | null>(null);
+  const [hideTopics, setHideTopics] = useState(false);
   const [busy, setBusy] = useState(false);
   const [actionError, setActionError] = useState<string | null>(null);
   const [syncError, setSyncError] = useState<string | null>(null);
@@ -60,6 +61,7 @@ function App() {
       .catch((e: Error) => setActionError(friendlyError(e)))
       .finally(() => setTopics((t) => t ?? []));
     void syncStatus.getValue().then((s) => setSyncError(s.lastError));
+    void hideTopicsCache.getValue().then(setHideTopics);
     // A solve detected while the popup is open ticks the pick straight away.
     return todayCache.watch((r) => r && setRecs(r));
   }, []);
@@ -185,6 +187,7 @@ function App() {
                     key={p.slug}
                     pick={p}
                     completed={recs.completed.includes(p.slug)}
+                    hideTopic={hideTopics}
                     rating={recs.ratings[p.slug]}
                     busy={busy}
                     onRate={(rating) => run({ type: 'rate-pick', slug: p.slug, rating })}
@@ -275,6 +278,7 @@ const RATING_STYLES: Record<Rating, string> = {
 function PickCard(props: {
   pick: DailyPick;
   completed: boolean;
+  hideTopic: boolean;
   rating: Rating | 'auto' | undefined;
   busy: boolean;
   onRate: (r: Rating) => void;
@@ -318,7 +322,7 @@ function PickCard(props: {
               {pick.difficulty}
             </span>
             <span aria-hidden>·</span>
-            <span>{pick.topic}</span>
+            {props.hideTopic && !completed ? <span className="italic">Topic hidden until solved</span> : <span>{pick.topic}</span>}
           </div>
           {!completed && <p className="mt-2 text-xs leading-relaxed text-muted">{pick.reason}</p>}
           {completed && !rating && (

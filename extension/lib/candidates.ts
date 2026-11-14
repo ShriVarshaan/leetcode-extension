@@ -153,7 +153,7 @@ export function chooseProblem(t: TopicInput, input: PickInput, allowHard = true)
 }
 
 export function reasonFor(t: TopicInput, kind: PickKind, problem: CatalogProblem, input: PickInput): string {
-  const parts = [t.topic];
+  const parts: string[] = [];
   if (kind === 'topup') {
     parts.push(`extra practice (ease ${t.state.ease.toFixed(1)})`);
   } else {

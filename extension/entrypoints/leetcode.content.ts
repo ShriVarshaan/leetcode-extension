@@ -2,7 +2,7 @@ import { fetchAllSolved, fetchRecentAccepted, fetchSignedInUser, type SolvedProb
 import type { CollectSolvedResponse, ContentMessage, RatePickRequest, SolveDetected, TodayResponse } from '@/lib/messages';
 import { RATING_LABELS, type Rating } from '@/lib/srs';
 import { browserTimeZone, localDay } from '@/lib/time';
-import { timeZoneCache, todayCache, type DailyRecs } from '@/lib/today-cache';
+import { hideTopicsCache, timeZoneCache, todayCache, type DailyRecs } from '@/lib/today-cache';
 
 export default defineContentScript({
   matches: ['https://leetcode.com/*'],
@@ -113,6 +113,7 @@ function showBanner() {
   new MutationObserver(syncTheme).observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
   let recs: DailyRecs | null = null;
   let timeZone = browserTimeZone();
+  let hideTopics = false;
   let shownFor = '';
   let dismissed = '';
   let error = '';
@@ -141,7 +142,8 @@ function showBanner() {
     }
     const completed = recs.completed.includes(pick.slug);
     const rating = recs.ratings[pick.slug];
-    const key = `${pick.slug}|${completed}|${rating}|${error}`;
+    const showTopic = completed || !hideTopics;
+    const key = `${pick.slug}|${completed}|${rating}|${error}|${showTopic}`;
     if (key === shownFor && host.isConnected) return;
     shownFor = key;
 
@@ -164,7 +166,8 @@ function showBanner() {
       host.remove();
     });
     const head = el('div', 'head');
-    head.append(el('span', 'label', "Today's revision"), el('span', 'chip', pick.topic));
+    head.append(el('span', 'label', "Today's revision"));
+    if (showTopic) head.append(el('span', 'chip', pick.topic));
     box.append(close, head, el('div', 'reason', pick.reason));
 
     if (completed && !rating) {
@@ -184,9 +187,14 @@ function showBanner() {
     if (!host.isConnected) document.body.append(host);
   };
 
-  void Promise.all([todayCache.getValue(), timeZoneCache.getValue()]).then(([r, tz]) => {
+  void Promise.all([todayCache.getValue(), timeZoneCache.getValue(), hideTopicsCache.getValue()]).then(([r, tz, hide]) => {
     recs = r;
     timeZone = tz ?? timeZone;
+    hideTopics = hide;
+    render();
+  });
+  hideTopicsCache.watch((hide) => {
+    hideTopics = hide;
     render();
   });
   timeZoneCache.watch((tz) => {
