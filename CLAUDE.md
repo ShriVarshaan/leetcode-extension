@@ -33,7 +33,7 @@ Run from the repo root (pnpm workspace: `extension/`, `scripts/`).
 - Seed catalog (from `scripts/`): `pnpm seed` (= `fetch-lists` → `enrich` → `upload`)
 - Run a migration (from `scripts/`): `pnpm migrate ../supabase/migrations/<file>.sql` (needs `psql` and `SUPABASE_DB_URL` in `scripts/.env`)
 - Check `scripts/.env`: `pnpm check-env`
-- Deploy the weekly email function (from `scripts/`, after `npx supabase login` and SMTP vars in `scripts/.env`): `pnpm deploy-weekly`, add `--send` to email yourself now
+- Deploy the weekly email function (from `scripts/`, needs `SUPABASE_ACCESS_TOKEN` and SMTP vars in `scripts/.env`): `pnpm deploy-weekly`, add `--send you@example.com` to email that user their summary now
 - Store zip: `pnpm zip`
 
 ## Debugging

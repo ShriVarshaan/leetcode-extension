@@ -1,11 +1,16 @@
 // Deploys the weekly-summary Edge Function and its secrets. Needs `npx supabase login` once.
 // Usage: pnpm deploy-weekly            (deploy)
-//        pnpm deploy-weekly --send     (also send a test email to the first user now)
+//        pnpm deploy-weekly --send you@example.com   (also send that user's summary now, as a test)
 import { spawnSync } from 'node:child_process';
 import { randomBytes } from 'node:crypto';
 import { appendFileSync, mkdtempSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
+
+// The test email goes to an address you name, never to whichever user happens to come first.
+const sendFlag = process.argv.indexOf('--send');
+const sendTo = sendFlag === -1 ? null : process.argv[sendFlag + 1];
+if (sendFlag !== -1 && !sendTo?.includes('@')) throw new Error('Usage: pnpm deploy-weekly --send you@example.com');
 
 const need = (name: string) => {
   const v = process.env[name];
@@ -64,15 +69,17 @@ try {
 // 3. Deploy. JWT verification is off because pg_cron authenticates with x-cron-secret instead.
 run('npx', ['-y', 'supabase@2', 'functions', 'deploy', 'weekly-summary', '--project-ref', ref, '--no-verify-jwt', '--use-api', '--workdir', '..']);
 
-if (process.argv.includes('--send')) {
-  const users = await fetch(`${url}/rest/v1/user_settings?select=user_id&limit=1`, {
-    headers: { apikey: need('SUPABASE_SERVICE_ROLE_KEY'), Authorization: `Bearer ${need('SUPABASE_SERVICE_ROLE_KEY')}` },
-  }).then((r) => r.json() as Promise<{ user_id: string }[]>);
-  if (!users[0]) throw new Error('No users yet');
+if (sendTo) {
+  const key = need('SUPABASE_SERVICE_ROLE_KEY');
+  const { users } = await fetch(`${url}/auth/v1/admin/users?per_page=1000`, {
+    headers: { apikey: key, Authorization: `Bearer ${key}` },
+  }).then((r) => r.json() as Promise<{ users: { id: string; email?: string }[] }>);
+  const user = users.find((u) => u.email?.toLowerCase() === sendTo.toLowerCase());
+  if (!user) throw new Error(`No user with the email ${sendTo}`);
   const res = await fetch(`${url}/functions/v1/weekly-summary`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json', 'x-cron-secret': cronSecret },
-    body: JSON.stringify({ user_id: users[0].user_id }),
+    body: JSON.stringify({ user_id: user.id }),
   });
   console.log(`Test send: HTTP ${res.status}`, await res.text());
 }
