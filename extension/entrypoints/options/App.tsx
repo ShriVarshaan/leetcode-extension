@@ -1,7 +1,7 @@
 import { CircleUserRound } from 'lucide-react';
 import { useEffect, useState, type ReactNode } from 'react';
 import type { Session } from '@supabase/supabase-js';
-import { todayCache } from '@/lib/today-cache';
+import { blockSpoilersCache, todayCache } from '@/lib/today-cache';
 import type { SettingsChanged } from '@/lib/messages';
 import { isSupabaseConfigured, supabase } from '@/lib/supabase';
 import { Button, Logo, Notice, Spinner } from '@/components/ui';
@@ -65,7 +65,10 @@ function Configured() {
       setSession(s);
       // The background schedules the daily alarm only while someone is signed in.
       // The popup shows the cached picks before checking the session, so don't leave them behind.
-      if (event === 'SIGNED_OUT') void todayCache.removeValue();
+      if (event === 'SIGNED_OUT') {
+        void todayCache.removeValue();
+        void blockSpoilersCache.removeValue();
+      }
       if (event === 'SIGNED_IN' || event === 'SIGNED_OUT') {
         void browser.runtime.sendMessage({ type: 'settings-changed' } satisfies SettingsChanged).catch(() => {});
       }

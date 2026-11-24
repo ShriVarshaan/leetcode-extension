@@ -2,7 +2,16 @@ import { fetchAllSolved, fetchRecentAccepted, fetchSignedInUser, type SolvedProb
 import type { CollectSolvedResponse, ContentMessage, RatePickRequest, SolveDetected, TodayResponse } from '@/lib/messages';
 import { RATING_LABELS, type Rating } from '@/lib/srs';
 import { browserTimeZone, localDay } from '@/lib/time';
-import { hideTopicsCache, timeZoneCache, todayCache, type DailyRecs } from '@/lib/today-cache';
+import { addUnlock, isLocked, markSpoilers, SPOILER_CSS, unmarkSpoilers } from '@/lib/spoilers';
+import {
+  blockSpoilersCache,
+  hideTopicsCache,
+  spoilerUnlocksCache,
+  timeZoneCache,
+  todayCache,
+  type DailyRecs,
+  type SpoilerUnlocks,
+} from '@/lib/today-cache';
 
 export default defineContentScript({
   matches: ['https://leetcode.com/*'],
@@ -18,6 +27,7 @@ export default defineContentScript({
       }
     });
     watchForAccepted();
+    guardSpoilers();
     showBanner();
   },
 });
@@ -55,6 +65,7 @@ function watchForAccepted() {
     if (!slug) return;
     const result = document.querySelector('[data-e2e-locator="submission-result"]');
     if (result?.textContent?.trim() !== 'Accepted') return;
+    void unlockSpoilers(slug);
     if (lastReported.slug === slug && Date.now() - lastReported.at < 60_000) return;
     lastReported = { slug, at: Date.now() };
     void browser.runtime.sendMessage({ type: 'solve-detected', slug } satisfies SolveDetected);
@@ -66,6 +77,77 @@ function watchForAccepted() {
       setTimeout(check, 500);
     }
   }).observe(document.body, { childList: true, subtree: true, characterData: true });
+}
+
+async function unlockSpoilers(slug: string) {
+  const timeZone = (await timeZoneCache.getValue()) ?? browserTimeZone();
+  const today = localDay(new Date(), timeZone);
+  const unlocks = await spoilerUnlocksCache.getValue();
+  if (unlocks?.date === today && unlocks.slugs.includes(slug)) return;
+  await spoilerUnlocksCache.setValue(addUnlock(unlocks, slug, today));
+}
+
+// Hides hints, topic tags and discussion until the problem is accepted today (opt-in setting).
+// Elements are only marked with an attribute and hidden by our stylesheet, so LeetCode's React
+// still owns its DOM. It re-renders often, so re-mark after DOM changes.
+function guardSpoilers() {
+  const style = document.createElement('style');
+  style.textContent = SPOILER_CSS;
+  let enabled = false;
+  let unlocks: SpoilerUnlocks | null = null;
+  let recs: DailyRecs | null = null;
+  let timeZone = browserTimeZone();
+  let scheduled = false;
+
+  const apply = () => {
+    scheduled = false;
+    const locked = isLocked({ enabled, slug: currentSlug(), today: localDay(new Date(), timeZone), unlocks, recs });
+    if (locked) {
+      if (!style.isConnected) document.head.append(style);
+      markSpoilers(document.body);
+    } else if (style.isConnected) {
+      style.remove();
+      unmarkSpoilers(document.body);
+    }
+  };
+  const schedule = () => {
+    if (!scheduled) {
+      scheduled = true;
+      setTimeout(apply, 100);
+    }
+  };
+
+  void Promise.all([
+    blockSpoilersCache.getValue(),
+    spoilerUnlocksCache.getValue(),
+    todayCache.getValue(),
+    timeZoneCache.getValue(),
+  ]).then(([on, u, r, tz]) => {
+    enabled = on;
+    unlocks = u;
+    recs = r;
+    timeZone = tz ?? timeZone;
+    apply();
+    new MutationObserver(() => {
+      if (enabled) schedule();
+    }).observe(document.body, { childList: true, subtree: true });
+  });
+  blockSpoilersCache.watch((on) => {
+    enabled = on;
+    apply();
+  });
+  spoilerUnlocksCache.watch((u) => {
+    unlocks = u;
+    apply();
+  });
+  todayCache.watch((r) => {
+    recs = r;
+    apply();
+  });
+  timeZoneCache.watch((tz) => {
+    timeZone = tz ?? browserTimeZone();
+    apply();
+  });
 }
 
 const currentSlug = () => location.pathname.match(/^\/problems\/([^/]+)/)?.[1] ?? null;

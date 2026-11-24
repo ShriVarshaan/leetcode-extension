@@ -22,3 +22,13 @@ export const hideTopicsCache = storage.defineItem<boolean>('local:hideTopics', {
 export function remaining(recs: DailyRecs | null): number {
   return recs ? recs.picks.filter((p) => !recs.completed.includes(p.slug)).length : 0;
 }
+
+// Whether to hide hints, topic tags and discussion on leetcode.com until a problem is accepted today.
+export const blockSpoilersCache = storage.defineItem<boolean>('local:blockSpoilers', { fallback: false });
+
+// Problems accepted on leetcode.com today (in the user's time zone), which unlocks them.
+export interface SpoilerUnlocks {
+  date: string;
+  slugs: string[];
+}
+export const spoilerUnlocksCache = storage.defineItem<SpoilerUnlocks | null>('local:spoilerUnlocks', { fallback: null });

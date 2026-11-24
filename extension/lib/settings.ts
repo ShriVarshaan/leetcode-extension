@@ -1,6 +1,6 @@
 import { supabase } from './supabase';
 import { browserTimeZone } from './time';
-import { hideTopicsCache, timeZoneCache } from './today-cache';
+import { blockSpoilersCache, hideTopicsCache, timeZoneCache } from './today-cache';
 
 export type ListId = 'blind75' | 'neetcode150' | 'striver_a2z';
 
@@ -17,6 +17,7 @@ export interface UserSettings {
   include_paid: boolean;
   max_hard: number; // 0-3 Hard problems a day
   hide_topics_until_solved: boolean;
+  block_spoilers_until_accepted: boolean;
   daily_time: string; // 'HH:MM' or 'HH:MM:SS' (Postgres time)
   timezone: string;
   weight_overrides: Record<string, number>;
@@ -30,6 +31,7 @@ export const DEFAULT_SETTINGS: UserSettings = {
   include_paid: false,
   max_hard: 3,
   hide_topics_until_solved: true,
+  block_spoilers_until_accepted: false,
   daily_time: '09:00',
   timezone: browserTimeZone(),
   weight_overrides: {},
@@ -40,10 +42,16 @@ export const DEFAULT_SETTINGS: UserSettings = {
 export async function loadSettings(): Promise<UserSettings> {
   const { data, error } = await supabase
     .from('user_settings')
-    .select('lc_username, lists, include_paid, max_hard, hide_topics_until_solved, daily_time, timezone, weight_overrides, daily_notification, weekly_email')
+    .select('lc_username, lists, include_paid, max_hard, hide_topics_until_solved, block_spoilers_until_accepted, daily_time, timezone, weight_overrides, daily_notification, weekly_email')
     .maybeSingle();
   if (error) throw error;
-  if (data) await Promise.all([timeZoneCache.setValue(data.timezone), hideTopicsCache.setValue(data.hide_topics_until_solved)]);
+  if (data) {
+    await Promise.all([
+      timeZoneCache.setValue(data.timezone),
+      hideTopicsCache.setValue(data.hide_topics_until_solved),
+      blockSpoilersCache.setValue(data.block_spoilers_until_accepted),
+    ]);
+  }
   return data ?? DEFAULT_SETTINGS;
 }
 
@@ -58,4 +66,5 @@ export async function saveSettings(patch: Partial<UserSettings>): Promise<void> 
   if (error) throw error;
   if (patch.timezone) await timeZoneCache.setValue(patch.timezone);
   if (patch.hide_topics_until_solved !== undefined) await hideTopicsCache.setValue(patch.hide_topics_until_solved);
+  if (patch.block_spoilers_until_accepted !== undefined) await blockSpoilersCache.setValue(patch.block_spoilers_until_accepted);
 }

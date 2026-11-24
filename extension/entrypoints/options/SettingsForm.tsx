@@ -90,6 +90,19 @@ export function SettingsForm() {
 
   return (
     <form onSubmit={onSave} className="space-y-6">
+      <Card
+        title="Spoiler blocker"
+        description="Solve it before you peek. Applies to every problem on leetcode.com."
+        aside={<span className="shrink-0 rounded-full bg-accent/15 px-2 py-0.5 text-xs font-medium text-accent-strong">New</span>}
+      >
+        <Toggle
+          checked={settings.block_spoilers_until_accepted}
+          onChange={(block_spoilers_until_accepted) => update({ block_spoilers_until_accepted })}
+          label="Hide hints, topic tags and discussion until Accepted"
+          hint="Each problem unlocks for the rest of the day once you get an Accepted submission on it."
+        />
+      </Card>
+
       <Card title="LeetCode" description="Which problems your picks come from.">
         <label className="block text-sm font-medium">
           LeetCode username
